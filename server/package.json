@@ -1,7 +1,7 @@
 {
-  "name": "GR2_Stocks_App",
+  "name": "GR-Let-Him-Cook",
   "version": "1.0.0",
-  "description": "Stocks App",
+  "description": "Cooking guide App",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",

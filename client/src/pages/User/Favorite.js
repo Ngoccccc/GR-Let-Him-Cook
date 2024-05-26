@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Layout from "../../components/Layout/Layout";
 import { Grid, Typography } from "@mui/material/";
-import "../../styles/FavoritePage.css";
 import SinglePageRecipeCard from "../../components/Card/SinglePageRecipeCard";
 import axios from "axios";
 import Loading from "../../components/Loading";
