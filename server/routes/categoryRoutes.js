@@ -1,0 +1,31 @@
+const express = require("express");
+const { requireSignIn, isAdmin } = require("../middlewares/authMiddleware.js");
+const {
+  createCategory,
+  updateCategory,
+  getAllCategory,
+  getSingleCategory,
+  deleteCategory,
+} = require("../controllers/categoryController.js");
+
+//router object
+const router = express.Router();
+
+//routes
+
+//getALl category
+router.get("/get-all-category", getAllCategory);
+
+//single category
+router.get("/single-category/:slug", getSingleCategory);
+
+// create category
+router.post("/create-category", requireSignIn, isAdmin, createCategory);
+
+//update category
+router.put("/update-category/:id", requireSignIn, isAdmin, updateCategory);
+
+//delete category
+router.delete("/delete-category/:id", requireSignIn, isAdmin, deleteCategory);
+
+module.exports = router;
