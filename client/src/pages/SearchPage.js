@@ -53,7 +53,7 @@ const SearchPage = () => {
     if (searchParams) getSearchResult();
   }, [searchParams]);
   return (
-    <Layout title={"Trang chủ"}>
+    <Layout title={`Tìm kiếm: ${searchParams.get("search")}`}>
       {isLoading ? (
         <Loading />
       ) : (

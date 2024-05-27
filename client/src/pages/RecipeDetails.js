@@ -110,7 +110,7 @@ const RecipeDetail = () => {
   return (
     <>
       {errorPage || (
-        <Layout title={"Details"}>
+        <Layout title={`Chi tiết công thức: ${post && post.title}`}>
           {!post ? (
             <Loading />
           ) : (

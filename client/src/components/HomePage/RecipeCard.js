@@ -75,6 +75,7 @@ const RecipeCard = ({ recipe }) => {
           variant="h6"
           component="h2"
           fontWeight="bold"
+          onClick={handleTitleClick}
         >
           {recipe.title}
         </Typography>

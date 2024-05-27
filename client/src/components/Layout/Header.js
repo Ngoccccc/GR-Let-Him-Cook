@@ -1,18 +1,34 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { NavLink, Link } from "react-router-dom";
-import Box from "@mui/material/Box";
-import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-import Button from "@mui/material/Button";
-import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
-import MenuItem from "@mui/material/MenuItem";
-import Paper from "@mui/material/Paper";
-import { InputBase, IconButton } from "@mui/material/";
-import SearchIcon from "@mui/icons-material/Search";
-import { useNavigate } from "react-router-dom";
-
+import toast from "react-hot-toast";
+import { NavLink, useNavigate } from "react-router-dom";
+import {
+  Box,
+  AppBar,
+  Toolbar,
+  Button,
+  Container,
+  MenuItem,
+  Paper,
+  InputBase,
+  IconButton,
+  Menu,
+  Divider,
+  Grid,
+} from "@mui/material/";
+import {
+  Search,
+  Home,
+  Favorite,
+  RamenDining,
+  Person,
+  ArrowDropDown,
+  ManageAccounts,
+  Logout,
+  Login,
+} from "@mui/icons-material";
+import { useAuth } from "../../context/auth";
+import { red } from "@mui/material/colors";
 const logoStyle = {
   width: "70px",
   height: "auto",
@@ -21,6 +37,8 @@ const logoStyle = {
 
 function AppAppBar() {
   const [searchTerm, setSearchTerm] = useState("");
+  const [auth, setAuth] = useAuth();
+  const [anchorEl, setAnchorEl] = useState(null);
   const navigate = useNavigate();
 
   const handleSearch = (event) => {
@@ -29,6 +47,27 @@ function AppAppBar() {
       navigate(`/search?search=${encodeURIComponent(searchTerm)}`);
     }
   };
+
+  const handleProfile = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const handleLogout = () => {
+    // Handle logout logic here
+    setAuth({
+      ...auth,
+      user: null,
+      token: "",
+    });
+    localStorage.removeItem("auth");
+    navigate(`/login`);
+    toast.success("Đăng xuất thành công");
+  };
+
   return (
     <div>
       <AppBar
@@ -79,20 +118,44 @@ function AppAppBar() {
                 style={logoStyle}
                 alt="logo of sitemark"
               />
-              <Box sx={{ display: { xs: "none", md: "flex" } }}>
+              <Box
+                sx={{
+                  display: { xs: "none", md: "flex" },
+                  alignItems: "center",
+                }}
+              >
                 <MenuItem sx={{ py: "6px", px: "12px" }}>
                   <NavLink to="/" className="nav-link">
-                    Trang chủ
+                    <Grid sx={{ display: "flex", alignItems: "center" }}>
+                      <Home />
+                      Trang chủ
+                    </Grid>
                   </NavLink>
                 </MenuItem>
+                <Divider
+                  orientation="vertical"
+                  flexItem
+                  sx={{ borderColor: "black" }}
+                />
                 <MenuItem sx={{ py: "6px", px: "12px" }}>
                   <NavLink to="/dashboard/favorite" className="nav-link">
-                    Công thức yêu thích
+                    <Grid sx={{ display: "flex", alignItems: "center" }}>
+                      <Favorite />
+                      Công thức yêu thích
+                    </Grid>
                   </NavLink>
                 </MenuItem>
+                <Divider
+                  orientation="vertical"
+                  flexItem
+                  sx={{ borderColor: "black" }}
+                />
                 <MenuItem sx={{ py: "6px", px: "12px" }}>
                   <NavLink to="/course" className="nav-link">
-                    Khóa học nấu ăn
+                    <Grid sx={{ display: "flex", alignItems: "center" }}>
+                      <RamenDining />
+                      Khóa học nấu ăn
+                    </Grid>
                   </NavLink>
                 </MenuItem>
               </Box>
@@ -100,7 +163,7 @@ function AppAppBar() {
             <Box
               sx={{
                 display: { xs: "none", md: "flex" },
-                gap: 0.5,
+                justifyContent: "space-between",
                 alignItems: "center",
               }}
             >
@@ -111,7 +174,7 @@ function AppAppBar() {
                   p: "1px 2px",
                   display: "flex",
                   alignItems: "center",
-                  width: "60%",
+                  width: "70%",
                 }}
               >
                 <InputBase
@@ -121,19 +184,61 @@ function AppAppBar() {
                   onChange={(e) => setSearchTerm(e.target.value)}
                 />
                 <IconButton type="submit" sx={{ p: "6px" }} aria-label="search">
-                  <SearchIcon />
+                  <Search />
                 </IconButton>
               </Paper>
-              <MenuItem sx={{ py: "6px", px: "12px" }}>
-                <NavLink to="/register" className="nav-link">
-                  Đăng ký
-                </NavLink>
-              </MenuItem>
-              <MenuItem sx={{ py: "6px", px: "12px" }}>
-                <NavLink to="/login" className="nav-link">
-                  Đăng nhập
-                </NavLink>
-              </MenuItem>
+              {auth?.token ? (
+                <Grid
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "flex-end",
+                  }}
+                >
+                  <Button
+                    onClick={handleProfile}
+                    sx={{
+                      borderRadius: "10%",
+                      textTransform: "none",
+                      color: "#000",
+                      padding: "6px",
+                    }}
+                  >
+                    <Person />
+                    {auth.user.name}
+                    <ArrowDropDown />
+                  </Button>
+
+                  <Menu
+                    anchorEl={anchorEl}
+                    open={Boolean(anchorEl)}
+                    onClose={handleClose}
+                  >
+                    <MenuItem
+                      sx={{ my: 1 }}
+                      onClick={() => navigate("/dashboard/profile")}
+                    >
+                      <ManageAccounts />
+                      Thông tin cá nhân
+                    </MenuItem>
+                    <MenuItem sx={{ color: red[500] }} onClick={handleLogout}>
+                      <Logout />
+                      Đăng xuất
+                    </MenuItem>
+                  </Menu>
+                </Grid>
+              ) : (
+                <>
+                  <MenuItem sx={{ py: "6px", px: "12px" }}>
+                    <NavLink to="/login" className="nav-link">
+                      <Grid sx={{ display: "flex", alignItems: "center" }}>
+                        <Login />
+                        Đăng nhập
+                      </Grid>
+                    </NavLink>
+                  </MenuItem>
+                </>
+              )}
             </Box>
           </Toolbar>
         </Container>

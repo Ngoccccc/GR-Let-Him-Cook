@@ -5,16 +5,24 @@ import { Helmet } from "react-helmet";
 import { Grid, Typography } from "@mui/material/";
 
 import { Toaster } from "react-hot-toast";
-const Layout = ({ children, title, description, keywords, author }) => {
+const Layout = ({
+  children,
+  title,
+  description,
+  keywords,
+  author,
+  backgroundColor,
+}) => {
   return (
     <div>
       <Helmet>
         <meta charSet="utf-8" />
         <meta name="description" content={description} />
+        <title>{title}</title>
         <meta name="keywords" content={keywords} />
       </Helmet>
       <Header />
-      <main style={{ minHeight: "70vh" }}>
+      <main style={{ minHeight: "70vh", backgroundColor: backgroundColor }}>
         <Grid
           container
           justifyContent="center"
@@ -42,6 +50,7 @@ Layout.defaultProps = {
   title: "Chào các chứng thủ",
   description: "mern stack project",
   keywords: "mern,react,node,mongodb",
+  backgroundColor: "#ffffff",
 };
 
 export default Layout;

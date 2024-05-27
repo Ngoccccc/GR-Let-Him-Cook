@@ -32,7 +32,7 @@ const Favorite = () => {
   }
   console.log(likedPosts);
   return (
-    <Layout title={"Công thức đã lưu"}>
+    <Layout title={"Công thức yêu thích"}>
       <Grid container justifyContent="center" alignItems="center">
         <Grid
           container

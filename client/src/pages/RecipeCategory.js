@@ -33,7 +33,7 @@ const RecipeCategory = () => {
     return <Loading />;
   }
   return (
-    <Layout title={"Công thức đã lưu"}>
+    <Layout title={`Danh mục món ăn: ${category.name}`}>
       <Grid container justifyContent="center" alignItems="center">
         <Grid
           container

@@ -9,7 +9,7 @@ import Loading from "../Loading";
 const SameRecipeCard = ({ recipe }) => {
   const [liked, setLiked] = useState(false);
   const [auth, setAuth] = useAuth();
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(auth?.token ? true : false);
 
   const navigate = useNavigate();
   const [likeCount, setLikeCount] = useState(recipe.likeCount);

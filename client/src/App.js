@@ -26,13 +26,14 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="user/profile" element={<Profile />} />
+
         <Route path="/register" element={<Register />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/recipe-detail/:id" element={<RecipeDetails />} />
         <Route path="/category/:slug" element={<RecipeCategory />} />
         <Route path="/dashboard" element={<PrivateRoute />}>
           <Route path="favorite" element={<Favorite />} />
+          <Route path="profile" element={<Profile />} />
         </Route>
         <Route path="/login" element={<Login />} />
         <Route path="/search" element={<SearchPage />} />

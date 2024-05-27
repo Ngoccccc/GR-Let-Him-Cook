@@ -50,7 +50,7 @@ const CourseTabs = () => {
 
 const Course = () => {
   return (
-    <Layout title={"Trang chủ"}>
+    <Layout title={"Khóa học nấu ăn"}>
       <Box sx={{ width: "100%", typography: "body1" }}>
         <Routes>
           <Route path="/my-course" element={<CourseTabs />} />

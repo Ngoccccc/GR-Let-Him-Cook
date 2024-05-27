@@ -1,18 +1,32 @@
 import React, { useState } from "react";
-import Layout from "./../../components/Layout/Layout";
-import axios from "axios";
+import {
+  Box,
+  Button,
+  TextField,
+  Typography,
+  Grid,
+  Paper,
+  Link,
+} from "@mui/material";
+import { Email, Lock, Person } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import toast from "react-hot-toast";
-import "../../styles/AuthStyles.css";
+import Layout from "./../../components/Layout/Layout";
+
 const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const navigate = useNavigate();
 
-  // form function
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (password !== confirmPassword) {
+      toast.error("Mật khẩu xác nhận không khớp");
+      return;
+    }
     try {
       const res = await axios.post("/api/v1/auth/register", {
         name,
@@ -32,49 +46,127 @@ const Register = () => {
   };
 
   return (
-    <Layout title="Ryouri master - Đăng ký">
-      <div className="form-container" style={{ minHeight: "90vh" }}>
-        <form onSubmit={handleSubmit}>
-          <h4 className="title">Đăng ký</h4>
-          <div className="mb-3">
-            <input
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              className="form-control"
-              id="exampleInputEmail1"
-              placeholder="Tên của bạn"
-              required
-              autoFocus
-            />
-          </div>
-          <div className="mb-3">
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="form-control"
-              id="exampleInputEmail1"
-              placeholder="Email của bạn "
-              required
-            />
-          </div>
-          <div className="mb-3">
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="form-control"
-              id="exampleInputPassword1"
-              placeholder="Mật khẩu"
-              required
-            />
-          </div>
-          <button type="submit" className="btn btn-primary">
-            Đăng ký
-          </button>
-        </form>
-      </div>
+    <Layout title="Ryouri master - Đăng ký" backgroundColor="#f0f2f5">
+      <Grid
+        container
+        justifyContent="center"
+        alignItems="center"
+        sx={{
+          minHeight: "80vh",
+          backgroundColor: "#f0f2f5",
+          padding: "2rem",
+        }}
+      >
+        <Grid item xs={12} sm={8} md={6} lg={5}>
+          <Paper elevation={6} style={{ padding: "2.5rem" }}>
+            <Box component="form" onSubmit={handleSubmit} noValidate>
+              <Box display="flex" justifyContent="center" mb={2}>
+                <Person color="primary" style={{ fontSize: 60 }} />
+              </Box>
+              <Typography
+                variant="h5"
+                component="h1"
+                gutterBottom
+                textAlign="center"
+              >
+                Đăng ký tài khoản mới
+              </Typography>
+              <Box mb={2}>
+                <TextField
+                  variant="outlined"
+                  margin="normal"
+                  fullWidth
+                  id="name"
+                  label="Tên của bạn"
+                  name="name"
+                  autoComplete="name"
+                  autoFocus
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  InputProps={{
+                    endAdornment: <Person position="end" />,
+                  }}
+                  required
+                />
+              </Box>
+              <Box mb={2}>
+                <TextField
+                  variant="outlined"
+                  margin="normal"
+                  fullWidth
+                  id="email"
+                  label="Email của bạn"
+                  name="email"
+                  autoComplete="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  InputProps={{
+                    endAdornment: <Email position="end" />,
+                  }}
+                  required
+                />
+              </Box>
+              <Box mb={2}>
+                <TextField
+                  variant="outlined"
+                  margin="normal"
+                  fullWidth
+                  name="password"
+                  label="Mật khẩu"
+                  type="password"
+                  id="password"
+                  autoComplete="current-password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  InputProps={{
+                    endAdornment: <Lock position="end" />,
+                  }}
+                  required
+                />
+              </Box>
+              <Box mb={2}>
+                <TextField
+                  variant="outlined"
+                  margin="normal"
+                  fullWidth
+                  name="confirmPassword"
+                  label="Xác nhận mật khẩu"
+                  type="password"
+                  id="confirmPassword"
+                  autoComplete="current-password"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  InputProps={{
+                    endAdornment: <Lock position="end" />,
+                  }}
+                  required
+                />
+              </Box>
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                color="primary"
+                style={{ marginBottom: "1.5rem" }}
+              >
+                Đăng ký
+              </Button>
+              <Grid container justifyContent="center">
+                <Grid item>
+                  <Link
+                    onClick={() => navigate("/login")}
+                    variant="body2"
+                    underline="none"
+                    style={{ cursor: "pointer" }}
+                  >
+                    Đã có tài khoản? Đăng nhập ngay!
+                  </Link>
+                </Grid>
+              </Grid>
+            </Box>
+          </Paper>
+        </Grid>
+      </Grid>
     </Layout>
   );
 };

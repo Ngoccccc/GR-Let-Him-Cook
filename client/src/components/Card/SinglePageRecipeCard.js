@@ -15,7 +15,7 @@ const SinglePageRecipeCard = ({ recipe, isPrivate }) => {
   const [liked, setLiked] = useState(false);
   const [likeCount, setLikeCount] = useState(recipe.likeCount);
   const [auth, setAuth] = useAuth();
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(auth?.token ? true : false);
   const checkLiked = async (postId) => {
     try {
       const { data } = await axios.get(`/api/v1/like/like-status/${postId}`);

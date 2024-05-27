@@ -58,7 +58,7 @@ const CourseDetails = () => {
   return (
     <>
       {errorPage || (
-        <Layout>
+        <Layout title={`Chi tiết khóa học: ${courseInfo && courseInfo.name}`}>
           <Grid
             container
             direction="column"
