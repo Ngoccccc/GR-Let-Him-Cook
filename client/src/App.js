@@ -20,6 +20,7 @@ import AdminRoute from "./components/Routes/Admin";
 import AdminCategory from "./pages/Admin/AdminCategory";
 import AdminIngredients from "./pages/Admin/AdminIngredients";
 import AdminPosts from "./pages/Admin/AdminPosts";
+import AdminRecipeDetails from "./pages/Admin/RecipeDetail";
 
 function App() {
   return (
@@ -47,6 +48,7 @@ function App() {
           <Route path="category" element={<AdminCategory />} />
           <Route path="ingredients" element={<AdminIngredients />} />
           <Route path="posts" element={<AdminPosts />} />
+          <Route path="recipe-detail/:id" element={<AdminRecipeDetails />} />
         </Route>
 
         <Route path="*" element={<PageNotFound />} />

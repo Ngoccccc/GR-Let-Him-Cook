@@ -60,7 +60,7 @@ const updateCategory = async (req, res) => {
   }
 };
 
-// get all category
+// get all category for user
 const getAllCategory = async (req, res) => {
   try {
     const categories = await postCategoryModel.aggregate([
@@ -128,6 +128,25 @@ const getAllCategory = async (req, res) => {
   }
 };
 
+// get all categories for admin
+const getAllCategoriesForAdmin = async (req, res) => {
+  try {
+    const categories = await categoryModel.find({});
+    res.status(200).send({
+      success: true,
+      message: "All Categories List",
+      categories,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      error,
+      message: "Error while getting all categories",
+    });
+  }
+};
+
 // single category
 const getSingleCategory = async (req, res) => {
   try {
@@ -174,4 +193,5 @@ module.exports = {
   getAllCategory,
   getSingleCategory,
   deleteCategory,
+  getAllCategoriesForAdmin,
 };

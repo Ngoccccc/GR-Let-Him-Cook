@@ -93,12 +93,12 @@ const SinglePageRecipeCard = ({ recipe, isPrivate }) => {
               "&:hover": {
                 color: "brown",
               },
-              display: "-webkit-box",
-              overflow: "hidden",
-              WebkitBoxOrient: "vertical",
-              WebkitLineClamp: 1,
-              textOverflow: "ellipsis",
             }),
+            display: "-webkit-box",
+            overflow: "hidden",
+            WebkitBoxOrient: "vertical",
+            WebkitLineClamp: 1,
+            textOverflow: "ellipsis",
           }}
           onClick={isPrivate ? null : handleTitleClick}
         >

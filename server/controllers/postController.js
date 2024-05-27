@@ -172,16 +172,11 @@ const updatePost = async (req, res) => {
 const getAllPost = async (req, res) => {
   try {
     const posts = await postModel
-      .find({ courseId: null })
+      .find({})
       .sort({ createAt: -1 })
-      .select("_id title mediaTitle level intendTime likeCount");
-    for (let i = 0; i < posts.length; i++) {
-      const categories = await postCategoryModel
-        .find({ postId: posts[i]._id })
-        .populate("categoryId", "name");
-
-      // posts[i].set({ categories: categories });
-    }
+      .populate("userId", "name")
+      .populate("courseId", "name")
+      .select("_id title mediaTitle userId");
     console.log(posts);
     res.status(200).send({
       success: true,

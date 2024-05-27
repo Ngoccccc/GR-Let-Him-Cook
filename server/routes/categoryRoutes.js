@@ -6,6 +6,7 @@ const {
   getAllCategory,
   getSingleCategory,
   deleteCategory,
+  getAllCategoriesForAdmin,
 } = require("../controllers/categoryController.js");
 
 //router object
@@ -15,6 +16,7 @@ const router = express.Router();
 
 //getALl category
 router.get("/get-all-category", getAllCategory);
+router.get("/get-all-category-admin", getAllCategoriesForAdmin);
 
 //single category
 router.get("/single-category/:slug", getSingleCategory);

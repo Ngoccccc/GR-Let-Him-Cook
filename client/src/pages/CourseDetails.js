@@ -142,12 +142,14 @@ const CourseDetails = () => {
                         justifyContent: "flex-start",
                       }}
                     >
-                      <PaymentButton
-                        courseId={courseInfo._id}
-                        userId={auth?.user._id}
-                        name={courseInfo.name}
-                        amount={courseInfo.price}
-                      />
+                      {auth?.user && (
+                        <PaymentButton
+                          courseId={courseInfo._id}
+                          userId={auth?.user?._id}
+                          name={courseInfo.name}
+                          amount={courseInfo.price}
+                        />
+                      )}
                     </Grid>
                   )}
                 </Grid>
