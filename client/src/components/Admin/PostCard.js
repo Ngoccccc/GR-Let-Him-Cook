@@ -6,7 +6,7 @@ import { Grid, Card, CardMedia, CardContent, Typography } from "@mui/material/";
 const PostCard = ({ recipe }) => {
   const navigate = useNavigate();
   const handleTitleClick = () => {
-    navigate(`/recipe-detail/${recipe._id}`);
+    navigate(`/admin/recipe-detail/${recipe._id}`);
   };
 
   return (

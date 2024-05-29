@@ -19,10 +19,25 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [emailError, setEmailError] = useState(""); // State for email error
   const navigate = useNavigate();
+
+  const validateEmail = (email) => {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(String(email).toLowerCase());
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Validate email
+    if (!validateEmail(email)) {
+      setEmailError("Email không hợp lệ");
+      return;
+    } else {
+      setEmailError("");
+    }
+
     if (password !== confirmPassword) {
       toast.error("Mật khẩu xác nhận không khớp");
       return;
@@ -45,6 +60,16 @@ const Register = () => {
     }
   };
 
+  const handleEmailChange = (e) => {
+    const value = e.target.value;
+    setEmail(value);
+    if (validateEmail(value)) {
+      setEmailError("");
+    } else {
+      setEmailError("Email không hợp lệ");
+    }
+  };
+
   return (
     <Layout title="Ryouri master - Đăng ký" backgroundColor="#f0f2f5">
       <Grid
@@ -53,7 +78,6 @@ const Register = () => {
         alignItems="center"
         sx={{
           minHeight: "80vh",
-          backgroundColor: "#f0f2f5",
           padding: "2rem",
         }}
       >
@@ -98,12 +122,15 @@ const Register = () => {
                   label="Email của bạn"
                   name="email"
                   autoComplete="email"
+                  type="email" // Use type="email" to leverage HTML5 validation
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={handleEmailChange}
                   InputProps={{
                     endAdornment: <Email position="end" />,
                   }}
                   required
+                  error={!!emailError && email !== ""}
+                  helperText={emailError && email !== "" ? emailError : ""}
                 />
               </Box>
               <Box mb={2}>

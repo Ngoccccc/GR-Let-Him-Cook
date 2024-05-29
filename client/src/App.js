@@ -21,6 +21,7 @@ import AdminCategory from "./pages/Admin/AdminCategory";
 import AdminIngredients from "./pages/Admin/AdminIngredients";
 import AdminPosts from "./pages/Admin/AdminPosts";
 import AdminRecipeDetails from "./pages/Admin/RecipeDetail";
+import AdminCreatePost from "./pages/Admin/AdminCreatePost";
 
 function App() {
   return (
@@ -48,6 +49,7 @@ function App() {
           <Route path="category" element={<AdminCategory />} />
           <Route path="ingredients" element={<AdminIngredients />} />
           <Route path="posts" element={<AdminPosts />} />
+          <Route path="create-post" element={<AdminCreatePost />} />
           <Route path="recipe-detail/:id" element={<AdminRecipeDetails />} />
         </Route>
 

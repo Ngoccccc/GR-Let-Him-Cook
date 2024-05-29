@@ -18,11 +18,26 @@ import Layout from "./../../components/Layout/Layout";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [emailError, setEmailError] = useState(""); // State for email error
   const [auth, setAuth] = useAuth();
   const navigate = useNavigate();
 
+  const validateEmail = (email) => {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(String(email).toLowerCase());
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Validate email
+    if (!validateEmail(email)) {
+      setEmailError("Email không hợp lệ");
+      return;
+    } else {
+      setEmailError("");
+    }
+
     try {
       const res = await axios.post("/api/v1/auth/login", { email, password });
       if (res && res.data.success) {
@@ -39,6 +54,16 @@ const Login = () => {
     }
   };
 
+  const handleEmailChange = (e) => {
+    const value = e.target.value;
+    setEmail(value);
+    if (validateEmail(value)) {
+      setEmailError("");
+    } else {
+      setEmailError("Email không hợp lệ");
+    }
+  };
+
   return (
     <Layout title="Ryouri master - Đăng nhập" backgroundColor="#f0f2f5">
       <Grid
@@ -51,11 +76,7 @@ const Login = () => {
         }}
       >
         <Grid item xs={12} sm={8} md={6} lg={5}>
-          {" "}
-          {/* Tăng kích thước của block */}
           <Paper elevation={6} style={{ padding: "2.5rem" }}>
-            {" "}
-            {/* Tăng padding */}
             <Box component="form" onSubmit={handleSubmit} noValidate>
               <Box display="flex" justifyContent="center" mb={2}>
                 <SoupKitchen color="primary" style={{ fontSize: 60 }} />
@@ -78,12 +99,15 @@ const Login = () => {
                   name="email"
                   autoComplete="email"
                   autoFocus
+                  type="email"
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={handleEmailChange}
                   InputProps={{
                     endAdornment: <Email position="end" />,
                   }}
                   required
+                  error={!!emailError && email !== ""}
+                  helperText={emailError && email !== "" ? emailError : ""}
                 />
               </Box>
               <Box mb={2}>

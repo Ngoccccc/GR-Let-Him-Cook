@@ -120,6 +120,34 @@ const RecipeDetail = () => {
                         ))}
                       </Grid>
                     </Grid>
+                    <Grid
+                      sx={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "space-around",
+                        mt: 5,
+                      }}
+                    >
+                      <Button
+                        variant="contained"
+                        sx={{
+                          width: "30%",
+                          p: 2,
+                        }}
+                      >
+                        Sửa công thức
+                      </Button>
+                      <Button
+                        variant="contained"
+                        color="error"
+                        sx={{
+                          width: "30%",
+                          p: 2,
+                        }}
+                      >
+                        Xóa công thức
+                      </Button>
+                    </Grid>
                   </Grid>
                 </Grid>
               </Grid>
