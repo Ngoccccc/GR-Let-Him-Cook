@@ -50,7 +50,7 @@ var postSchema = new mongoose.Schema(
     ],
     status: {
       type: String,
-      enum: ["waiting", "published"],
+      enum: ["waiting", "published", "disabled"],
       require: true,
     },
     likeCount: {

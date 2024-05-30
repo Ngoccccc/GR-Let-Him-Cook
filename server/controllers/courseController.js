@@ -104,6 +104,26 @@ const getAllCourses = async (req, res) => {
   }
 };
 
+const getCoursesUnapproved = async (req, res) => {
+  try {
+    // Lấy tất cả các khóa học từ cơ sở dữ liệu
+    const courses = await courseModel
+      .find({ status: "waiting" })
+      .populate("userId", "name");
+
+    return res.status(200).json({
+      success: true,
+      message: "All courses retrieved successfully",
+      courses,
+    });
+  } catch (error) {
+    console.error(error);
+    return res
+      .status(500)
+      .json({ success: false, message: "Internal Server Error", error });
+  }
+};
+
 const registerCourse = async (req, res) => {
   try {
     const courseId = req.params.courseId;
@@ -199,7 +219,7 @@ const getAllPostsOfCourse = async (req, res) => {
 
     if (userHaveCourse) {
       const posts = await postModel
-        .find({ courseId })
+        .find({ courseId, status: "published" })
         .sort("-createdAt")
         .select("_id title mediaTitle level intendTime likeCount");
       return res.status(200).json({ success: true, data: posts });
@@ -225,15 +245,27 @@ const getSingleCourse = async (req, res) => {
         message: "Invalid params",
       });
     }
+    console.log(req.user);
+    let query = { _id: courseId };
 
+    if (req.user.role === "user" || req.user.role === "guest") {
+      query.status = "published";
+    }
     const courseInfo = await courseModel
-      .findById(courseId)
+      .findOne(query)
       .populate("userId", "name")
       .lean();
+    if (!courseInfo) {
+      return res.status(404).send({
+        success: false,
+        message: "course not found",
+      });
+    }
     const posts = await postModel
-      .find({ courseId })
+      .find({ courseId, status: "published" })
       .sort("-createdAt")
-      .select("_id title mediaTitle level intendTime likeCount")
+      .populate("userId", "name")
+      .select("_id userId title mediaTitle level intendTime likeCount")
       .lean();
     const data = { courseInfo, posts };
     console.log(data);
@@ -305,6 +337,33 @@ const checkUserHaveCourse = async (req, res) => {
       .json({ success: false, message: "Internal Server Error" });
   }
 };
+
+const approveCourse = async (req, res) => {
+  try {
+    const { courseId } = req.params;
+    const course = await courseModel.findById(courseId);
+
+    if (!course) {
+      return res.status(404).send({
+        success: false,
+        message: "course not found",
+      });
+    }
+
+    await courseModel.findByIdAndUpdate(courseId, { status: "published" });
+    res.status(200).send({
+      success: true,
+      message: "course published Successfully",
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      message: "Error while published course",
+      error,
+    });
+  }
+};
 module.exports = {
   createCourse,
   updateCourse,
@@ -314,5 +373,7 @@ module.exports = {
   getAllPostsOfCourse,
   getUnregisteredCourses,
   checkUserHaveCourse,
+  approveCourse,
   getSingleCourse,
+  getCoursesUnapproved,
 };

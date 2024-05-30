@@ -1,23 +1,21 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Modal } from "antd";
 import { Button, Grid, Typography, TextField } from "@mui/material/";
-import PostCard from "../../components/Admin/PostCard";
 import Loading from "../../components/Loading";
 import removeVietnameseTones from "../../utils/removeVietnameseTones";
-import { useNavigate } from "react-router-dom";
-function AdminPosts() {
-  const [posts, setPosts] = useState([]);
+import CourseCard from "../../components/Admin/CourseCard";
+function AdminCourseApproval() {
+  const [courses, setCourses] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-  const [filteredPosts, setFilteredPosts] = useState([]);
-  const navigate = useNavigate();
+  const [filteredCourses, setFilteredCourses] = useState([]);
+
   React.useLayoutEffect(() => {
-    const fetchCategories = async () => {
-      const data = await axios.get("/api/v1/post/get-posts");
-      setPosts(data.data.posts);
-      console.log(data.data.posts);
+    const fetchCourses = async () => {
+      const data = await axios.get("/api/v1/course/get-waiting-courses");
+      setCourses(data.data.courses);
+      console.log(data.data.courses);
     };
-    fetchCategories();
+    fetchCourses();
   }, []);
 
   const handleCreateCategory = () => {};
@@ -49,22 +47,22 @@ function AdminPosts() {
     const lowercasedSearchTerm = removeVietnameseTones(
       searchTerm.toLowerCase()
     );
-    const filtered = posts.filter((post) => {
-      const titleMatch = removeVietnameseTones(
-        post.title.toLowerCase()
+    const filtered = courses.filter((course) => {
+      const nameMatch = removeVietnameseTones(
+        course.name.toLowerCase()
       ).includes(lowercasedSearchTerm);
-      const courseMatch =
-        post.courseId &&
-        removeVietnameseTones(post.courseId.name.toLowerCase()).includes(
+      const descriptionMatch =
+        course.description &&
+        removeVietnameseTones(course.description.toLowerCase()).includes(
           lowercasedSearchTerm
         );
       const userMatch = removeVietnameseTones(
-        post.userId.name.toLowerCase()
+        course.userId.name.toLowerCase()
       ).includes(lowercasedSearchTerm);
-      return titleMatch || courseMatch || userMatch;
+      return nameMatch || descriptionMatch || userMatch;
     });
-    setFilteredPosts(filtered);
-  }, [searchTerm, posts]);
+    setFilteredCourses(filtered);
+  }, [searchTerm, courses]);
   return (
     <div>
       <Grid container justifyContent="center" alignItems="center">
@@ -76,15 +74,9 @@ function AdminPosts() {
           sx={{ mb: 3 }}
         >
           <Typography variant="h5" component="h2" fontWeight="bold">
-            Danh sách bài viết:
-            {posts ? posts.length : 0} công thức
+            Danh sách khoá học cần phê duyệt:
+            {courses ? courses.length : 0} khóa học
           </Typography>
-          <Button
-            variant="contained"
-            onClick={() => navigate("/admin/create-post")}
-          >
-            Thêm công thức
-          </Button>
         </Grid>
         <Grid
           container
@@ -100,13 +92,13 @@ function AdminPosts() {
             onChange={handleSearch}
           />
         </Grid>
-        {!posts ? (
+        {!courses ? (
           <Loading />
         ) : (
           <Grid sx={{ mb: 14, display: "flex" }} container spacing={2}>
-            {filteredPosts.map((recipe) => (
-              <Grid key={recipe._id} item xs={3}>
-                <PostCard recipe={recipe} />
+            {filteredCourses.map((course) => (
+              <Grid key={course._id} item xs={3}>
+                <CourseCard course={course} />
               </Grid>
             ))}
           </Grid>
@@ -116,4 +108,4 @@ function AdminPosts() {
   );
 }
 
-export default AdminPosts;
+export default AdminCourseApproval;

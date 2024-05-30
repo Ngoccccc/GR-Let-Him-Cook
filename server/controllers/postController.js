@@ -234,7 +234,7 @@ const updatePost = async (req, res) => {
 const getAllPost = async (req, res) => {
   try {
     const posts = await postModel
-      .find({})
+      .find({ status: "published" })
       .sort({ createAt: -1 })
       .populate("userId", "name")
       .populate("courseId", "name")
@@ -258,7 +258,7 @@ const getAllPost = async (req, res) => {
 const getNewPosts = async (req, res) => {
   try {
     const posts = await postModel
-      .find({ courseId: null })
+      .find({ courseId: null, status: "published" })
       .sort({ createAt: -1 })
       .limit(6)
       .select("_id title mediaTitle level intendTime likeCount");
@@ -281,7 +281,7 @@ const getNewPosts = async (req, res) => {
 const getMostFavoritePosts = async (req, res) => {
   try {
     const posts = await postModel
-      .find({ courseId: null })
+      .find({ courseId: null, status: "published" })
       .sort({ likeCount: -1 })
       .limit(4)
       .select("_id title mediaTitle level intendTime likeCount");
@@ -309,16 +309,28 @@ const getSinglePost = async (req, res) => {
         message: "Invalid params",
       });
     }
-    var post = await postModel
-      .findOne({ _id: req.params.id })
-      .populate("userId", "name")
-      .lean();
+    console.log(req.user);
+    let query = { _id: req.params.id };
+
+    if (req.user.role === "user" || req.user.role === "guest") {
+      query.status = "published";
+    }
+
+    var post = await postModel.findOne(query).populate("userId", "name").lean();
     if (!post) {
       return res.status(404).send({
         success: false,
         message: "Post not found",
       });
     }
+
+    if (req.user.role === "chef" && post.userId._id !== req.user._id) {
+      return res.status(403).send({
+        success: false,
+        message: "UnAuthorized Access",
+      });
+    }
+
     const postIngredient = await postIngredientModel
       .find({
         postId: req.params.id,
@@ -526,6 +538,59 @@ const getAllPostGroupByCategory = async (req, res) => {
     });
   }
 };
+
+const getPostsUnapproved = async (req, res) => {
+  try {
+    const posts = await postModel
+      .find({ status: "waiting" })
+      .sort({ createAt: -1 })
+      .populate("userId", "name")
+      .populate("courseId", "name")
+      .select("_id title mediaTitle userId");
+    console.log(posts);
+    res.status(200).send({
+      success: true,
+      message: "All Posts Unapproved",
+      posts,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      error,
+      message: "Error while getting all posts",
+    });
+  }
+};
+
+//delete post
+const approvePost = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const post = await postModel.findById(id);
+
+    if (!post) {
+      return res.status(404).send({
+        success: false,
+        message: "Post not found",
+      });
+    }
+
+    await postModel.findByIdAndUpdate(id, { status: "published" });
+    res.status(200).send({
+      success: true,
+      message: "Post published Successfully",
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      message: "Error while published post",
+      error,
+    });
+  }
+};
+
 //delete post
 const deletePost = async (req, res) => {
   try {
@@ -556,9 +621,7 @@ const deletePost = async (req, res) => {
       });
     }
 
-    await postModel.findByIdAndDelete(id);
-    await postIngredientModel.deleteMany({ postId: id });
-    await postCategoryModel.deleteMany({ postId: id });
+    await postModel.findByIdAndUpdate(id, { status: "disabled" });
     res.status(200).send({
       success: true,
       message: "Post Deleted Successfully",
@@ -578,10 +641,12 @@ module.exports = {
   updatePost,
   deletePost,
   getAllPost,
+  getPostsUnapproved,
   getSinglePost,
   getPostOfCategory,
   getAllPostGroupByCategory,
   getNewPosts,
+  approvePost,
   getMostFavoritePosts,
   getPostOfCategories,
 };

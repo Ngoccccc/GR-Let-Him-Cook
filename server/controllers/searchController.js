@@ -11,7 +11,9 @@ const searchGlobal = async (req, res) => {
   try {
     const { search } = req.query;
     const userId = req.user?._id;
-    let allPost = await postModel.find({ courseId: null }).lean();
+    let allPost = await postModel
+      .find({ courseId: null, status: "published" })
+      .lean();
     let allIngredient = await ingredientModel.find({}).lean();
     let allCategory = await categoryModel.find({}).lean();
     let allCourse = await courseModel
@@ -103,6 +105,7 @@ const searchGlobal = async (req, res) => {
       .find({
         _id: { $in: uniquePostIds },
         courseId: null,
+        status: "published",
       })
       .select("_id title mediaTitle level intendTime likeCount")
       .lean();

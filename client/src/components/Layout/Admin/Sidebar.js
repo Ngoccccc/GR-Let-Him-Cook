@@ -16,6 +16,10 @@ const Sidebar = () => {
       setSelected("2");
     } else if (path.startsWith("/admin/posts")) {
       setSelected("3");
+    } else if (path.startsWith("/admin/post-approval")) {
+      setSelected("4");
+    } else if (path.startsWith("/admin/course-approval")) {
+      setSelected("5");
     }
   }, [location.pathname]);
 
@@ -30,6 +34,12 @@ const Sidebar = () => {
         break;
       case "3":
         navigate("/admin/posts");
+        break;
+      case "4":
+        navigate("/admin/post-approval");
+        break;
+      case "5":
+        navigate("/admin/course-approval");
         break;
       default:
         break;
@@ -64,6 +74,16 @@ const Sidebar = () => {
             key: "3",
             icon: <FaLeaf />,
             label: "Quản lý bài hướng dẫn",
+          },
+          {
+            key: "4",
+            icon: <FaLeaf />,
+            label: "Phê duyệt bài hướng dẫn",
+          },
+          {
+            key: "5",
+            icon: <FaLeaf />,
+            label: "Phê duyệt khóa học",
           },
         ]}
       />

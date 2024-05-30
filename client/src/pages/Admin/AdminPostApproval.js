@@ -1,45 +1,22 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Modal } from "antd";
 import { Button, Grid, Typography, TextField } from "@mui/material/";
 import PostCard from "../../components/Admin/PostCard";
 import Loading from "../../components/Loading";
 import removeVietnameseTones from "../../utils/removeVietnameseTones";
-import { useNavigate } from "react-router-dom";
-function AdminPosts() {
+function AdminPostApproval() {
   const [posts, setPosts] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredPosts, setFilteredPosts] = useState([]);
-  const navigate = useNavigate();
+
   React.useLayoutEffect(() => {
     const fetchCategories = async () => {
-      const data = await axios.get("/api/v1/post/get-posts");
+      const data = await axios.get("/api/v1/post/get-waiting-posts");
       setPosts(data.data.posts);
       console.log(data.data.posts);
     };
     fetchCategories();
   }, []);
-
-  const handleCreateCategory = () => {};
-
-  // const handleDeleteCategory = async (category) => {
-  //   try {
-  //     await Modal.confirm({
-  //       title: "Xác nhận xóa",
-  //       content: `Bạn có chắc chắn muốn xóa danh mục "${category.name}"?`,
-  //       onOk: async () => {
-  //         await axios.delete(
-  //           `/api/v1/category/delete-category/${category.categoryId}`
-  //         );
-  //         setCategories(
-  //           categories.filter((c) => c.categoryId !== category.categoryId)
-  //         );
-  //       },
-  //     });
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // };
 
   const handleSearch = (e) => {
     setSearchTerm(e.target.value);
@@ -76,15 +53,9 @@ function AdminPosts() {
           sx={{ mb: 3 }}
         >
           <Typography variant="h5" component="h2" fontWeight="bold">
-            Danh sách bài viết:
+            Danh sách bài viết cần duyệt:
             {posts ? posts.length : 0} công thức
           </Typography>
-          <Button
-            variant="contained"
-            onClick={() => navigate("/admin/create-post")}
-          >
-            Thêm công thức
-          </Button>
         </Grid>
         <Grid
           container
@@ -116,4 +87,4 @@ function AdminPosts() {
   );
 }
 
-export default AdminPosts;
+export default AdminPostApproval;

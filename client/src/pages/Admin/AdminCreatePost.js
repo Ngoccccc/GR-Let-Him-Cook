@@ -16,7 +16,7 @@ import IntendTimeForm from "../../components/Admin/Form/IntendTimeForm";
 import CategoryForm from "../../components/Admin/Form/CategoryForm";
 import generateRandom from "../../utils/generateRandom";
 import { useNavigate } from "react-router-dom";
-export default function AdminCreatePost() {
+export default function AdminCreatePost({ courseId }) {
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [loading, setLoading] = useState(false);
   const storage = getStorage(app);
@@ -118,6 +118,7 @@ export default function AdminCreatePost() {
         quantity: ingredient.quantity,
       })),
       categories: getSelectedCategoryIds(),
+      courseId,
     };
     try {
       const postSave = await axios.post("/api/v1/post/create-post", postData);

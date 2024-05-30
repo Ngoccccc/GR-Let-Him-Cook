@@ -86,4 +86,39 @@ const isChef = async (req, res, next) => {
     });
   }
 };
-module.exports = { requireSignIn, requireAdmin, isAdmin, isChef };
+const assignRole = async (req, res, next) => {
+  try {
+    const authHeader = req.headers.authorization;
+
+    if (authHeader && authHeader.startsWith("Bearer ")) {
+      const token = authHeader.split(" ")[1];
+      const decode = JWT.verify(token, process.env.JWT_SECRET);
+      const user = await userModel.findById(decode._id);
+
+      if (user) {
+        req.user = {
+          _id: user._id,
+          role: user.role,
+          name: user.name,
+        };
+      } else {
+        req.user = {
+          role: "guest",
+        };
+      }
+    } else {
+      req.user = {
+        role: "guest",
+      };
+    }
+
+    next();
+  } catch (error) {
+    console.error("Error in assignRole middleware:", error);
+    res.status(401).send({
+      success: false,
+      message: "Unauthorized",
+    });
+  }
+};
+module.exports = { requireSignIn, requireAdmin, isAdmin, isChef, assignRole };

@@ -23,6 +23,9 @@ import AdminPosts from "./pages/Admin/AdminPosts";
 import AdminRecipeDetails from "./pages/Admin/RecipeDetail";
 import AdminCreatePost from "./pages/Admin/AdminCreatePost";
 import AdminUpdatePost from "./pages/Admin/AdminUpdatePost";
+import AdminPostApproval from "./pages/Admin/AdminPostApproval";
+import AdminCourseApproval from "./pages/Admin/AdminCourseApproval";
+import CourseDetail from "./pages/Admin/CourseDetail";
 
 function App() {
   return (
@@ -53,6 +56,9 @@ function App() {
           <Route path="create-post" element={<AdminCreatePost />} />
           <Route path="update-post/:id" element={<AdminUpdatePost />} />
           <Route path="recipe-detail/:id" element={<AdminRecipeDetails />} />
+          <Route path="post-approval" element={<AdminPostApproval />} />
+          <Route path="course-approval" element={<AdminCourseApproval />} />\
+          <Route path="course-detail/:id" element={<CourseDetail />} />
         </Route>
 
         <Route path="*" element={<PageNotFound />} />
