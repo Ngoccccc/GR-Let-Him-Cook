@@ -1,9 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Button, Box, Paper, Typography } from "@mui/material";
 import axios from "axios";
 import app from "../../firebase";
-import { ref, uploadBytes, getDownloadURL, getStorage } from "firebase/storage";
-import { v4 as uuidv4 } from "uuid";
+import {
+  ref,
+  uploadBytes,
+  getDownloadURL,
+  getStorage,
+  deleteObject,
+} from "firebase/storage";
+import { useParams } from "react-router-dom";
 import MediaTitleForm from "../../components/Admin/Form/MediaTitleForm";
 import VideoForm from "../../components/Admin/Form/VideoForm";
 import IngredientForm from "../../components/Admin/Form/IngredientForm";
@@ -15,13 +21,50 @@ import LevelForm from "../../components/Admin/Form/LevelForm";
 import IntendTimeForm from "../../components/Admin/Form/IntendTimeForm";
 import CategoryForm from "../../components/Admin/Form/CategoryForm";
 import generateRandom from "../../utils/generateRandom";
+import extractImageName from "../../utils/extractImageName";
 import { useNavigate } from "react-router-dom";
-export default function AdminCreatePost() {
+export default function AdminUpdatePost() {
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const [post, setPost] = useState(null);
+  const [status, setStatus] = useState(null);
+  const [uniqueId, setUniqueId] = useState("");
+  const oldStepsRef = useRef([]);
+  const getPost = async () => {
+    try {
+      const { data } = await axios.get(`/api/v1/post/get-post/${id}`);
+      setPost(data.post);
+      console.log(data);
+      setSelectedCategories(data.post.categories);
+      setDescription(data.post.description);
+      setTitle(data.post.title);
+      setRation(data.post.ration);
+      setLevel(data.post.level);
+      setIntendTime(data.post.intendTime);
+      setIngredients(data.post.ingredients);
+      setSteps([...data.post.steps]);
+      oldStepsRef.current = JSON.parse(JSON.stringify(data.post.steps));
+      setMediaTitle(data.post.mediaTitle);
+      setVideo(data.post.video);
+      const regex = /\/images%2Fpost%2F([^%]+)%2FmediaTitle/;
+      const match = data.post.mediaTitle.match(regex);
+
+      setUniqueId(match ? match[1] : null);
+      setLoading(false);
+    } catch (error) {
+      setStatus(error.response.status);
+      console.log(error);
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    if (id) getPost();
+  }, [id]);
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [loading, setLoading] = useState(false);
   const storage = getStorage(app);
-  const uniqueId = uuidv4();
-  const navigate = useNavigate();
+
   const handleSelectionChange = (newSelectedCategories) => {
     setSelectedCategories(newSelectedCategories);
   };
@@ -39,7 +82,7 @@ export default function AdminCreatePost() {
   const [intendTime, setIntendTime] = useState("");
   const [steps, setSteps] = useState([{ description: "", imageUrls: [] }]);
   const [ingredients, setIngredients] = useState([
-    { _id: "", name: "", quantity: 1, unit: "", key: Date.now() },
+    { _id: "", name: "", quantity: 1, unit: "", slug: "" },
   ]);
   const [ingredientOptions, setIngredientOptions] = useState([]);
   const [categoryOptions, setCategoryOptions] = useState([]);
@@ -62,48 +105,90 @@ export default function AdminCreatePost() {
     fetchCategories();
   }, []);
 
-  const handleUpload = async (file, filename) => {
+  const handleUploadSingleFile = async (file, filename) => {
     const storageRef = ref(storage, filename);
-    await uploadBytes(storageRef, file);
+    await deleteObject(storageRef);
+    if (file) await uploadBytes(storageRef, file);
     return getDownloadURL(storageRef);
   };
 
+  const deleteOldFiles = async () => {
+    const filesToDelete = findMissingImageUrls(oldStepsRef.current, steps);
+    if (filesToDelete.length > 0) {
+      for (const url of filesToDelete) {
+        try {
+          const imageRef = ref(storage, extractImageName(url));
+          await deleteObject(imageRef);
+          console.log("Deleted:", url);
+        } catch (error) {
+          console.error("Error deleting file:", error);
+        }
+      }
+    } else {
+      console.log("No files to delete.");
+    }
+  };
+
+  function findMissingImageUrls(oldSteps, newSteps) {
+    const missingUrls = [];
+
+    oldSteps.forEach((oldStep) => {
+      oldStep.imageUrls.forEach((oldUrl) => {
+        const isUrlInNewSteps = newSteps.some((newStep) =>
+          newStep.imageUrls.some((newUrl) => newUrl === oldUrl)
+        );
+        if (!isUrlInNewSteps) {
+          missingUrls.push(oldUrl);
+        }
+      });
+    });
+
+    return missingUrls;
+  }
   const handleSubmit = async (event) => {
+    console.log();
     event.preventDefault();
     validateFormIngredient();
     validateFormSteps();
-    if (!formValidIngredient || !formValidSteps) {
-      alert(
-        "Hãy hoàn thiện các form và check lại giá trị số lượng phải là số dương"
-      );
-      return;
-    }
+
+    // if (!formValidIngredient || !formValidSteps) {
+    //   alert(
+    //     "Hãy hoàn thiện các form và check lại giá trị số lượng phải là số dương"
+    //   );
+    //   return;
+    // }
     setLoading(true);
+
+    // Tiếp tục xử lý upload các tệp mới
     const stepsWithUrls = await Promise.all(
       steps.map(async (step, index) => {
         const imageUrls = await Promise.all(
-          step.imageUrls.map(
-            async (file, i) =>
-              await handleUpload(
-                file,
-                `images/post/${uniqueId}/steps/step${
-                  index + 1
-                }/${generateRandom()}`
-              )
+          step.imageUrls.map(async (file, i) =>
+            typeof file === "string"
+              ? file
+              : await handleUploadSingleFile(
+                  file,
+                  `images/post/${uniqueId}/steps/step${
+                    index + 1
+                  }/${generateRandom()}`
+                )
           )
         );
         return { ...step, imageUrls, order: index + 1 };
       })
     );
 
-    const imageUrl = await handleUpload(
-      mediaTitle,
-      `images/post/${uniqueId}/mediaTitle`
-    );
-    const videoUrl = video
-      ? await handleUpload(video, `video/post/${uniqueId}`)
-      : null;
-
+    const imageUrl =
+      typeof mediaTitle === "string"
+        ? mediaTitle
+        : await handleUploadSingleFile(
+            mediaTitle,
+            `images/post/${uniqueId}/mediaTitle`
+          );
+    const videoUrl =
+      typeof video === "string"
+        ? video
+        : await handleUploadSingleFile(video, `video/post/${uniqueId}`);
     const postData = {
       title,
       mediaTitle: imageUrl,
@@ -119,14 +204,19 @@ export default function AdminCreatePost() {
       })),
       categories: getSelectedCategoryIds(),
     };
+    console.log("Old step", oldStepsRef.current, "New Step", steps);
+    deleteOldFiles();
     try {
-      const postSave = await axios.post("/api/v1/post/create-post", postData);
+      const postSave = await axios.put(
+        `/api/v1/post/update-post/${id}`,
+        postData
+      );
       console.log("Post Data: ", postSave);
-      navigate(`/admin/recipe-detail/${postSave.post._id}`);
     } catch (err) {
       console.log(err);
     }
     setLoading(false);
+    navigate(`/admin/recipe-detail/${id}`);
   };
 
   const addStep = () =>
@@ -209,7 +299,7 @@ export default function AdminCreatePost() {
   return (
     <Paper elevation={3} sx={{ p: 4 }}>
       <Typography variant="h4" gutterBottom>
-        Tạo bài hướng dẫn nấu ăn mới
+        Chỉnh sửa công thức nấu ăn: {title || ""}
       </Typography>
       <Box component="form" onSubmit={handleSubmit}>
         <TitleForm title={title} setTitle={setTitle} />
@@ -241,6 +331,7 @@ export default function AdminCreatePost() {
         <CategoryForm
           categoryOptions={categoryOptions}
           handleSelectionChange={handleSelectionChange}
+          selectedCategories={selectedCategories}
         />
         <Button
           variant="contained"
@@ -248,7 +339,7 @@ export default function AdminCreatePost() {
           size="large"
           disabled={loading}
         >
-          Đăng bài hướng dẫn
+          Chỉnh sửa bài đăng
         </Button>
       </Box>
     </Paper>

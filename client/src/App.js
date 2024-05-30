@@ -22,6 +22,7 @@ import AdminIngredients from "./pages/Admin/AdminIngredients";
 import AdminPosts from "./pages/Admin/AdminPosts";
 import AdminRecipeDetails from "./pages/Admin/RecipeDetail";
 import AdminCreatePost from "./pages/Admin/AdminCreatePost";
+import AdminUpdatePost from "./pages/Admin/AdminUpdatePost";
 
 function App() {
   return (
@@ -50,6 +51,7 @@ function App() {
           <Route path="ingredients" element={<AdminIngredients />} />
           <Route path="posts" element={<AdminPosts />} />
           <Route path="create-post" element={<AdminCreatePost />} />
+          <Route path="update-post/:id" element={<AdminUpdatePost />} />
           <Route path="recipe-detail/:id" element={<AdminRecipeDetails />} />
         </Route>
 

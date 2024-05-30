@@ -15,11 +15,40 @@ const createPost = async (req, res) => {
       video,
       intendTime,
       steps,
-      status,
       courseId,
       ingredients,
       categories,
     } = req.body;
+
+    // Kiểm tra xem có đủ dữ liệu không
+    if (
+      !title ||
+      !mediaTitle ||
+      !description ||
+      !ration ||
+      !level ||
+      !intendTime ||
+      !steps ||
+      !ingredients ||
+      !categories
+    ) {
+      return res.status(400).send({
+        success: false,
+        message: "Missing required fields",
+      });
+    }
+    console.log(req.user);
+    let status = "";
+    if (req.user.role === "admin") {
+      status = "published";
+    } else if (req.user.role === "chef") {
+      status = "waiting";
+    } else {
+      return res.status(403).send({
+        success: false,
+        message: "Unauthorized access: You are not allowed to create a post",
+      });
+    }
 
     const post = await new postModel({
       userId: req.user._id,
@@ -36,44 +65,40 @@ const createPost = async (req, res) => {
     }).save();
 
     ingredients.forEach(async (ingredient, index) => {
-      // Tạo một bản ghi mới cho mỗi thành phần nguyên liệu
       const postIngredient = new postIngredientModel({
-        postId: post._id, // Lấy id của bài post mới được lưu
+        postId: post._id,
         ingredientId: ingredient.id,
         quantity: ingredient.quantity,
         order: index + 1,
       });
       try {
-        await postIngredient.save(); // Lưu bản ghi của thành phần nguyên liệu
+        await postIngredient.save();
       } catch (error) {
         console.error("Error saving post ingredient:", error);
-        // Xử lý lỗi nếu cần
       }
     });
 
     categories.forEach(async (category) => {
-      // Tạo một bản ghi mới cho mỗi thành phần nguyên liệu
       const PostCategory = new postCategoryModel({
-        postId: post._id, // Lấy id của bài post mới được lưu
+        postId: post._id,
         categoryId: category,
       });
       try {
-        await PostCategory.save(); // Lưu bản ghi của thành phần nguyên liệu
+        await PostCategory.save();
       } catch (error) {
         console.error("Error saving post category:", error);
-        // Xử lý lỗi nếu cần
       }
     });
     res.status(201).send({
       success: true,
-      message: "new post created",
+      message: "New post created",
       post,
     });
   } catch (error) {
     console.log(error);
     res.status(500).send({
       success: false,
-      message: "Error in Registration",
+      message: "Error in creating post",
       error,
     });
   }
@@ -91,11 +116,29 @@ const updatePost = async (req, res) => {
       level,
       intendTime,
       steps,
-      status,
+      video,
       courseId,
       ingredients,
       categories,
     } = req.body;
+
+    // Kiểm tra xem có đủ dữ liệu không
+    if (
+      !title ||
+      !mediaTitle ||
+      !description ||
+      !ration ||
+      !level ||
+      !intendTime ||
+      !steps ||
+      !ingredients ||
+      !categories
+    ) {
+      return res.status(400).send({
+        success: false,
+        message: "Missing required fields",
+      });
+    }
 
     const post = await postModel.findById(postId);
     if (!post) {
@@ -104,11 +147,29 @@ const updatePost = async (req, res) => {
         message: "Post not found",
       });
     }
-    if (post.userId.toString() !== req.user._id.toString()) {
+
+    if (req.user.role !== "admin" && req.user.role !== "chef") {
       return res.status(403).send({
         success: false,
         message: "Unauthorized access: You are not allowed to update this post",
       });
+    }
+
+    if (
+      req.user.role === "chef" &&
+      post.userId.toString() !== req.user._id.toString()
+    ) {
+      return res.status(403).send({
+        success: false,
+        message: "Unauthorized access: You are not allowed to update this post",
+      });
+    }
+
+    let updatedStatus = "";
+    if (req.user.role === "admin") {
+      updatedStatus = "published";
+    } else if (req.user.role === "chef") {
+      updatedStatus = "waiting";
     }
 
     const postUpdate = await postModel.findByIdAndUpdate(postId, {
@@ -119,12 +180,13 @@ const updatePost = async (req, res) => {
       ration,
       level,
       intendTime,
+      video,
       steps,
-      status,
+      status: updatedStatus,
       courseId,
     });
 
-    // Xóa các bản ghi thành phần nguyên liệu và danh mục cũ
+    console.log(ingredients);
     await postIngredientModel.deleteMany({ postId });
     await postCategoryModel.deleteMany({ postId });
 
@@ -136,10 +198,9 @@ const updatePost = async (req, res) => {
         order: index + 1,
       });
       try {
-        await postIngredient.save(); // Lưu bản ghi của thành phần nguyên liệu
+        await postIngredient.save();
       } catch (error) {
         console.error("Error updating post ingredient:", error);
-        // Xử lý lỗi nếu cần
       }
     });
 
@@ -152,7 +213,6 @@ const updatePost = async (req, res) => {
         await PostCategory.save();
       } catch (error) {
         console.error("Error updating post category:", error);
-        // Xử lý lỗi nếu cần
       }
     });
     res.status(201).send({
@@ -164,7 +224,7 @@ const updatePost = async (req, res) => {
     console.log(error);
     res.status(500).send({
       success: false,
-      message: "Error in Registration",
+      message: "Error in updating post",
       error,
     });
   }
@@ -276,6 +336,7 @@ const getSinglePost = async (req, res) => {
       slug: item.categoryId.slug,
     }));
     const transformedIngredients = postIngredient.map((item) => ({
+      _id: item.ingredientId._id,
       name: item.ingredientId.name,
       slug: item.ingredientId.slug,
       unit: item.ingredientId.unit,
@@ -477,12 +538,24 @@ const deletePost = async (req, res) => {
         message: "Post not found",
       });
     }
-    if (post.userId.toString() !== req.user._id.toString()) {
+    console.log(req.user.role);
+    if (req.user.role !== "admin" && req.user.role !== "chef") {
       return res.status(403).send({
         success: false,
-        message: "Unauthorized access: You are not allowed to update this post",
+        message: "Unauthorized access: You are not allowed to delete this post",
       });
     }
+
+    if (
+      req.user.role === "chef" &&
+      post.userId.toString() !== req.user._id.toString()
+    ) {
+      return res.status(403).send({
+        success: false,
+        message: "Unauthorized access: You are not allowed to delete this post",
+      });
+    }
+
     await postModel.findByIdAndDelete(id);
     await postIngredientModel.deleteMany({ postId: id });
     await postCategoryModel.deleteMany({ postId: id });
@@ -494,7 +567,7 @@ const deletePost = async (req, res) => {
     console.log(error);
     res.status(500).send({
       success: false,
-      message: "error while deleting category",
+      message: "Error while deleting post",
       error,
     });
   }

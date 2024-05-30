@@ -30,11 +30,11 @@ router.get("/get-posts-by-category", getAllPostGroupByCategory);
 // router.get("/single-post/:slug", getSingleCategory);
 
 // create post
-router.post("/create-post", requireSignIn, isAdmin, createPost);
+router.post("/create-post", requireSignIn, createPost);
 
 //update post
 router.put("/update-post/:id", requireSignIn, updatePost);
 
-router.delete("/delete-post/:id", requireSignIn, isAdmin, deletePost);
+router.delete("/delete-post/:id", requireSignIn, deletePost);
 
 module.exports = router;

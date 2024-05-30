@@ -11,6 +11,7 @@ import Loading from "../../components/Loading";
 
 const RecipeDetail = () => {
   const params = useParams();
+  const navigate = useNavigate();
   const [post, setPost] = useState(null);
   const [status, setStatus] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -134,6 +135,9 @@ const RecipeDetail = () => {
                           width: "30%",
                           p: 2,
                         }}
+                        onClick={() =>
+                          navigate(`/admin/update-post/${params.id}`)
+                        }
                       >
                         Sửa công thức
                       </Button>
