@@ -22,7 +22,7 @@ import PageNotFound from "./ErrorPage/PageNotFound";
 import Loading from "../../components/Loading";
 import { red, grey } from "@mui/material/colors";
 
-const RecipeDetail = () => {
+const RecipeDetail = ({ role }) => {
   const params = useParams();
   const navigate = useNavigate();
   const [post, setPost] = useState(null);
@@ -60,7 +60,7 @@ const RecipeDetail = () => {
       const { data } = await axios.delete(
         `/api/v1/post/delete-post/${params.id}`
       );
-      navigate("/admin/posts");
+      navigate(`/${role}/posts`);
     } catch (err) {
       console.log(err);
     }
@@ -80,13 +80,14 @@ const RecipeDetail = () => {
 
   useEffect(() => {
     if (params?.id) getPost();
+    console.log(post?.status, role);
   }, [params?.id, post?.courseId]);
 
   let errorPage = null;
   if (status == 404) {
-    errorPage = <PageNotFound />;
+    errorPage = <PageNotFound role={role} />;
   } else if (status == 500) {
-    errorPage = <ServerErrorPage />;
+    errorPage = <ServerErrorPage role={role} />;
   }
 
   if (loading) {
@@ -170,7 +171,8 @@ const RecipeDetail = () => {
                         ))}
                       </Grid>
                     </Grid>
-                    {post.status === "published" ? (
+                    {post.status === "published" ||
+                    (role === "chef" && post?.status === "waiting") ? (
                       <Grid
                         sx={{
                           display: "flex",
@@ -186,7 +188,7 @@ const RecipeDetail = () => {
                             p: 2,
                           }}
                           onClick={() =>
-                            navigate(`/admin/update-post/${params.id}`)
+                            navigate(`/${role}/update-post/${params.id}`)
                           }
                         >
                           Sửa công thức

@@ -2,6 +2,7 @@ const express = require("express");
 const {
   requireSignIn,
   isAdmin,
+  isChef,
   assignRole,
 } = require("../middlewares/authMiddleware.js");
 const {
@@ -17,6 +18,7 @@ const {
   getMostFavoritePosts,
   getPostOfCategories,
   getPostsUnapproved,
+  getMyPosts,
 } = require("../controllers/postController.js");
 
 //router object
@@ -32,6 +34,7 @@ router.get("/get-favorite-posts", getMostFavoritePosts);
 router.get("/get-post/:id", assignRole, getSinglePost);
 router.get("/get-post-by-category/:categorySlug", getPostOfCategory);
 router.get("/get-posts-by-category", getAllPostGroupByCategory);
+router.get("/get-my-posts", requireSignIn, isChef, getMyPosts);
 //single post
 // router.get("/single-post/:slug", getSingleCategory);
 router.get("/get-waiting-posts", requireSignIn, isAdmin, getPostsUnapproved);

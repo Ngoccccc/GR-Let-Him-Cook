@@ -317,6 +317,7 @@ const getSinglePost = async (req, res) => {
     }
 
     var post = await postModel.findOne(query).populate("userId", "name").lean();
+    console.log(post);
     if (!post) {
       return res.status(404).send({
         success: false,
@@ -324,7 +325,10 @@ const getSinglePost = async (req, res) => {
       });
     }
 
-    if (req.user.role === "chef" && post.userId._id !== req.user._id) {
+    if (
+      req.user.role === "chef" &&
+      post.userId._id.toString() !== req.user._id.toString()
+    ) {
       return res.status(403).send({
         success: false,
         message: "UnAuthorized Access",
@@ -407,6 +411,30 @@ const getPostOfCategory = async (req, res) => {
       success: false,
       error,
       message: "Error While getting Single Post",
+    });
+  }
+};
+
+const getMyPosts = async (req, res) => {
+  try {
+    const posts = await postModel
+      .find({ status: { $ne: "disabled" }, userId: req.user._id })
+      .populate("userId", "name")
+      .sort({ createAt: -1 })
+      .populate("courseId", "name")
+      .select("_id title mediaTitle userId");
+    console.log(posts);
+    res.status(200).send({
+      success: true,
+      message: "All My post List",
+      posts,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      error,
+      message: "Error while getting all posts",
     });
   }
 };
@@ -655,4 +683,5 @@ module.exports = {
   approvePost,
   getMostFavoritePosts,
   getPostOfCategories,
+  getMyPosts,
 };

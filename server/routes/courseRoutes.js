@@ -17,6 +17,7 @@ const {
   getSingleCourse,
   getCoursesUnapproved,
   approveCourse,
+  getMyCourses,
 } = require("../controllers/courseController.js");
 
 //router object
@@ -43,6 +44,8 @@ router.get(
   isAdmin,
   getCoursesUnapproved
 );
+
+router.get("/get-my-courses", requireSignIn, isChef, getMyCourses);
 router.get("/get-course-detail/:courseId", assignRole, getSingleCourse);
 router.put("/approve-course/:courseId", requireSignIn, isAdmin, approveCourse);
 module.exports = router;

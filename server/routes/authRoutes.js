@@ -8,6 +8,7 @@ const {
 const {
   requireSignIn,
   requireAdmin,
+  requireChef,
 } = require("../middlewares/authMiddleware.js");
 //router object
 const router = express.Router();
@@ -29,6 +30,11 @@ router.get("/user-auth", requireSignIn, (req, res) => {
 
 //protected Admin route auth
 router.get("/admin-auth", requireAdmin, (req, res) => {
+  res.status(200).send({ ok: true });
+});
+
+//protected Chef route auth
+router.get("/chef-auth", requireChef, (req, res) => {
   res.status(200).send({ ok: true });
 });
 

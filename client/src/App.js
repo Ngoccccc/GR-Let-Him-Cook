@@ -20,14 +20,20 @@ import AdminRoute from "./components/Routes/Admin";
 import AdminCategory from "./pages/Admin/AdminCategory";
 import AdminIngredients from "./pages/Admin/AdminIngredients";
 import AdminPosts from "./pages/Admin/AdminPosts";
-import AdminRecipeDetails from "./pages/Admin/RecipeDetail";
+import AdminRecipeDetail from "./pages/Admin/AdminRecipeDetail";
 import AdminCreatePost from "./pages/Admin/AdminCreatePost";
 import AdminUpdatePost from "./pages/Admin/AdminUpdatePost";
 import AdminPostApproval from "./pages/Admin/AdminPostApproval";
 import AdminCourseApproval from "./pages/Admin/AdminCourseApproval";
 import CourseDetail from "./pages/Admin/CourseDetail";
 import AdminUser from "./pages/Admin/AdminUser";
-
+import ChefRoute from "./components/Routes/Chef";
+import ChefPosts from "./pages/Chef/ChefPosts";
+import ChefCourses from "./pages/Chef/ChefCourses";
+import ChefCreatePost from "./pages/Chef/ChefCreatePost";
+import ChefUpdatePost from "./pages/Chef/ChefUpdatePost";
+import ChefRecipeDetail from "./pages/Chef/ChefRecipeDetail";
+import ChefCreateCourse from "./pages/Chef/ChefCreateCourse";
 function App() {
   return (
     <>
@@ -56,13 +62,21 @@ function App() {
           <Route path="posts" element={<AdminPosts />} />
           <Route path="create-post" element={<AdminCreatePost />} />
           <Route path="update-post/:id" element={<AdminUpdatePost />} />
-          <Route path="recipe-detail/:id" element={<AdminRecipeDetails />} />
+          <Route path="recipe-detail/:id" element={<AdminRecipeDetail />} />
           <Route path="post-approval" element={<AdminPostApproval />} />
           <Route path="course-approval" element={<AdminCourseApproval />} />\
           <Route path="course-detail/:id" element={<CourseDetail />} />
           <Route path="users" element={<AdminUser />} />
         </Route>
 
+        <Route path="/chef" element={<ChefRoute />}>
+          <Route path="posts" element={<ChefPosts />} />
+          <Route path="create-post" element={<ChefCreatePost />} />
+          <Route path="update-post/:id" element={<ChefUpdatePost />} />
+          <Route path="courses" element={<ChefCourses />} />
+          <Route path="recipe-detail/:id" element={<ChefRecipeDetail />} />
+          <Route path="create-course" element={<ChefCreateCourse />} />
+        </Route>
         <Route path="*" element={<PageNotFound />} />
       </Routes>
     </>

@@ -1,11 +1,11 @@
 import React from "react";
 import CreatePost from "../PostAndCourseManager/CreatePost";
-const AdminCreatePost = () => {
+const ChefCreatePost = () => {
   return (
     <div>
-      <CreatePost role="admin" />
+      <CreatePost role="chef" />
     </div>
   );
 };
 
-export default AdminCreatePost;
+export default ChefCreatePost;

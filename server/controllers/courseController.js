@@ -104,6 +104,25 @@ const getAllCourses = async (req, res) => {
   }
 };
 
+const getMyCourses = async (req, res) => {
+  try {
+    const courses = await courseModel
+      .find({ userId: req.user._id })
+      .populate("userId", "name");
+
+    return res.status(200).json({
+      success: true,
+      message: "All courses retrieved successfully",
+      courses,
+    });
+  } catch (error) {
+    console.error(error);
+    return res
+      .status(500)
+      .json({ success: false, message: "Internal Server Error", error });
+  }
+};
+
 const getCoursesUnapproved = async (req, res) => {
   try {
     // Lấy tất cả các khóa học từ cơ sở dữ liệu
@@ -378,4 +397,5 @@ module.exports = {
   approveCourse,
   getSingleCourse,
   getCoursesUnapproved,
+  getMyCourses,
 };

@@ -3,10 +3,10 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Grid, Card, CardMedia, CardContent, Typography } from "@mui/material/";
 
-const PostCard = ({ recipe }) => {
+const PostCard = ({ recipe, role }) => {
   const navigate = useNavigate();
   const handleTitleClick = () => {
-    navigate(`/admin/recipe-detail/${recipe._id}`);
+    navigate(`/${role}/recipe-detail/${recipe._id}`);
   };
 
   return (

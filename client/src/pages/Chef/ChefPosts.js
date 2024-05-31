@@ -1,19 +1,18 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Modal } from "antd";
 import { Button, Grid, Typography, TextField } from "@mui/material/";
 import PostCard from "../../components/Admin/PostCard";
 import Loading from "../../components/Loading";
 import removeVietnameseTones from "../../utils/removeVietnameseTones";
 import { useNavigate } from "react-router-dom";
-function AdminPosts() {
+function ChefPosts() {
   const [posts, setPosts] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredPosts, setFilteredPosts] = useState([]);
   const navigate = useNavigate();
   React.useLayoutEffect(() => {
     const fetchCategories = async () => {
-      const data = await axios.get("/api/v1/post/get-posts");
+      const data = await axios.get("/api/v1/post/get-my-posts");
       setPosts(data.data.posts);
       console.log(data.data.posts);
     };
@@ -60,7 +59,7 @@ function AdminPosts() {
           </Typography>
           <Button
             variant="contained"
-            onClick={() => navigate("/admin/create-post")}
+            onClick={() => navigate("/chef/create-post")}
           >
             Thêm công thức
           </Button>
@@ -85,7 +84,7 @@ function AdminPosts() {
           <Grid sx={{ mb: 14, display: "flex" }} container spacing={2}>
             {filteredPosts.map((recipe) => (
               <Grid key={recipe._id} item xs={3}>
-                <PostCard recipe={recipe} role="admin" />
+                <PostCard recipe={recipe} role="chef" />
               </Grid>
             ))}
           </Grid>
@@ -95,4 +94,4 @@ function AdminPosts() {
   );
 }
 
-export default AdminPosts;
+export default ChefPosts;

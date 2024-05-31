@@ -44,7 +44,11 @@ const Login = () => {
         toast.success(res.data.message);
         setAuth({ ...auth, user: res.data.user, token: res.data.token });
         localStorage.setItem("auth", JSON.stringify(res.data));
-        navigate(res.data.user.role === "admin" ? "/admin/category" : "/");
+        if (res.data.user.role === "admin") {
+          navigate("/admin/category");
+        } else if (res.data.user.role === "chef") {
+          navigate("/chef/posts");
+        }
       } else {
         toast.error(res.data.message);
       }

@@ -1,11 +1,11 @@
 import React from "react";
 import UpdatePost from "../PostAndCourseManager/UpdatePost";
-const AdminUpdatePost = () => {
+const ChefUpdatePost = () => {
   return (
     <div>
-      <UpdatePost role="admin" />
+      <UpdatePost role="chef" />
     </div>
   );
 };
 
-export default AdminUpdatePost;
+export default ChefUpdatePost;
