@@ -247,9 +247,10 @@ const getSingleCourse = async (req, res) => {
     }
     console.log(req.user);
     let query = { _id: courseId };
-
+    let postQuery = { courseId: courseId };
     if (req.user.role === "user" || req.user.role === "guest") {
       query.status = "published";
+      postQuery.status = "published";
     }
     const courseInfo = await courseModel
       .findOne(query)
@@ -262,7 +263,7 @@ const getSingleCourse = async (req, res) => {
       });
     }
     const posts = await postModel
-      .find({ courseId, status: "published" })
+      .find(postQuery)
       .sort("-createdAt")
       .populate("userId", "name")
       .select("_id userId title mediaTitle level intendTime likeCount")
@@ -351,6 +352,7 @@ const approveCourse = async (req, res) => {
     }
 
     await courseModel.findByIdAndUpdate(courseId, { status: "published" });
+    await postModel.updateMany({ courseId }, { status: "published" });
     res.status(200).send({
       success: true,
       message: "course published Successfully",

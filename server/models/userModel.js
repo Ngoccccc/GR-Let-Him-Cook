@@ -16,11 +16,21 @@ var userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    answer: {
+      type: String,
+      required: true,
+    },
     role: {
       type: String,
       required: true,
       enum: ["admin", "user", "chef"],
       default: "user",
+    },
+    status: {
+      type: String,
+      required: true,
+      enum: ["active", "disabled"],
+      default: "active",
     },
     address: {
       type: String,

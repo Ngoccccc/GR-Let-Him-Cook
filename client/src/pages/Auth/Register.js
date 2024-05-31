@@ -8,17 +8,18 @@ import {
   Paper,
   Link,
 } from "@mui/material";
-import { Email, Lock, Person } from "@mui/icons-material";
+import { Email, Lock, Person, Security } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
 import Layout from "./../../components/Layout/Layout";
-
+import removeVietnameseTones from "../../utils/removeVietnameseTones";
 const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [answer, setAnswer] = useState(""); // Thêm state cho answer
   const [emailError, setEmailError] = useState(""); // State for email error
   const navigate = useNavigate();
 
@@ -47,6 +48,7 @@ const Register = () => {
         name,
         email,
         password,
+        answer: removeVietnameseTones(answer.toLowerCase()),
       });
       if (res && res.data.success) {
         toast.success(res.data && res.data.message);
@@ -56,7 +58,7 @@ const Register = () => {
       }
     } catch (error) {
       console.log(error);
-      toast.error("Something went wrong");
+      toast.error(error.response.data.message);
     }
   };
 
@@ -168,6 +170,27 @@ const Register = () => {
                   }}
                   required
                 />
+              </Box>
+              <Box mb={2}>
+                <TextField
+                  variant="outlined"
+                  margin="normal"
+                  fullWidth
+                  name="answer"
+                  label="Món ăn yêu thích của bạn"
+                  type="text"
+                  id="answer"
+                  autoComplete="answer"
+                  value={answer}
+                  onChange={(e) => setAnswer(e.target.value)}
+                  InputProps={{
+                    endAdornment: <Security position="end" />,
+                  }}
+                  required
+                />
+                <Typography variant="caption" color="textSecondary">
+                  Chú ý, đây là câu hỏi bảo mật để bạn có thể khôi phục mật khẩu
+                </Typography>
               </Box>
               <Button
                 type="submit"

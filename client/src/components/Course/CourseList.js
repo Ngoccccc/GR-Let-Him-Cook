@@ -60,7 +60,7 @@ const CourseList = ({ courses, suggestPage }) => {
               component="img"
               sx={{
                 height: "100%",
-                width: "30%",
+                width: "35%",
                 cursor: "pointer",
               }}
               image={course.image}

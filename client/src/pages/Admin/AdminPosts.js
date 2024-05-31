@@ -20,27 +20,6 @@ function AdminPosts() {
     fetchCategories();
   }, []);
 
-  const handleCreateCategory = () => {};
-
-  // const handleDeleteCategory = async (category) => {
-  //   try {
-  //     await Modal.confirm({
-  //       title: "Xác nhận xóa",
-  //       content: `Bạn có chắc chắn muốn xóa danh mục "${category.name}"?`,
-  //       onOk: async () => {
-  //         await axios.delete(
-  //           `/api/v1/category/delete-category/${category.categoryId}`
-  //         );
-  //         setCategories(
-  //           categories.filter((c) => c.categoryId !== category.categoryId)
-  //         );
-  //       },
-  //     });
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // };
-
   const handleSearch = (e) => {
     setSearchTerm(e.target.value);
   };

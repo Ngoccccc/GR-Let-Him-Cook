@@ -20,6 +20,8 @@ const Sidebar = () => {
       setSelected("4");
     } else if (path.startsWith("/admin/course-approval")) {
       setSelected("5");
+    } else if (path.startsWith("/admin/users")) {
+      setSelected("6");
     }
   }, [location.pathname]);
 
@@ -40,6 +42,9 @@ const Sidebar = () => {
         break;
       case "5":
         navigate("/admin/course-approval");
+        break;
+      case "6":
+        navigate("/admin/users");
         break;
       default:
         break;
@@ -84,6 +89,11 @@ const Sidebar = () => {
             key: "5",
             icon: <FaLeaf />,
             label: "Phê duyệt khóa học",
+          },
+          {
+            key: "6",
+            icon: <FaLeaf />,
+            label: "Quản lý người dùng",
           },
         ]}
       />

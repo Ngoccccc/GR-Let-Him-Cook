@@ -12,6 +12,7 @@ const commentRoutes = require("./routes/commentRoutes.js");
 const courseRoutes = require("./routes/courseRoutes.js");
 const searchRoutes = require("./routes/searchRoutes.js");
 const paymentRoutes = require("./routes/paymentRoutes.js");
+const userRoutes = require("./routes/userRoutes.js");
 dotenv.config();
 
 //database config
@@ -33,6 +34,7 @@ app.use("/api/v1/comment", commentRoutes);
 app.use("/api/v1/course", courseRoutes);
 app.use("/api/v1/search", searchRoutes);
 app.use("/api/v1/payment", paymentRoutes);
+app.use("/api/v1/user", userRoutes);
 
 app.get("/", (req, res) => {
   res.send("<h1>Hello World</h1>");

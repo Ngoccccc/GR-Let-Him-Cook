@@ -446,6 +446,9 @@ const getPostOfCategories = async (req, res) => {
         },
       },
       {
+        $sort: { "postDetails.likeCount": -1 },
+      },
+      {
         $project: {
           _id: "$postDetails._id",
           title: "$postDetails.title",
@@ -454,6 +457,9 @@ const getPostOfCategories = async (req, res) => {
           intendTime: "$postDetails.intendTime",
           likeCount: "$postDetails.likeCount",
         },
+      },
+      {
+        $limit: 5,
       },
     ]);
 

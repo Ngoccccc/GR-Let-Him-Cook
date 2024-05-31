@@ -2,9 +2,13 @@ const express = require("express");
 const {
   registerController,
   loginController,
+  forgotPasswordController,
 } = require("../controllers/authController.js");
 
-const { requireSignIn, requireAdmin } = require("../middlewares/authMiddleware.js");
+const {
+  requireSignIn,
+  requireAdmin,
+} = require("../middlewares/authMiddleware.js");
 //router object
 const router = express.Router();
 
@@ -14,6 +18,9 @@ router.post("/register", registerController);
 
 //LOGIN || POST
 router.post("/login", loginController);
+
+//Forgot Password || POST
+router.post("/forgot-password", forgotPasswordController);
 
 //protected User route auth
 router.get("/user-auth", requireSignIn, (req, res) => {
