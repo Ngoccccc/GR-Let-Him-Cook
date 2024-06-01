@@ -1,32 +1,41 @@
 import React from "react";
 import Layout from "./../components/Layout/Layout";
+import { Container, Grid, Typography, Link } from "@mui/material";
+
 const Contact = () => {
   return (
     <Layout title={"Contact us"}>
-      <div className="row contactus ">
-        <div className="col-md-6 ">
-          <img
-            src="/images/contactus.jpeg"
-            alt="contactus"
-            style={{ width: "100%" }}
-          />
-        </div>
-        <div className="col-md-4">
-          <h1 className="bg-dark p-2 text-white text-center">CONTACT US</h1>
-          <p className="text-justify mt-2">
-            Mọi thắc mắc về sản phẩm, vui lòng liên hệ với chúng tôi
-          </p>
-          <p className="mt-3">
-            : www.cnwweb@cnweb.com
-          </p>
-          <p className="mt-3">
-            : 0123456789
-          </p>
-          <p className="mt-3">
-            : 123-456-789 (hotline)
-          </p>
-        </div>
-      </div>
+      <Container>
+        <Grid container spacing={3}>
+          <Grid item xs={12} md={6}>
+            <img
+              src="https://firebasestorage.googleapis.com/v0/b/ryouriapp.appspot.com/o/avatar%2Fzom-100_ptd7.jpg?alt=media&token=508a3c2c-6ae5-4931-9c10-ac6cefcfed3f"
+              alt="Contact Us"
+              style={{ width: "100%", marginBottom: "20px" }}
+            />
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <Typography variant="h4" align="center" gutterBottom>
+              CONTACT US
+            </Typography>
+            <Typography variant="body1" paragraph align="center">
+              Mọi thắc mắc về sản phẩm, vui lòng liên hệ với chúng tôi
+            </Typography>
+            <Typography variant="body1" align="center">
+              email: ngoc.tt205009@sis.hust.edu.vn
+            </Typography>
+            <Typography variant="body1" align="center">
+              Phone: 0971957964
+            </Typography>
+            <Typography variant="body1" align="center">
+              Facebook:{" "}
+              <Link href="https://www.facebook.com/tienngoc2k2" color="inherit">
+                www.facebook.com
+              </Link>
+            </Typography>
+          </Grid>
+        </Grid>
+      </Container>
     </Layout>
   );
 };
