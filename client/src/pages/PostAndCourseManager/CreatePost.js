@@ -72,6 +72,14 @@ export default function CreatePost({ courseId, role }) {
     event.preventDefault();
     validateFormIngredient();
     validateFormSteps();
+    if (!mediaTitle) {
+      alert("Vui lòng tải ảnh.");
+      return;
+    }
+    if (courseId && !video) {
+      alert("Vui lòng tải video.");
+      return;
+    }
     if (!formValidIngredient || !formValidSteps) {
       alert(
         "Hãy hoàn thiện các form và check lại giá trị số lượng phải là số dương"
@@ -123,7 +131,7 @@ export default function CreatePost({ courseId, role }) {
     try {
       const postSave = await axios.post("/api/v1/post/create-post", postData);
       console.log("Post Data: ", postSave);
-      navigate(`/${role}/recipe-detail/${postSave.post._id}`);
+      navigate(`/${role}/recipe-detail/${postSave.data.post._id}`);
     } catch (err) {
       console.log(err);
     }
@@ -215,7 +223,11 @@ export default function CreatePost({ courseId, role }) {
       <Box component="form" onSubmit={handleSubmit}>
         <TitleForm title={title} setTitle={setTitle} />
         <MediaTitleForm mediaTitle={mediaTitle} setMediaTitle={setMediaTitle} />
-        <VideoForm video={video} setVideo={setVideo} />
+        <VideoForm
+          video={video}
+          setVideo={setVideo}
+          require={courseId && true}
+        />
         <DescriptionForm
           description={description}
           setDescription={setDescription}

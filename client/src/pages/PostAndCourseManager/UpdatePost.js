@@ -185,8 +185,9 @@ export default function UpdatePost({ role }) {
             mediaTitle,
             `images/post/${uniqueId}/mediaTitle`
           );
+    console.log(typeof video);
     const videoUrl =
-      typeof video === "string"
+      typeof video === "string" || video === null
         ? video
         : await handleUploadSingleFile(video, `video/post/${uniqueId}`);
     const postData = {

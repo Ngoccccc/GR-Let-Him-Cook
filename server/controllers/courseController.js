@@ -52,7 +52,7 @@ const updateCourse = async (req, res) => {
         .status(404)
         .json({ success: false, message: "User not found" });
     }
-    if (!course || course.userId != userId) {
+    if (!course || course.userId.toString() != userId.toString()) {
       return res.status(401).json({
         success: false,
         message: "You are not authorized to perform this action.",
@@ -84,6 +84,39 @@ const updateCourse = async (req, res) => {
   }
 };
 
+const deleteCourse = async (req, res) => {
+  try {
+    const userId = req.user._id;
+    const courseId = req.params.courseId;
+
+    const course = await courseModel.findById(courseId);
+    if (!course) {
+      return res
+        .status(404)
+        .json({ success: false, message: "Course not found" });
+    }
+
+    if (course.userId.toString() !== userId.toString()) {
+      return res.status(401).json({
+        success: false,
+        message: "You are not authorized to perform this action.",
+      });
+    }
+
+    await courseModel.findByIdAndUpdate(courseId, { status: "disabled" });
+    await postModel.updateMany({ courseId }, { status: "disabled" });
+    return res.status(200).json({
+      success: true,
+      message: "Course disabled successfully",
+    });
+  } catch (error) {
+    console.log(error);
+    return res
+      .status(500)
+      .json({ success: false, message: "Internal Server Error", error });
+  }
+};
+
 const getAllCourses = async (req, res) => {
   try {
     // Lấy tất cả các khóa học từ cơ sở dữ liệu
@@ -107,7 +140,7 @@ const getAllCourses = async (req, res) => {
 const getMyCourses = async (req, res) => {
   try {
     const courses = await courseModel
-      .find({ userId: req.user._id })
+      .find({ userId: req.user._id, status: { $ne: "disabled" } })
       .populate("userId", "name");
 
     return res.status(200).json({
@@ -270,6 +303,9 @@ const getSingleCourse = async (req, res) => {
     if (req.user.role === "user" || req.user.role === "guest") {
       query.status = "published";
       postQuery.status = "published";
+    } else {
+      query.status = { $ne: "disabled" };
+      postQuery.status = { $ne: "disabled" };
     }
     const courseInfo = await courseModel
       .findOne(query)
@@ -287,7 +323,17 @@ const getSingleCourse = async (req, res) => {
       .populate("userId", "name")
       .select("_id userId title mediaTitle level intendTime likeCount")
       .lean();
-    const data = { courseInfo, posts };
+    const userRegisteredQuantity = await userHaveCourseModel
+      .find({
+        courseId,
+      })
+      .lean();
+    console.log(userRegisteredQuantity.length);
+    const data = {
+      courseInfo,
+      posts,
+      userRegisteredQuantity: userRegisteredQuantity.length,
+    };
     console.log(data);
     return res.status(200).json({ success: true, data });
   } catch (error) {
@@ -297,6 +343,43 @@ const getSingleCourse = async (req, res) => {
       .json({ success: false, message: "Internal Server Error", error });
   }
 };
+
+const getCourseInfo = async (req, res) => {
+  try {
+    const courseId = req.params.courseId;
+    if (!mongoose.Types.ObjectId.isValid(courseId)) {
+      return res.status(404).send({
+        success: false,
+        message: "Invalid params",
+      });
+    }
+    console.log(req.user);
+    let query = { _id: courseId };
+    if (req.user.role === "user" || req.user.role === "guest") {
+      query.status = "published";
+    } else {
+      query.status = { $ne: "disabled" };
+    }
+    const courseInfo = await courseModel
+      .findOne(query)
+      .populate("userId", "name")
+      .lean();
+    if (!courseInfo) {
+      return res.status(404).send({
+        success: false,
+        message: "course not found",
+      });
+    }
+    console.log(courseInfo);
+    return res.status(200).json({ success: true, courseInfo });
+  } catch (error) {
+    console.error(error);
+    return res
+      .status(500)
+      .json({ success: false, message: "Internal Server Error", error });
+  }
+};
+
 const getUnregisteredCourses = async (req, res) => {
   try {
     const userId = req.user._id;
@@ -398,4 +481,6 @@ module.exports = {
   getSingleCourse,
   getCoursesUnapproved,
   getMyCourses,
+  deleteCourse,
+  getCourseInfo,
 };

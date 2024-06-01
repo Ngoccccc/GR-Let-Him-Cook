@@ -12,7 +12,7 @@ import {
 } from "@mui/material/";
 import { AttachMoney, Description, ListAlt } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
-const CourseCard = ({ course }) => {
+const CourseCard = ({ course, role }) => {
   const navigate = useNavigate();
   return (
     <Grid key={course._id} sx={{ px: 3 }}>
@@ -24,7 +24,7 @@ const CourseCard = ({ course }) => {
             color: "brown",
           },
         }}
-        onClick={() => navigate(`/admin/course-detail/${course._id}`)}
+        onClick={() => navigate(`/${role}/course-detail/${course._id}`)}
       >
         <CardMedia
           component="img"

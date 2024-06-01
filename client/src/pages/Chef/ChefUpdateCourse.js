@@ -2,26 +2,60 @@ import React, { useState, useEffect } from "react";
 import { Button, Box, Paper, Typography, Grid, TextField } from "@mui/material";
 import axios from "axios";
 import app from "../../firebase";
-import { ref, uploadBytes, getDownloadURL, getStorage } from "firebase/storage";
+import {
+  ref,
+  uploadBytes,
+  getDownloadURL,
+  getStorage,
+  deleteObject,
+} from "firebase/storage";
 import { v4 as uuidv4 } from "uuid";
 import { CloudUpload, Clear } from "@mui/icons-material";
 import { Image } from "antd";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
-const ChefCreateCourse = () => {
-  const uniqueId = uuidv4();
+const ChefUpdateCourse = () => {
   const navigate = useNavigate();
   const storage = getStorage(app);
-
   const [name, setName] = useState("");
   const [image, setImage] = useState(null);
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState(0);
   const [loading, setLoading] = useState(false);
+  const [uniqueId, setUniqueId] = useState("");
+  const { id } = useParams();
 
+  const getCourseInfo = async () => {
+    try {
+      const { data } = await axios.get(`/api/v1/course/get-course-info/${id}`);
+      console.log(data);
+      setName(data.courseInfo.name);
+      setDescription(data.courseInfo.description);
+      setImage(data.courseInfo.image);
+      setPrice(data.courseInfo.price);
+      const regex = /\/images%2Fcourse%2F([^%]+)%2Fimage/;
+      const match = data.courseInfo.image.match(regex);
+      console.log(match);
+      setUniqueId(match ? match[1] : null);
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
+      setLoading(false);
+    }
+  };
+  useEffect(() => {
+    if (id) getCourseInfo();
+  }, [id]);
   const handleUpload = async (file, filename) => {
     const storageRef = ref(storage, filename);
     await uploadBytes(storageRef, file);
+    return getDownloadURL(storageRef);
+  };
+
+  const handleUploadSingleFile = async (file, filename) => {
+    const storageRef = ref(storage, filename);
+    await deleteObject(storageRef);
+    if (file) await uploadBytes(storageRef, file);
     return getDownloadURL(storageRef);
   };
 
@@ -30,11 +64,18 @@ const ChefCreateCourse = () => {
     if (price <= 0) {
       return;
     }
+    if (!image) {
+      alert("Vui lòng tải ảnh lên");
+      return;
+    }
     setLoading(true);
-    const imageUrl = await handleUpload(
-      image,
-      `images/course/${uniqueId}/image`
-    );
+    const imageUrl =
+      typeof image === "string"
+        ? image
+        : await handleUploadSingleFile(
+            image,
+            `images/course/${uniqueId}/image`
+          );
 
     const courseData = {
       name,
@@ -44,8 +85,8 @@ const ChefCreateCourse = () => {
     };
     console.log(courseData);
     try {
-      const course = await axios.post(
-        "/api/v1/course/create-course",
+      const course = await axios.put(
+        `/api/v1/course/update-course/${id}`,
         courseData
       );
       console.log("Post Data: ", course);
@@ -59,7 +100,7 @@ const ChefCreateCourse = () => {
   return (
     <Paper elevation={3} sx={{ p: 4 }}>
       <Typography variant="h4" gutterBottom>
-        Tạo bài khóa học nấu ăn mới
+        Chỉnh sửa khóa học nấu ăn: {name}
       </Typography>
       <Box component="form" onSubmit={handleSubmit}>
         <TextField
@@ -84,7 +125,6 @@ const ChefCreateCourse = () => {
               type="file"
               accept="image/*"
               hidden
-              required
               onChange={(e) => setImage(e.target.files[0])}
             />
           </Button>
@@ -149,11 +189,11 @@ const ChefCreateCourse = () => {
           size="large"
           disabled={loading}
         >
-          Đăng bài hướng dẫn
+          Chỉnh sửa
         </Button>
       </Box>
     </Paper>
   );
 };
 
-export default ChefCreateCourse;
+export default ChefUpdateCourse;

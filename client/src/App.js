@@ -34,6 +34,9 @@ import ChefCreatePost from "./pages/Chef/ChefCreatePost";
 import ChefUpdatePost from "./pages/Chef/ChefUpdatePost";
 import ChefRecipeDetail from "./pages/Chef/ChefRecipeDetail";
 import ChefCreateCourse from "./pages/Chef/ChefCreateCourse";
+import ChefCourseDetail from "./pages/Chef/ChefCourseDetail";
+import ChefCreatePostForCourse from "./pages/Chef/ChefCreatePostForCourse";
+import ChefUpdateCourse from "./pages/Chef/ChefUpdateCourse";
 function App() {
   return (
     <>
@@ -76,6 +79,12 @@ function App() {
           <Route path="courses" element={<ChefCourses />} />
           <Route path="recipe-detail/:id" element={<ChefRecipeDetail />} />
           <Route path="create-course" element={<ChefCreateCourse />} />
+          <Route path="update-course/:id" element={<ChefUpdateCourse />} />
+          <Route path="course-detail/:id" element={<ChefCourseDetail />} />
+          <Route
+            path="create-post-for-course/:id"
+            element={<ChefCreatePostForCourse />}
+          />
         </Route>
         <Route path="*" element={<PageNotFound />} />
       </Routes>
