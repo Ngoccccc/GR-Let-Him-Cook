@@ -34,8 +34,8 @@ const BannerSlide = () => {
   const [newPosts, setNewPosts] = useState([]);
   const getNewPosts = async () => {
     try {
-      const { data } = await axios.get(`/api/v1/post/get-new-posts`);
-      setNewPosts(data.posts);
+      const { data } = await axios.get(`/api/v1/post/get-post-by-time`);
+      setNewPosts(data.postOfCategory);
       console.log(data);
     } catch (error) {
       console.log(error);
@@ -54,16 +54,16 @@ const BannerSlide = () => {
             <Grid
               sx={{ cursor: "pointer" }}
               key={index}
-              onClick={() => handleTitleClick(recipe._id)}
+              onClick={() => handleTitleClick(recipe.postId._id)}
             >
               <div
                 style={{
                   ...divStyle,
-                  backgroundImage: `url(${recipe.mediaTitle})`,
+                  backgroundImage: `url(${recipe.postId.mediaTitle})`,
                 }}
               >
                 <div style={titleStyle}>
-                  <Typography variant="h6">{recipe.title}</Typography>
+                  <Typography variant="h6">{recipe.postId.title}</Typography>
                 </div>
               </div>
             </Grid>

@@ -12,11 +12,15 @@ import {
   Form,
   Input,
 } from "antd";
+import { SearchOutlined } from "@ant-design/icons";
+import removeVietnameseTones from "../../utils/removeVietnameseTones";
 
 function AdminCategory() {
   const [categories, setCategories] = useState([]);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [currentCategory, setCurrentCategory] = useState(null);
+  const [searchQuery, setSearchQuery] = useState("");
+
   const [form] = Form.useForm();
 
   const columns = [
@@ -128,6 +132,16 @@ function AdminCategory() {
     setIsModalVisible(false);
   };
 
+  const handleSearch = (event) => {
+    setSearchQuery(event.target.value);
+  };
+
+  const filteredCategories = categories.filter((category) =>
+    removeVietnameseTones(category.name.toLowerCase()).includes(
+      removeVietnameseTones(searchQuery.toLowerCase())
+    )
+  );
+
   return (
     <div>
       <Row gutter={[24, 0]}>
@@ -139,6 +153,12 @@ function AdminCategory() {
             extra={
               <Space>
                 <Space>
+                  <Input
+                    placeholder="Tìm kiếm danh mục"
+                    prefix={<SearchOutlined />}
+                    value={searchQuery}
+                    onChange={handleSearch}
+                  />
                   <Button type="primary" onClick={handleCreateCategory}>
                     Thêm danh mục
                   </Button>
@@ -148,10 +168,10 @@ function AdminCategory() {
           >
             <Table
               pagination={{
-                pageSize: 5,
+                pageSize: 10,
               }}
               columns={columns}
-              dataSource={categories}
+              dataSource={filteredCategories}
               className="ant-border-space"
             />
           </Card>

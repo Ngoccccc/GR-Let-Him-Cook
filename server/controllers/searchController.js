@@ -60,7 +60,7 @@ const searchGlobal = async (req, res) => {
       keys: ["name", "description"],
     });
     const resultPost = fusePost.search(search);
-    const resultCategory = fuseCategory.search(search);
+    const resultCategory = fuseCategory.search(search).slice(0, 3);
     const resultIngredient = fuseIngredient.search(search);
     const resultCourse = fuseCourse.search(search);
     // Lưu trữ danh sách ID theo thứ tự từ Fuse.js

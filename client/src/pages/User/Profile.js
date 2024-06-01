@@ -83,12 +83,15 @@ const Profile = () => {
               </Typography>
             ) : (
               <>
-                {isRequestSent === "rejected" ? (
+                {isRequestSent === "rejected" || isRequestSent == "" ? (
                   <>
-                    <Typography component="h1" gutterBottom>
-                      Bạn đã bị từ chối lên đầu bếp. Tuy nhiên đừng nản chí, hãy
-                      yêu cầu thêm
-                    </Typography>
+                    {isRequestSent === "rejected" && (
+                      <Typography component="h1" gutterBottom>
+                        Bạn đã bị từ chối lên đầu bếp. Tuy nhiên đừng nản chí,
+                        hãy yêu cầu thêm
+                      </Typography>
+                    )}
+
                     <Typography component="h1" gutterBottom>
                       Trở thành đầu bếp để có thể đăng bài hướng dẫn nấu ăn và
                       kiếm tiền từ đăng khóa học

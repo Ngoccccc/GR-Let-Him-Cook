@@ -29,7 +29,7 @@ const CategoryList = () => {
       {!categories ? (
         <Loading />
       ) : (
-        <Grid sx={{ mt: 1 }}>
+        <Grid>
           <Typography
             variant="h5"
             component="h2"

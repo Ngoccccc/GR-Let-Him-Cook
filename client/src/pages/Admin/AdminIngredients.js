@@ -12,12 +12,14 @@ import {
   Form,
   Input,
 } from "antd";
-
+import { SearchOutlined } from "@ant-design/icons";
+import removeVietnameseTones from "../../utils/removeVietnameseTones";
 function AdminIngredients() {
   const [ingredients, setIngredients] = useState([]);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [currentIngredient, setCurrentIngredient] = useState(null);
   const [form] = Form.useForm();
+  const [searchQuery, setSearchQuery] = useState("");
 
   const columns = [
     {
@@ -129,6 +131,15 @@ function AdminIngredients() {
     setIsModalVisible(false);
   };
 
+  const handleSearch = (event) => {
+    setSearchQuery(event.target.value);
+  };
+
+  const filteredIngredients = ingredients.filter((ingredient) =>
+    removeVietnameseTones(ingredient.name.toLowerCase()).includes(
+      removeVietnameseTones(searchQuery.toLowerCase())
+    )
+  );
   return (
     <div>
       <Row gutter={[24, 0]}>
@@ -140,6 +151,12 @@ function AdminIngredients() {
             extra={
               <Space>
                 <Space>
+                  <Input
+                    placeholder="Tìm kiếm danh mục"
+                    prefix={<SearchOutlined />}
+                    value={searchQuery}
+                    onChange={handleSearch}
+                  />
                   <Button type="primary" onClick={handleCreateIngredient}>
                     Thêm nguyên liệu
                   </Button>
@@ -149,10 +166,10 @@ function AdminIngredients() {
           >
             <Table
               pagination={{
-                pageSize: 5,
+                pageSize: 10,
               }}
               columns={columns}
-              dataSource={ingredients}
+              dataSource={filteredIngredients}
               className="ant-border-space"
             />
           </Card>

@@ -1,0 +1,2825 @@
+{
+  "meals": [
+    {
+      "idIngredient": "1",
+      "strIngredient": "Gà",
+      "unit": "Con"
+    },
+    {
+      "idIngredient": "2",
+      "strIngredient": "Cá hồi",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "3",
+      "strIngredient": "Thịt bò",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "4",
+      "strIngredient": "Thịt lợn",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "5",
+      "strIngredient": "Bơ",
+      "unit": "Quả"
+    },
+    {
+      "idIngredient": "9",
+      "strIngredient": "Giấm táo",
+      "unit": "Muỗng canh"
+    },
+    {
+      "idIngredient": "10",
+      "strIngredient": "Măng tây",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "11",
+      "strIngredient": "Cà tím",
+      "unit": "Quả"
+    },
+    {
+      "idIngredient": "13",
+      "strIngredient": "Cà chua bi",
+      "unit": "Quả"
+    },
+    {
+      "idIngredient": "14",
+      "strIngredient": "Thịt ba chỉ xông khói",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "15",
+      "strIngredient": "Bột nở",
+      "unit": "Muỗng cà phê"
+    },
+    {
+      "idIngredient": "16",
+      "strIngredient": "Giấm balsamic",
+      "unit": "Muỗng canh"
+    },
+    {
+      "idIngredient": "17",
+      "strIngredient": "Húng quế",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "18",
+      "strIngredient": "Lá húng quế",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "19",
+      "strIngredient": "Gạo basmati",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "20",
+      "strIngredient": "Lá nguyệt quế",
+      "unit": "Lá"
+    },
+    {
+      "idIngredient": "21",
+      "strIngredient": "Lá nguyệt quế",
+      "unit": "Lá"
+    },
+    {
+      "idIngredient": "23",
+      "strIngredient": "Thịt ức bò",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "24",
+      "strIngredient": "Thịt thăn bò",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "25",
+      "strIngredient": "Nước xốt thịt bò",
+      "unit": "Muỗng canh"
+    },
+    {
+      "idIngredient": "26",
+      "strIngredient": "Nước dùng bò",
+      "unit": "Lít"
+    },
+    {
+      "idIngredient": "27",
+      "strIngredient": "Bicarbonate Of Soda",
+      "unit": "Muỗng cà phê"
+    },
+    {
+      "idIngredient": "28",
+      "strIngredient": "Biryani Masala",
+      "unit": "Muỗng cà phê"
+    },
+    {
+      "idIngredient": "29",
+      "strIngredient": "Tiêu đen",
+      "unit": "Muỗng cà phê"
+    },
+    {
+      "idIngredient": "30",
+      "strIngredient": "Mật đường đen",
+      "unit": "Muỗng canh"
+    },
+    {
+      "idIngredient": "31",
+      "strIngredient": "Đậu Borlotti",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "32",
+      "strIngredient": "Mì Bowtie",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "33",
+      "strIngredient": "Táo Bramley",
+      "unit": "Quả"
+    },
+    {
+      "idIngredient": "34",
+      "strIngredient": "Rượu Brandy",
+      "unit": "Muỗng canh"
+    },
+    {
+      "idIngredient": "35",
+      "strIngredient": "Bánh mì",
+      "unit": "Ổ"
+    },
+    {
+      "idIngredient": "36",
+      "strIngredient": "Bột vụn bánh mì",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "37",
+      "strIngredient": "Bông cải xanh",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "38",
+      "strIngredient": "Đậu lăng nâu",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "39",
+      "strIngredient": "Gạo lứt",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "40",
+      "strIngredient": "Đường nâu",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "41",
+      "strIngredient": "Bơ",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "43",
+      "strIngredient": "Cacao",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "44",
+      "strIngredient": "Cajun",
+      "unit": "Muỗng cà phê"
+    },
+    {
+      "idIngredient": "45",
+      "strIngredient": "Cà chua đóng hộp",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "46",
+      "strIngredient": "Đậu Cannellini",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "47",
+      "strIngredient": "Bạch đậu khấu",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "49",
+      "strIngredient": "Cà rốt",
+      "unit": "Củ"
+    },
+    {
+      "idIngredient": "50",
+      "strIngredient": "Hạt điều",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "51",
+      "strIngredient": "Hạt điều",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "52",
+      "strIngredient": "Đường mịn",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "53",
+      "strIngredient": "Ớt Cayenne",
+      "unit": "Muỗng cà phê"
+    },
+    {
+      "idIngredient": "54",
+      "strIngredient": "Celeriac",
+      "unit": "Củ"
+    },
+    {
+      "idIngredient": "55",
+      "strIngredient": "Cần tây",
+      "unit": "Cọng"
+    },
+    {
+      "idIngredient": "56",
+      "strIngredient": "Muối cần tây",
+      "unit": "Muỗng cà phê"
+    },
+    {
+      "idIngredient": "57",
+      "strIngredient": "Hẹ tây",
+      "unit": "Củ"
+    },
+    {
+      "idIngredient": "58",
+      "strIngredient": "Khoai tây Charlotte",
+      "unit": "Củ"
+    },
+    {
+      "idIngredient": "59",
+      "strIngredient": "Phô mai Cheddar",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "60",
+      "strIngredient": "Phô mai",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "61",
+      "strIngredient": "Phô mai đông",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "62",
+      "strIngredient": "Cà chua bi",
+      "unit": "Quả"
+    },
+    {
+      "idIngredient": "63",
+      "strIngredient": "Nấm hạt dẻ",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "65",
+      "strIngredient": "Ức gà",
+      "unit": "Miếng"
+    },
+    {
+      "idIngredient": "66",
+      "strIngredient": "Ức gà",
+      "unit": "Miếng"
+    },
+    {
+      "idIngredient": "67",
+      "strIngredient": "Đùi gà",
+      "unit": "Cái"
+    },
+    {
+      "idIngredient": "68",
+      "strIngredient": "Nước dùng gà",
+      "unit": "Lít"
+    },
+    {
+      "idIngredient": "70",
+      "strIngredient": "Đùi gà",
+      "unit": "Cái"
+    },
+    {
+      "idIngredient": "71",
+      "strIngredient": "Đậu gà",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "72",
+      "strIngredient": "Bột ớt",
+      "unit": "Muỗng cà phê"
+    },
+    {
+      "idIngredient": "73",
+      "strIngredient": "Bơ lạnh",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "74",
+      "strIngredient": "Ớt",
+      "unit": "Quả"
+    },
+    {
+      "idIngredient": "75",
+      "strIngredient": "Bột ớt",
+      "unit": "Muỗng cà phê"
+    },
+    {
+      "idIngredient": "76",
+      "strIngredient": "Cải ngọt Trung Quốc",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "77",
+      "strIngredient": "Chocolate Chips",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "78",
+      "strIngredient": "Hành tây băm",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "79",
+      "strIngredient": "Ngò băm",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "80",
+      "strIngredient": "Cà chua băm",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "81",
+      "strIngredient": "Chorizo",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "82",
+      "strIngredient": "Bánh pudding Giáng sinh",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "83",
+      "strIngredient": "Ngò rí",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "84",
+      "strIngredient": "Quế",
+      "unit": "Muỗng cà phê"
+    },
+    {
+      "idIngredient": "85",
+      "strIngredient": "Thanh quế",
+      "unit": "Thanh"
+    },
+    {
+      "idIngredient": "87",
+      "strIngredient": "Đinh hương",
+      "unit": "Muỗng cà phê"
+    },
+    {
+      "idIngredient": "88",
+      "strIngredient": "Đường dừa",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "89",
+      "strIngredient": "Cacao",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "90",
+      "strIngredient": "Kem dừa",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "91",
+      "strIngredient": "Sữa dừa",
+      "unit": "Ml"
+    },
+    {
+      "idIngredient": "92",
+      "strIngredient": "Phô mai Colby Jack",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "93",
+      "strIngredient": "Nước lạnh",
+      "unit": "Ml"
+    },
+    {
+      "idIngredient": "94",
+      "strIngredient": "Sữa đặc",
+      "unit": "Ml"
+    },
+    {
+      "idIngredient": "95",
+      "strIngredient": "Ngò",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "96",
+      "strIngredient": "Lá ngò",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "97",
+      "strIngredient": "Hạt ngò",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "98",
+      "strIngredient": "Tortilla ngô",
+      "unit": "Cái"
+    },
+    {
+      "idIngredient": "99",
+      "strIngredient": "Bột bắp",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "100",
+      "strIngredient": "Kem",
+      "unit": "Ml"
+    },
+    {
+      "idIngredient": "101",
+      "strIngredient": "Kem Fraiche",
+      "unit": "Muỗng canh"
+    },
+    {
+      "idIngredient": "102",
+      "strIngredient": "Phô mai Feta cắt khối",
+      "unit": "Lạng"
+    },
+    {
+      "idIngredient": "103",
+      "strIngredient": "Dưa chuột",
+      "unit": "Quả"
+    },
+    {
+      "idIngredient": "104",
+      "strIngredient": "Cumin",
+      "unit": "Muỗng cà phê"
+    },
+    {
+      "idIngredient": "105",
+      "strIngredient": "Hạt cumin",
+      "unit": "Muỗng cà phê"
+    },
+    {
+      "idIngredient": "106",
+      "strIngredient": "Bột cà ri",
+      "unit": "Muỗng canh"
+    },
+    {
+      "idIngredient": "107",
+      "strIngredient": "Đường nâu đậm",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "108",
+      "strIngredient": "Đường nâu mềm đậm",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "109",
+      "strIngredient": "Nước tương đậm",
+      "unit": "Muỗng canh"
+    },
+    {
+      "idIngredient": "110",
+      "strIngredient": "Đường Demerara",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "111",
+      "strIngredient": "Cà chua thái hạt lựu",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "112",
+      "strIngredient": "Bánh quy tiêu hóa",
+      "unit": "Cái"
+    },
+    {
+      "idIngredient": "113",
+      "strIngredient": "Thì là",
+      "unit": "Nhánh"
+    },
+    {
+      "idIngredient": "114",
+      "strIngredient": "Thịt Doner",
+      "unit": "Lạng"
+    },
+    {
+      "idIngredient": "115",
+      "strIngredient": "Kem đôi",
+      "unit": "Muỗng canh"
+    },
+    {
+      "idIngredient": "116",
+      "strIngredient": "Oregano khô",
+      "unit": "Muỗng cà phê"
+    },
+    {
+      "idIngredient": "117",
+      "strIngredient": "Rượu vang trắng khô",
+      "unit": "Ml"
+    },
+    {
+      "idIngredient": "119",
+      "strIngredient": "Cà tím",
+      "unit": "Quả"
+    },
+    {
+      "idIngredient": "120",
+      "strIngredient": "Chả giò",
+      "unit": "Cái"
+    },
+    {
+      "idIngredient": "121",
+      "strIngredient": "Lòng trắng trứng",
+      "unit": "Cái"
+    },
+    {
+      "idIngredient": "122",
+      "strIngredient": "Lòng đỏ trứng",
+      "unit": "Cái"
+    },
+    {
+      "idIngredient": "123",
+      "strIngredient": "Trứng",
+      "unit": "Cái"
+    },
+    {
+      "idIngredient": "124",
+      "strIngredient": "Nước sốt Enchilada",
+      "unit": "Ml"
+    },
+    {
+      "idIngredient": "125",
+      "strIngredient": "Mù tạt Anh",
+      "unit": "Muỗng cà phê"
+    },
+    {
+      "idIngredient": "126",
+      "strIngredient": "Dầu ô liu nguyên chất",
+      "unit": "Ml"
+    },
+    {
+      "idIngredient": "127",
+      "strIngredient": "Gia vị Fajita",
+      "unit": "Muỗng cà phê"
+    },
+    {
+      "idIngredient": "128",
+      "strIngredient": "Mì Farfalle",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "130",
+      "strIngredient": "Củ thì là",
+      "unit": "Củ"
+    },
+    {
+      "idIngredient": "131",
+      "strIngredient": "Hạt thì là",
+      "unit": "Muỗng cà phê"
+    },
+    {
+      "idIngredient": "132",
+      "strIngredient": "Fenugreek",
+      "unit": "Muỗng cà phê"
+    },
+    {
+      "idIngredient": "133",
+      "strIngredient": "Phô mai Feta",
+      "unit": "Lạng"
+    },
+    {
+      "idIngredient": "134",
+      "strIngredient": "Nước mắm",
+      "unit": "Muỗng canh"
+    },
+    {
+      "idIngredient": "135",
+      "strIngredient": "Hạnh nhân cắt lát",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "136",
+      "strIngredient": "Trứng Flax",
+      "unit": "Cái"
+    },
+    {
+      "idIngredient": "137",
+      "strIngredient": "Bột mì",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "138",
+      "strIngredient": "Bánh mì bột mì",
+      "unit": "Cái"
+    },
+    {
+      "idIngredient": "139",
+      "strIngredient": "Khoai tây bột",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "140",
+      "strIngredient": "Trứng đánh bông",
+      "unit": "Cái"
+    },
+    {
+      "idIngredient": "141",
+      "strIngredient": "Trứng gà đánh bông",
+      "unit": "Cái"
+    },
+    {
+      "idIngredient": "142",
+      "strIngredient": "Đậu lăng Pháp",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "143",
+      "strIngredient": "Húng quế tươi",
+      "unit": "Nhánh"
+    },
+    {
+      "idIngredient": "144",
+      "strIngredient": "Húng tây tươi",
+      "unit": "Nhánh"
+    },
+    {
+      "idIngredient": "145",
+      "strIngredient": "Ngò tươi cắt nhỏ",
+      "unit": "Nhánh"
+    },
+    {
+      "idIngredient": "146",
+      "strIngredient": "Khoai tây chiên",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "147",
+      "strIngredient": "Sữa chua nguyên chất",
+      "unit": "Ml"
+    },
+    {
+      "idIngredient": "148",
+      "strIngredient": "Garam Masala",
+      "unit": "Muỗng cà phê"
+    },
+    {
+      "idIngredient": "149",
+      "strIngredient": "Tỏi",
+      "unit": "Củ"
+    },
+    {
+      "idIngredient": "150",
+      "strIngredient": "Tép tỏi",
+      "unit": "Tép"
+    },
+    {
+      "idIngredient": "151",
+      "strIngredient": "Bột tỏi",
+      "unit": "Muỗng cà phê"
+    },
+    {
+      "idIngredient": "152",
+      "strIngredient": "Nước sốt tỏi",
+      "unit": "Ml"
+    },
+    {
+      "idIngredient": "153",
+      "strIngredient": "Ghee",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "154",
+      "strIngredient": "Gừng",
+      "unit": "Củ"
+    },
+    {
+      "idIngredient": "155",
+      "strIngredient": "Nước gừng",
+      "unit": "Ml"
+    },
+    {
+      "idIngredient": "156",
+      "strIngredient": "Tỏi gừng băm",
+      "unit": "Muỗng canh"
+    },
+    {
+      "idIngredient": "157",
+      "strIngredient": "Gừng băm",
+      "unit": "Muỗng cà phê"
+    },
+    {
+      "idIngredient": "158",
+      "strIngredient": "Xi-rô vàng",
+      "unit": "Ml"
+    },
+    {
+      "idIngredient": "159",
+      "strIngredient": "Phô mai Gouda",
+      "unit": "Lạng"
+    },
+    {
+      "idIngredient": "160",
+      "strIngredient": "Đường cát",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "161",
+      "strIngredient": "Cà chua bi",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "162",
+      "strIngredient": "Sữa chua Hy Lạp",
+      "unit": "Ml"
+    },
+    {
+      "idIngredient": "163",
+      "strIngredient": "Đậu xanh",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "165",
+      "strIngredient": "Ớt xanh",
+      "unit": "Quả"
+    },
+    {
+      "idIngredient": "166",
+      "strIngredient": "Olive Xanh",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "167",
+      "strIngredient": "Đậu Lăng Đỏ",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "168",
+      "strIngredient": "Salsa Xanh",
+      "unit": "Chén"
+    },
+    {
+      "idIngredient": "169",
+      "strIngredient": "Hạt Hạnh Nhân Băm",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "170",
+      "strIngredient": "Bột Hạnh Nhân",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "171",
+      "strIngredient": "Bột Tiêu Mèo",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "172",
+      "strIngredient": "Phô Mai Gruyère",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "173",
+      "strIngredient": "Vỏ Bánh Taco Cứng",
+      "unit": "Cái"
+    },
+    {
+      "idIngredient": "174",
+      "strIngredient": "Hoa Hồi",
+      "unit": "Quả"
+    },
+    {
+      "idIngredient": "175",
+      "strIngredient": "Gia Vị Harissa",
+      "unit": "Chén"
+    },
+    {
+      "idIngredient": "176",
+      "strIngredient": "Kem Đặc",
+      "unit": "Hũ"
+    },
+    {
+      "idIngredient": "177",
+      "strIngredient": "Mật Ong",
+      "unit": "Chén"
+    },
+    {
+      "idIngredient": "178",
+      "strIngredient": "Củ Cải Trắng",
+      "unit": "Cây"
+    },
+    {
+      "idIngredient": "179",
+      "strIngredient": "Nước Dùng Bò Ngon",
+      "unit": "Chén"
+    },
+    {
+      "idIngredient": "180",
+      "strIngredient": "Sốt Cà Chua Cay",
+      "unit": "Chén"
+    },
+    {
+      "idIngredient": "181",
+      "strIngredient": "Kem",
+      "unit": "Hũ"
+    },
+    {
+      "idIngredient": "182",
+      "strIngredient": "Xúc Xích Bì Ý",
+      "unit": "Cái"
+    },
+    {
+      "idIngredient": "183",
+      "strIngredient": "Gia Vị Ý",
+      "unit": "Chén"
+    },
+    {
+      "idIngredient": "184",
+      "strIngredient": "Ớt Jalapeno",
+      "unit": "Quả"
+    },
+    {
+      "idIngredient": "185",
+      "strIngredient": "Gạo Lứt",
+      "unit": "Kg"
+    },
+    {
+      "idIngredient": "186",
+      "strIngredient": "Khoai Mỡ",
+      "unit": "Cây"
+    },
+    {
+      "idIngredient": "187",
+      "strIngredient": "Cải Bẹ Xanh",
+      "unit": "Bó"
+    },
+    {
+      "idIngredient": "188",
+      "strIngredient": "Hột Hồ Lô",
+      "unit": "Kg"
+    },
+    {
+      "idIngredient": "189",
+      "strIngredient": "Tôm Sú",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "190",
+      "strIngredient": "Muối Kosher",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "191",
+      "strIngredient": "Thịt Cừu",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "192",
+      "strIngredient": "Thăn Cừu",
+      "unit": "Cái"
+    },
+    {
+      "idIngredient": "193",
+      "strIngredient": "Thịt Cừu Xay Nhuyễn",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "194",
+      "strIngredient": "Miến Lasagne",
+      "unit": "Tấm"
+    },
+    {
+      "idIngredient": "195",
+      "strIngredient": "Thịt Bò Xay Ít Mỡ",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "196",
+      "strIngredient": "Porro",
+      "unit": "Cái"
+    },
+    {
+      "idIngredient": "197",
+      "strIngredient": "Chanh",
+      "unit": "Quả"
+    },
+    {
+      "idIngredient": "198",
+      "strIngredient": "Nước Chanh",
+      "unit": "Chén"
+    },
+    {
+      "idIngredient": "199",
+      "strIngredient": "Vỏ Chanh",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "200",
+      "strIngredient": "Chanh",
+      "unit": "Quả"
+    },
+    {
+      "idIngredient": "201",
+      "strIngredient": "Rau Diếp",
+      "unit": "Bó"
+    },
+    {
+      "idIngredient": "202",
+      "strIngredient": "Chanh",
+      "unit": "Quả"
+    },
+    {
+      "idIngredient": "203",
+      "strIngredient": "Rau Diếp",
+      "unit": "Bó"
+    },
+    {
+      "idIngredient": "204",
+      "strIngredient": "Sườn Dê",
+      "unit": "Cái"
+    },
+    {
+      "idIngredient": "205",
+      "strIngredient": "Mực",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "206",
+      "strIngredient": "Bột Mực",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "207",
+      "strIngredient": "Hoa Hồi",
+      "unit": "Quả"
+    },
+    {
+      "idIngredient": "208",
+      "strIngredient": "Bột Massaman Curry",
+      "unit": "Chén"
+    },
+    {
+      "idIngredient": "209",
+      "strIngredient": "Chuối Medjool",
+      "unit": "Cái"
+    },
+    {
+      "idIngredient": "210",
+      "strIngredient": "Tô Bánh Meringue",
+      "unit": "Cái"
+    },
+    {
+      "idIngredient": "211",
+      "strIngredient": "Sữa",
+      "unit": "Chén"
+    },
+    {
+      "idIngredient": "212",
+      "strIngredient": "Tỏi Băm",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "213",
+      "strIngredient": "Kẹo Mềm Miniature",
+      "unit": "Hũ"
+    },
+    {
+      "idIngredient": "214",
+      "strIngredient": "Rau Mạ",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "215",
+      "strIngredient": "Phô Mai Monterey Jack",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "216",
+      "strIngredient": "Bóng Phô Mai Mozzarella",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "217",
+      "strIngredient": "Đường Mật On",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "218",
+      "strIngredient": "Nấm",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "219",
+      "strIngredient": "Mù Tạt",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "220",
+      "strIngredient": "Mù Tạt",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "221",
+      "strIngredient": "Hạt Mù Tạt",
+      "unit": "Chén"
+    },
+    {
+      "idIngredient": "222",
+      "strIngredient": "Hạt Nhục Đậu Khấu",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "223",
+      "strIngredient": "Dầu",
+      "unit": "Chén"
+    },
+    {
+      "idIngredient": "224",
+      "strIngredient": "Dầu Olive",
+      "unit": "Chén"
+    },
+    {
+      "idIngredient": "225",
+      "strIngredient": "Hành Tây Muối",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "226",
+      "strIngredient": "Muối Hành",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "227",
+      "strIngredient": "Hành",
+      "unit": "Cây"
+    },
+    {
+      "idIngredient": "228",
+      "strIngredient": "Cam",
+      "unit": "Quả"
+    },
+    {
+      "idIngredient": "229",
+      "strIngredient": "Vỏ Cam",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "230",
+      "strIngredient": "Rau Mùi",
+      "unit": "Bó"
+    },
+    {
+      "idIngredient": "231",
+      "strIngredient": "Nước Mắm",
+      "unit": "Chén"
+    },
+    {
+      "idIngredient": "232",
+      "strIngredient": "Ớt Bột",
+      "unit": "Chén"
+    },
+    {
+      "idIngredient": "233",
+      "strIngredient": "Giò Hầm",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "234",
+      "strIngredient": "Phô Mai Parmesan",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "235",
+      "strIngredient": "Phô Mai",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "236",
+      "strIngredient": "Phô Mai Parmigiano-reggiano",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "237",
+      "strIngredient": "Rau Mùi",
+      "unit": "Bó"
+    },
+    {
+      "idIngredient": "238",
+      "strIngredient": "Bơ Đậu Phọt",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "239",
+      "strIngredient": "Dầu Đậu Phọt",
+      "unit": "Chén"
+    },
+    {
+      "idIngredient": "240",
+      "strIngredient": "Đậu Phọt",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "241",
+      "strIngredient": "Đậu Hà Lan",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "242",
+      "strIngredient": "Hạt Dẻ Cười",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "243",
+      "strIngredient": "Mì Penne Rigate",
+      "unit": "Tấm"
+    },
+    {
+      "idIngredient": "244",
+      "strIngredient": "Ớt",
+      "unit": "Quả"
+    },
+    {
+      "idIngredient": "245",
+      "strIngredient": "Hạt Pine",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "246",
+      "strIngredient": "Olive Đen Lột Hạt",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "247",
+      "strIngredient": "Socola Đen",
+      "unit": "Chén"
+    },
+    {
+      "idIngredient": "248",
+      "strIngredient": "Bột Mì",
+      "unit": "Chén"
+    },
+    {
+      "idIngredient": "249",
+      "strIngredient": "Cà Chua Mận",
+      "unit": "Quả"
+    },
+    {
+      "idIngredient": "250",
+      "strIngredient": "Bột Năng",
+      "unit": "Chén"
+    },
+    {
+      "idIngredient": "251",
+      "strIngredient": "Khoai Tây",
+      "unit": "Cây"
+    },
+    {
+      "idIngredient": "252",
+      "strIngredient": "Tinh Bột Khoai Tây",
+      "unit": "Chén"
+    },
+    {
+      "idIngredient": "253",
+      "strIngredient": "Khoai Tây",
+      "unit": "Cây"
+    },
+    {
+      "idIngredient": "254",
+      "strIngredient": "Tôm",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "255",
+      "strIngredient": "Bột Bánh Puff",
+      "unit": "Chén"
+    },
+    {
+      "idIngredient": "256",
+      "strIngredient": "Mứt Dâu",
+      "unit": "Chén"
+    },
+    {
+      "idIngredient": "257",
+      "strIngredient": "Tôm Hùm Tươi",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "258",
+      "strIngredient": "Hạt Tiêu Đỏ Băm",
+      "unit": "Chén"
+    },
+    {
+      "idIngredient": "259",
+      "strIngredient": "Ớt Đỏ",
+      "unit": "Quả"
+    },
+    {
+      "idIngredient": "260",
+      "strIngredient": "Ớt Đỏ",
+      "unit": "Quả"
+    },
+    {
+      "idIngredient": "261",
+      "strIngredient": "Bột Ớt Đỏ",
+      "unit": "Chén"
+    },
+    {
+      "idIngredient": "262",
+      "strIngredient": "Hành Tây Đỏ",
+      "unit": "Cây"
+    },
+    {
+      "idIngredient": "263",
+      "strIngredient": "Hành Tây Đỏ",
+      "unit": "Cây"
+    },
+    {
+      "idIngredient": "264",
+      "strIngredient": "Ớt Đỏ",
+      "unit": "Quả"
+    },
+    {
+      "idIngredient": "265",
+      "strIngredient": "Hạt Tiêu Đỏ",
+      "unit": "Chén"
+    },
+    {
+      "idIngredient": "266",
+      "strIngredient": "Rượu Vang Đỏ",
+      "unit": "Chén"
+    },
+    {
+      "idIngredient": "267",
+      "strIngredient": "Đậu Bắp Hầm",
+      "unit": "Chén"
+    },
+    {
+      "idIngredient": "268",
+      "strIngredient": "Gạo",
+      "unit": "Chén"
+    },
+    {
+      "idIngredient": "269",
+      "strIngredient": "Bún",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "270",
+      "strIngredient": "Hủ Tiếu",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "271",
+      "strIngredient": "Bún Miến",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "272",
+      "strIngredient": "Mỳ Ý Cống",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "273",
+      "strIngredient": "Rau Rút",
+      "unit": "Bó"
+    },
+    {
+      "idIngredient": "274",
+      "strIngredient": "Yến Mạch",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "275",
+      "strIngredient": "Nghệ",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "276",
+      "strIngredient": "Nhụy Hoa Nghệ Tây",
+      "unit": "Sợi"
+    },
+    {
+      "idIngredient": "277",
+      "strIngredient": "Rau Răm",
+      "unit": "Bó"
+    },
+    {
+      "idIngredient": "278",
+      "strIngredient": "Rau Răm",
+      "unit": "Bó"
+    },
+    {
+      "idIngredient": "279",
+      "strIngredient": "Rượu Sake",
+      "unit": "Chén"
+    },
+    {
+      "idIngredient": "280",
+      "strIngredient": "Salsa",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "281",
+      "strIngredient": "Muối",
+      "unit": "Chén"
+    },
+    {
+      "idIngredient": "282",
+      "strIngredient": "Bơ Sô Cô La",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "283",
+      "strIngredient": "Xà Lách",
+      "unit": "Bó"
+    },
+    {
+      "idIngredient": "284",
+      "strIngredient": "Yến Mạch",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "285",
+      "strIngredient": "Bánh Mì Tự Làm",
+      "unit": "Cái"
+    },
+    {
+      "idIngredient": "286",
+      "strIngredient": "Bột Tăng Cân",
+      "unit": "Chén"
+    },
+    {
+      "idIngredient": "287",
+      "strIngredient": "Sữa Tách Béo",
+      "unit": "Chén"
+    },
+    {
+      "idIngredient": "288",
+      "strIngredient": "Hạt Mè",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "289",
+      "strIngredient": "Hành Tây",
+      "unit": "Cây"
+    },
+    {
+      "idIngredient": "290",
+      "strIngredient": "Phô Mai Mexican",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "291",
+      "strIngredient": "Phô Mai Monterey Jack",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "292",
+      "strIngredient": "Khoai Tây Nhỏ",
+      "unit": "Cây"
+    },
+    {
+      "idIngredient": "293",
+      "strIngredient": "Ớt Paprika Hấp",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "294",
+      "strIngredient": "Ớt Paprika Khói",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "295",
+      "strIngredient": "Kem Chua",
+      "unit": "Chén"
+    },
+    {
+      "idIngredient": "296",
+      "strIngredient": "Xì Dầu",
+      "unit": "Chén"
+    },
+    {
+      "idIngredient": "297",
+      "strIngredient": "Sữa Đậu Nành",
+      "unit": "Chén"
+    },
+    {
+      "idIngredient": "298",
+      "strIngredient": "Mỳ Spaghetti",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "299",
+      "strIngredient": "Rau Cải",
+      "unit": "Bó"
+    },
+    {
+      "idIngredient": "300",
+      "strIngredient": "Hành Tây Xanh",
+      "unit": "Cây"
+    },
+    {
+      "idIngredient": "302",
+      "strIngredient": "Bí đỏ",
+      "unit": "cây"
+    },
+    {
+      "idIngredient": "303",
+      "strIngredient": "Rau xào",
+      "unit": "gói"
+    },
+    {
+      "idIngredient": "304",
+      "strIngredient": "Dâu tây",
+      "unit": "hộp"
+    },
+    {
+      "idIngredient": "305",
+      "strIngredient": "Đường",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "306",
+      "strIngredient": "Nho khô",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "307",
+      "strIngredient": "Dầu hướng dương",
+      "unit": "mililít"
+    },
+    {
+      "idIngredient": "308",
+      "strIngredient": "Me tamarind",
+      "unit": "cái"
+    },
+    {
+      "idIngredient": "309",
+      "strIngredient": "Me tamarind",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "310",
+      "strIngredient": "Nước mắm Thái",
+      "unit": "ml"
+    },
+    {
+      "idIngredient": "311",
+      "strIngredient": "Bột cà ri xanh Thái",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "312",
+      "strIngredient": "Bột cà ri đỏ Thái",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "313",
+      "strIngredient": "Rau mùi",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "315",
+      "strIngredient": "Sốt cà chua",
+      "unit": "ml"
+    },
+    {
+      "idIngredient": "316",
+      "strIngredient": "Cà chua nghiền",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "317",
+      "strIngredient": "Cà chua",
+      "unit": "quả"
+    },
+    {
+      "idIngredient": "318",
+      "strIngredient": "Đậu Toor",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "319",
+      "strIngredient": "Cá ngừ",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "320",
+      "strIngredient": "Nghệ",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "321",
+      "strIngredient": "Bột nghệ",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "322",
+      "strIngredient": "Củ cải",
+      "unit": "cái"
+    },
+    {
+      "idIngredient": "323",
+      "strIngredient": "Hạt vani",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "324",
+      "strIngredient": "Chất chiết xuất vani",
+      "unit": "mililít"
+    },
+    {
+      "idIngredient": "325",
+      "strIngredient": "Thịt bê",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "326",
+      "strIngredient": "Bơ hạt chay",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "327",
+      "strIngredient": "Dầu ăn",
+      "unit": "mililít"
+    },
+
+    {
+      "idIngredient": "328",
+      "strIngredient": "Nước dùng rau củ",
+      "unit": "ml"
+    },
+    {
+      "idIngredient": "329",
+      "strIngredient": "Viên nước dùng rau củ",
+      "unit": "cái"
+    },
+    {
+      "idIngredient": "330",
+      "strIngredient": "Nước sốt vinaigrette",
+      "unit": "ml"
+    },
+    {
+      "idIngredient": "331",
+      "strIngredient": "Lá nho",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "332",
+      "strIngredient": "Giấm",
+      "unit": "mililít"
+    },
+    {
+      "idIngredient": "333",
+      "strIngredient": "Nước",
+      "unit": "mililít"
+    },
+    {
+      "idIngredient": "334",
+      "strIngredient": "Viên socola trắng",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "335",
+      "strIngredient": "Cá trắng",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "336",
+      "strIngredient": "Miếng cá trắng",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "337",
+      "strIngredient": "Giấm trắng",
+      "unit": "mililít"
+    },
+    {
+      "idIngredient": "338",
+      "strIngredient": "Rượu vang trắng",
+      "unit": "mililít"
+    },
+    {
+      "idIngredient": "339",
+      "strIngredient": "Sữa tươi",
+      "unit": "ml"
+    },
+    {
+      "idIngredient": "340",
+      "strIngredient": "Lúa mạch nguyên hạt",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "341",
+      "strIngredient": "Bánh mì ngũ cốc",
+      "unit": "cái"
+    },
+    {
+      "idIngredient": "342",
+      "strIngredient": "Nước sốt Worcestershire",
+      "unit": "ml"
+    },
+    {
+      "idIngredient": "343",
+      "strIngredient": "Sữa chua",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "344",
+      "strIngredient": "Cà rốt",
+      "unit": "củ"
+    },
+    {
+      "idIngredient": "345",
+      "strIngredient": "Bánh pretzel",
+      "unit": "cái"
+    },
+    {
+      "idIngredient": "346",
+      "strIngredient": "Kem phô mai",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "347",
+      "strIngredient": "Đường bột",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "348",
+      "strIngredient": "Bắp rang caramel",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "349",
+      "strIngredient": "Kẹo caramel",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "350",
+      "strIngredient": "Sốt caramel",
+      "unit": "ml"
+    },
+    {
+      "idIngredient": "351",
+      "strIngredient": "Mì ống",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "352",
+      "strIngredient": "Mì fettuccine",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "353",
+      "strIngredient": "Kem đặc",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "354",
+      "strIngredient": "Bột ngô",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "355",
+      "strIngredient": "Nhuyễn",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "356",
+      "strIngredient": "Mì fideo",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "357",
+      "strIngredient": "Cá hồi",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "358",
+      "strIngredient": "Mì hủ dừa",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "359",
+      "strIngredient": "Mực con",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "360",
+      "strIngredient": "Mực",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "361",
+      "strIngredient": "Nước dùng cá",
+      "unit": "ml"
+    },
+    {
+      "idIngredient": "362",
+      "strIngredient": "Cá herring",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "363",
+      "strIngredient": "Olive đen",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "364",
+      "strIngredient": "Hành tây",
+      "unit": "củ"
+    },
+    {
+      "idIngredient": "365",
+      "strIngredient": "Cà chua",
+      "unit": "quả"
+    },
+    {
+      "idIngredient": "366",
+      "strIngredient": "Vịt",
+      "unit": "con"
+    },
+    {
+      "idIngredient": "367",
+      "strIngredient": "Chân vịt",
+      "unit": "cái"
+    },
+    {
+      "idIngredient": "368",
+      "strIngredient": "Viên nước dùng gà",
+      "unit": "cái"
+    },
+    {
+      "idIngredient": "369",
+      "strIngredient": "Mì pappardelle",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "370",
+      "strIngredient": "Mì paccheri",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "371",
+      "strIngredient": "Mì linguine",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "373",
+      "strIngredient": "Đậu Snap",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "374",
+      "strIngredient": "Bánh mì rắn",
+      "unit": "cái"
+    },
+    {
+      "idIngredient": "375",
+      "strIngredient": "Phô mai pháp",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "376",
+      "strIngredient": "Nghêu",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "377",
+      "strIngredient": "Sốt cà chua nấu sẵn",
+      "unit": "ml"
+    },
+    {
+      "idIngredient": "378",
+      "strIngredient": "Dầu hướng dương",
+      "unit": "ml"
+    },
+    {
+      "idIngredient": "379",
+      "strIngredient": "Phô mai Stilton",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "380",
+      "strIngredient": "Đùi cừu",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "381",
+      "strIngredient": "Nửa lưng cừu",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "382",
+      "strIngredient": "Mơ",
+      "unit": "quả"
+    },
+    {
+      "idIngredient": "383",
+      "strIngredient": "Củ cà rốt nước",
+      "unit": "củ"
+    },
+    {
+      "idIngredient": "384",
+      "strIngredient": "Bột mỳ couscous",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "387",
+      "strIngredient": "Bò băm",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "388",
+      "strIngredient": "Thịt gà băm",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "389",
+      "strIngredient": "Sốt BBQ",
+      "unit": "ml"
+    },
+    {
+      "idIngredient": "390",
+      "strIngredient": "Bắp ngọt",
+      "unit": "quả"
+    },
+    {
+      "idIngredient": "391",
+      "strIngredient": "Mỡ ngỗng",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "392",
+      "strIngredient": "Mỡ vịt",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "393",
+      "strIngredient": "Hành hương",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "394",
+      "strIngredient": "Giấm nho đỏ",
+      "unit": "ml"
+    },
+    {
+      "idIngredient": "395",
+      "strIngredient": "Đậu ván",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "396",
+      "strIngredient": "Hoa hồi",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "397",
+      "strIngredient": "Đậu bơ",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "398",
+      "strIngredient": "Đậu pinto",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "399",
+      "strIngredient": "Sốt cà chua",
+      "unit": "ml"
+    },
+    {
+      "idIngredient": "401",
+      "strIngredient": "Mascarpone",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "402",
+      "strIngredient": "Phô mai Mozzarella",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "403",
+      "strIngredient": "Phô mai Ricotta",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "405",
+      "strIngredient": "Mơ sấy",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "406",
+      "strIngredient": "Capers",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "407",
+      "strIngredient": "Chuối",
+      "unit": "quả"
+    },
+    {
+      "idIngredient": "408",
+      "strIngredient": "Mâm xôi",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "409",
+      "strIngredient": "Việt quất",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "410",
+      "strIngredient": "Hạt óc chó",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "411",
+      "strIngredient": "Hạt hickory",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "412",
+      "strIngredient": "Mật phô mai",
+      "unit": "ml"
+    },
+    {
+      "idIngredient": "413",
+      "strIngredient": "Đường nâu nhạt",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "414",
+      "strIngredient": "Đường nâu đậm",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "415",
+      "strIngredient": "Viên socola đen",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "416",
+      "strIngredient": "Socola sữa",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "417",
+      "strIngredient": "Socola đen",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "418",
+      "strIngredient": "Bí ngô",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "419",
+      "strIngredient": "Bánh ngọt vỏ bánh",
+      "unit": "cái"
+    },
+    {
+      "idIngredient": "420",
+      "strIngredient": "Bánh quy lúa mạch",
+      "unit": "cái"
+    },
+    {
+      "idIngredient": "421",
+      "strIngredient": "Tảo gelatin",
+      "unit": "tờ"
+    },
+    {
+      "idIngredient": "422",
+      "strIngredient": "Kẹo đậu phộng",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "423",
+      "strIngredient": "Đào",
+      "unit": "quả"
+    },
+    {
+      "idIngredient": "424",
+      "strIngredient": "Ớt chuông vàng",
+      "unit": "quả"
+    },
+    {
+      "idIngredient": "425",
+      "strIngredient": "Ớt chuông xanh",
+      "unit": "quả"
+    },
+    {
+      "idIngredient": "426",
+      "strIngredient": "Bí xanh",
+      "unit": "quả"
+    },
+    {
+      "idIngredient": "427",
+      "strIngredient": "Bí xanh",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "428",
+      "strIngredient": "Ớt cay jalapeno",
+      "unit": "quả"
+    },
+    {
+      "idIngredient": "429",
+      "strIngredient": "Ớt habanero",
+      "unit": "quả"
+    },
+    {
+      "idIngredient": "430",
+      "strIngredient": "Ớt Cayenne",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "431",
+      "strIngredient": "Hạt giống hoa cúc",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "432",
+      "strIngredient": "Sô cô la trắng nhân hạnh nhân",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "433",
+      "strIngredient": "Bơ sữa",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "434",
+      "strIngredient": "Bơ sữa nguyên chất",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "435",
+      "strIngredient": "Bơ sữa không muối",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "436",
+      "strIngredient": "Bơ sữa hữu cơ",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "437",
+      "strIngredient": "Bơ sữa hữu cơ nguyên chất",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "438",
+      "strIngredient": "Hành tím",
+      "unit": "củ"
+    },
+    {
+      "idIngredient": "439",
+      "strIngredient": "Hành đỏ",
+      "unit": "củ"
+    },
+    {
+      "idIngredient": "440",
+      "strIngredient": "Hành cải",
+      "unit": "củ"
+    },
+    {
+      "idIngredient": "441",
+      "strIngredient": "Cải",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "442",
+      "strIngredient": "Cải thảo",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "443",
+      "strIngredient": "Cải nầy",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "444",
+      "strIngredient": "Cải xoăn",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "445",
+      "strIngredient": "Cải cầu vồng",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "446",
+      "strIngredient": "Hành",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "447",
+      "strIngredient": "Hành củ",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "448",
+      "strIngredient": "Hành lá",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "449",
+      "strIngredient": "Dầu cọ",
+      "unit": "ml"
+    },
+    {
+      "idIngredient": "450",
+      "strIngredient": "Dầu hạt dừa",
+      "unit": "ml"
+    },
+    {
+      "idIngredient": "451",
+      "strIngredient": "Dầu ô liu",
+      "unit": "ml"
+    },
+    {
+      "idIngredient": "452",
+      "strIngredient": "Dầu hào",
+      "unit": "ml"
+    },
+    {
+      "idIngredient": "453",
+      "strIngredient": "Dầu nêm",
+      "unit": "ml"
+    },
+    {
+      "idIngredient": "454",
+      "strIngredient": "Dầu đậu nành",
+      "unit": "ml"
+    },
+    {
+      "idIngredient": "455",
+      "strIngredient": "Dầu hạt lúa mạch",
+      "unit": "ml"
+    },
+    {
+      "idIngredient": "456",
+      "strIngredient": "Dầu bí đỏ",
+      "unit": "ml"
+    },
+    {
+      "idIngredient": "457",
+      "strIngredient": "Nước dừa",
+      "unit": "ml"
+    },
+    {
+      "idIngredient": "458",
+      "strIngredient": "Nước hành",
+      "unit": "ml"
+    },
+    {
+      "idIngredient": "459",
+      "strIngredient": "Nước hành lá",
+      "unit": "ml"
+    },
+    {
+      "idIngredient": "460",
+      "strIngredient": "Nước hành tím",
+      "unit": "ml"
+    },
+    {
+      "idIngredient": "461",
+      "strIngredient": "Bơ",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "462",
+      "strIngredient": "Bơ nêm",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "463",
+      "strIngredient": "Bơ lá",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "464",
+      "strIngredient": "Bơ phô mai",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "465",
+      "strIngredient": "Bơ dừa",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "466",
+      "strIngredient": "Bơ trắng",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "467",
+      "strIngredient": "Bơ đặc",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "468",
+      "strIngredient": "Bơ kem",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "469",
+      "strIngredient": "Bơ lúa mạch",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "470",
+      "strIngredient": "Bơ gạo lứt",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "471",
+      "strIngredient": "Bơ gạo nếp",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "472",
+      "strIngredient": "Bơ mù tạt",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "473",
+      "strIngredient": "Bơ chay",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "474",
+      "strIngredient": "Bơ kẹo",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "475",
+      "strIngredient": "Bơ đậu phộng",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "476",
+      "strIngredient": "Bơ hạnh nhân",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "477",
+      "strIngredient": "Bơ hạnh nhân không muối",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "478",
+      "strIngredient": "Bơ hạnh nhân dễ tan",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "479",
+      "strIngredient": "Bơ hạnh nhân hữu cơ",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "480",
+      "strIngredient": "Bơ hạnh nhân lúa mạch",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "481",
+      "strIngredient": "Bơ hạnh nhân hữu cơ lúa mạch",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "482",
+      "strIngredient": "Bơ hạnh nhân mật ong",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "483",
+      "strIngredient": "Bơ hạnh nhân chứa hạt",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "484",
+      "strIngredient": "Bơ hạnh nhân sấy",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "485",
+      "strIngredient": "Bơ hạnh nhân việt quất",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "486",
+      "strIngredient": "Bơ hạnh nhân sữa dừa",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "487",
+      "strIngredient": "Bơ hạnh nhân chứa chút muối",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "488",
+      "strIngredient": "Bơ hạnh nhân động vật",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "489",
+      "strIngredient": "Bơ hạnh nhân nguyên chất",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "490",
+      "strIngredient": "Bơ hạnh nhân tự nhiên",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "491",
+      "strIngredient": "Bơ hạnh nhân ướp muối",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "492",
+      "strIngredient": "Bơ hạnh nhân nghiền",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "493",
+      "strIngredient": "Bơ hạnh nhân nguyên chất sấy",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "494",
+      "strIngredient": "Bơ hạnh nhân hữu cơ nguyên chất",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "495",
+      "strIngredient": "Bơ hạnh nhân lúa mạch nguyên chất",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "496",
+      "strIngredient": "Bơ hạnh nhân mật ong tự nhiên",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "497",
+      "strIngredient": "Bơ hạnh nhân nghiền mịn",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "498",
+      "strIngredient": "Bơ hạnh nhân tự nhiên nguyên chất",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "499",
+      "strIngredient": "Bơ hạnh nhân hữu cơ tự nhiên",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "500",
+      "strIngredient": "Bơ hạnh nhân hữu cơ mật ong",
+      "unit": "gram"
+    },
+    {
+      "idIngredient": "521",
+      "strIngredient": "Củ năng",
+      "unit": "Quả"
+    },
+    {
+      "idIngredient": "522",
+      "strIngredient": "Đậu phụ",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "523",
+      "strIngredient": "Tương đậu",
+      "unit": "Muỗng canh"
+    },
+    {
+      "idIngredient": "524",
+      "strIngredient": "Đậu tương lên men",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "525",
+      "strIngredient": "Hành lá",
+      "unit": "Cọng"
+    },
+    {
+      "idIngredient": "526",
+      "strIngredient": "Hạt tiêu Sichuan",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "527",
+      "strIngredient": "Bánh hỏi",
+      "unit": "Tờ"
+    },
+    {
+      "idIngredient": "528",
+      "strIngredient": "Bột bắp",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "529",
+      "strIngredient": "Rượu gạo",
+      "unit": "Mililít"
+    },
+    {
+      "idIngredient": "530",
+      "strIngredient": "Rượu nấu ăn",
+      "unit": "Mililít"
+    },
+    {
+      "idIngredient": "531",
+      "strIngredient": "Sốt vị vịt",
+      "unit": "Muỗng canh"
+    },
+    {
+      "idIngredient": "532",
+      "strIngredient": "Gochujang",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "533",
+      "strIngredient": "Giá đỗ",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "534",
+      "strIngredient": "Mì",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "535",
+      "strIngredient": "Nấm tai heo",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "536",
+      "strIngredient": "Rượu nếp",
+      "unit": "Mililít"
+    },
+    {
+      "idIngredient": "537",
+      "strIngredient": "Rượu nhẹ",
+      "unit": "Mililít"
+    },
+    {
+      "idIngredient": "538",
+      "strIngredient": "Rượu",
+      "unit": "Mililít"
+    },
+    {
+      "idIngredient": "539",
+      "strIngredient": "Bánh mì Anh",
+      "unit": "Chiếc"
+    },
+    {
+      "idIngredient": "540",
+      "strIngredient": "Bún mì",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "541",
+      "strIngredient": "Giấm trắng",
+      "unit": "Mililít"
+    },
+    {
+      "idIngredient": "542",
+      "strIngredient": "Cá hồi hun khói",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "543",
+      "strIngredient": "Thanh Mars",
+      "unit": "Thanh"
+    },
+    {
+      "idIngredient": "544",
+      "strIngredient": "Bánh gạo lứt",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "545",
+      "strIngredient": "Ớt Ancho",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "546",
+      "strIngredient": "Sữa hạnh nhân",
+      "unit": "Mililít"
+    },
+    {
+      "idIngredient": "548",
+      "strIngredient": "Hồi",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "550",
+      "strIngredient": "Chiết xuất hạnh nhân",
+      "unit": "Mililít"
+    },
+    {
+      "idIngredient": "552",
+      "strIngredient": "Màng sườn",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "553",
+      "strIngredient": "Thịt dê",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "554",
+      "strIngredient": "Đậu đen",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "555",
+      "strIngredient": "Cá cơm",
+      "unit": "Miếng"
+    },
+    {
+      "idIngredient": "556",
+      "strIngredient": "Gia vị Ras el Hanout",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "557",
+      "strIngredient": "Bánh phyllo",
+      "unit": "Tờ"
+    },
+    {
+      "idIngredient": "558",
+      "strIngredient": "Nước hoa cam ngọt",
+      "unit": "Mililít"
+    },
+    {
+      "idIngredient": "559",
+      "strIngredient": "Vỏ cam đường",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "560",
+      "strIngredient": "Rượu Grand Marnier",
+      "unit": "Mililít"
+    },
+    {
+      "idIngredient": "561",
+      "strIngredient": "Rượu Sherry",
+      "unit": "Mililít"
+    },
+    {
+      "idIngredient": "562",
+      "strIngredient": "Nước hoa hoa hồng",
+      "unit": "Mililít"
+    },
+    {
+      "idIngredient": "563",
+      "strIngredient": "Gia vị hỗn hợp",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "564",
+      "strIngredient": "Nhân bánh mincemeat",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "565",
+      "strIngredient": "Khoai lang ngọt",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "566",
+      "strIngredient": "Bánh mì bánh",
+      "unit": "Chiếc"
+    },
+    {
+      "idIngredient": "567",
+      "strIngredient": "Bánh mì nhân bò",
+      "unit": "Chiếc"
+    },
+    {
+      "idIngredient": "568",
+      "strIngredient": "Bánh mì khoai tây",
+      "unit": "Chiếc"
+    },
+    {
+      "idIngredient": "569",
+      "strIngredient": "Thịt heo băm nhuyễn",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "570",
+      "strIngredient": "Sườn heo",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "571",
+      "strIngredient": "Khoai tây Yukon Gold",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "572",
+      "strIngredient": "Hành tây vàng",
+      "unit": "Quả"
+    },
+    {
+      "idIngredient": "573",
+      "strIngredient": "Nồi hầm thịt bò",
+      "unit": "Hộp"
+    },
+    {
+      "idIngredient": "574",
+      "strIngredient": "Nồi hầm gà",
+      "unit": "Hộp"
+    },
+    {
+      "idIngredient": "575",
+      "strIngredient": "Dưa chuột Ba Tây",
+      "unit": "Quả"
+    },
+    {
+      "idIngredient": "576",
+      "strIngredient": "Sốt mayonnaise",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "577",
+      "strIngredient": "Sốt Sriracha",
+      "unit": "Muỗng canh"
+    },
+    {
+      "idIngredient": "578",
+      "strIngredient": "Cỏ ngọt",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "579",
+      "strIngredient": "Bánh pita",
+      "unit": "Chiếc"
+    },
+    {
+      "idIngredient": "580",
+      "strIngredient": "Lúa mì mạch",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "581",
+      "strIngredient": "Hạt giống hành",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "582",
+      "strIngredient": "Bánh mì mỡ dưa",
+      "unit": "Tờ"
+    },
+    {
+      "idIngredient": "583",
+      "strIngredient": "Bánh mỳ",
+      "unit": "Chiếc"
+    },
+    {
+      "idIngredient": "585",
+      "strIngredient": "Rau diếp",
+      "unit": "Tờ"
+    },
+    {
+      "idIngredient": "586",
+      "strIngredient": "Muối chua dưa",
+      "unit": "Muỗng canh"
+    },
+    {
+      "idIngredient": "587",
+      "strIngredient": "Sốt dưa muối",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "588",
+      "strIngredient": "Lát phô mai",
+      "unit": "Lát"
+    },
+    {
+      "idIngredient": "589",
+      "strIngredient": "Dầu phô mai",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "590",
+      "strIngredient": "Nước ấm",
+      "unit": "Mililít"
+    },
+    {
+      "idIngredient": "591",
+      "strIngredient": "Nước sôi",
+      "unit": "Mililít"
+    },
+    {
+      "idIngredient": "592",
+      "strIngredient": "Nước cốt dừa",
+      "unit": "Mililít"
+    },
+    {
+      "idIngredient": "593",
+      "strIngredient": "Đường bột",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "594",
+      "strIngredient": "Xúc xích kiểu Ba Lan",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "595",
+      "strIngredient": "Xúc xích Ba Lan",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "596",
+      "strIngredient": "Dưa chua",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "597",
+      "strIngredient": "Hạt cà rốt",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "598",
+      "strIngredient": "Cá hồi",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "599",
+      "strIngredient": "Mứt",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "600",
+      "strIngredient": "Mướp hương",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "601",
+      "strIngredient": "Gạo sushi",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "602",
+      "strIngredient": "Hồng tươi",
+      "unit": "Quả"
+    },
+    {
+      "idIngredient": "603",
+      "strIngredient": "Rượu nho",
+      "unit": "Mililít"
+    },
+    {
+      "idIngredient": "604",
+      "strIngredient": "Củ cải đường",
+      "unit": "Quả"
+    },
+    {
+      "idIngredient": "605",
+      "strIngredient": "Cá ngừ",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "606",
+      "strIngredient": "Bánh mì Ciabatta",
+      "unit": "Chiếc"
+    },
+    {
+      "idIngredient": "607",
+      "strIngredient": "Hạt giống lúa mạch đen",
+      "unit": "Gram"
+    },
+    {
+      "idIngredient": "608",
+      "strIngredient": "Mơ khô",
+      "unit": "Gram"
+    }
+  ]
+}

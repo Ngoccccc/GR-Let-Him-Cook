@@ -415,6 +415,53 @@ const getPostOfCategory = async (req, res) => {
   }
 };
 
+const getPostOfCategoryByTime = async (req, res) => {
+  try {
+    let category;
+
+    // Xác định danh mục dựa trên thời gian hiện tại
+    const currentHour = new Date().getHours();
+    if (currentHour >= 0 && currentHour < 10) {
+      // Trong khoảng từ 0h đến 9h30 sáng, lấy danh mục "an-sang"
+      category = await categoryModel.findOne({ slug: "an-sang" });
+    } else {
+      // Trong khoảng từ 9h30 sáng đến 24h, lấy danh mục "mon-chinh"
+      category = await categoryModel.findOne({ slug: "mon-chinh" });
+    }
+
+    // Lấy bài đăng của danh mục đã xác định
+    const postOfCategory = await postCategoryModel
+      .find({
+        categoryId: category._id,
+      })
+      .populate({
+        path: "postId",
+        match: {
+          status: "published",
+          courseId: null,
+        },
+        select: "_id title mediaTitle level intendTime likeCount",
+      })
+      .limit(3);
+
+    const filteredPosts = postOfCategory.filter((item) => item.postId !== null);
+
+    res.status(200).send({
+      success: true,
+      message: "Get Single Post Successfully",
+      category: category,
+      postOfCategory: filteredPosts,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      error,
+      message: "Error While getting Single Post",
+    });
+  }
+};
+
 const getMyPosts = async (req, res) => {
   try {
     const posts = await postModel
@@ -684,4 +731,5 @@ module.exports = {
   getMostFavoritePosts,
   getPostOfCategories,
   getMyPosts,
+  getPostOfCategoryByTime,
 };

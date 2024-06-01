@@ -19,6 +19,7 @@ const {
   getPostOfCategories,
   getPostsUnapproved,
   getMyPosts,
+  getPostOfCategoryByTime,
 } = require("../controllers/postController.js");
 
 //router object
@@ -33,6 +34,7 @@ router.post("/get-same-posts", getPostOfCategories);
 router.get("/get-favorite-posts", getMostFavoritePosts);
 router.get("/get-post/:id", assignRole, getSinglePost);
 router.get("/get-post-by-category/:categorySlug", getPostOfCategory);
+router.get("/get-post-by-time/", getPostOfCategoryByTime);
 router.get("/get-posts-by-category", getAllPostGroupByCategory);
 router.get("/get-my-posts", requireSignIn, isChef, getMyPosts);
 //single post

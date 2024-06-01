@@ -1,11 +1,12 @@
-const express = require('express');
-const { requireSignIn, isAdmin } = require("../middlewares/authMiddleware.js")
+const express = require("express");
+const { requireSignIn, isAdmin } = require("../middlewares/authMiddleware.js");
 const {
-    createIngredient,
-    updateIngredient,
-    getAllIngredient,
-    getSingleIngredient,
-    deleteIngredient
+  createIngredient,
+  updateIngredient,
+  getAllIngredient,
+  getSingleIngredient,
+  deleteIngredient,
+  importIngredientsFromJSON,
 } = require("../controllers/ingredientController.js");
 
 //router object
@@ -20,27 +21,19 @@ router.get("/get-ingredient", getAllIngredient);
 router.get("/single-ingredient/:slug", getSingleIngredient);
 
 // create ingredient
-router.post(
-    "/create-ingredient",
-    requireSignIn,
-    isAdmin,
-    createIngredient
-);
+router.post("/create-ingredient", requireSignIn, isAdmin, createIngredient);
 
 //update ingredient
-router.put(
-    "/update-ingredient/:id",
-    requireSignIn,
-    isAdmin,
-    updateIngredient
-);
+router.put("/update-ingredient/:id", requireSignIn, isAdmin, updateIngredient);
 
 //delete ingredient
 router.delete(
-    "/delete-ingredient/:id",
-    requireSignIn,
-    isAdmin,
-    deleteIngredient
+  "/delete-ingredient/:id",
+  requireSignIn,
+  isAdmin,
+  deleteIngredient
 );
 
-module.exports = router
+router.post("/import", importIngredientsFromJSON);
+
+module.exports = router;

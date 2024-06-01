@@ -173,6 +173,7 @@ const deleteCategory = async (req, res) => {
     const category = await categoryModel.findById(id);
     // Xoá category
     await categoryModel.findByIdAndDelete(id);
+    await postCategoryModel.deleteMany({ categoryId: id });
     res.status(200).send({
       success: true,
       message: "Category Deleted Successfully",

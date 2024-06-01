@@ -48,6 +48,8 @@ const Login = () => {
           navigate("/admin/category");
         } else if (res.data.user.role === "chef") {
           navigate("/chef/posts");
+        } else {
+          navigate("/");
         }
       } else {
         toast.error(res.data.message);
