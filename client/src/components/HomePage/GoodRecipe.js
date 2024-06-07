@@ -24,7 +24,7 @@ const GoodRecipe = () => {
 
   return (
     <>
-      {bunPosts.length > 0 ? (
+      {bunPosts?.length > 0 ? (
         <Grid sx={{ mt: 3 }}>
           <Typography
             variant="h5"
@@ -44,9 +44,7 @@ const GoodRecipe = () => {
           </Grid>
         </Grid>
       ) : (
-        <Typography variant="h6" component="p" sx={{ mt: 3 }}>
-          Không có bài viết nào để hiển thị.
-        </Typography>
+        <></>
       )}
     </>
   );
