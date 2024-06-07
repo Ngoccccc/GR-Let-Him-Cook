@@ -50,7 +50,7 @@ const BannerSlide = () => {
         <Loading />
       ) : (
         <Slide>
-          {newPosts.map((recipe, index) => (
+          {newPosts?.map((recipe, index) => (
             <Grid
               sx={{ cursor: "pointer" }}
               key={index}
