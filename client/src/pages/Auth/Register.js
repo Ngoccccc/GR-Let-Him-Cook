@@ -14,6 +14,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import Layout from "./../../components/Layout/Layout";
 import removeVietnameseTones from "../../utils/removeVietnameseTones";
+import apiURL from "../../instances/axiosConfig";
 const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -44,7 +45,7 @@ const Register = () => {
       return;
     }
     try {
-      const res = await axios.post("/api/v1/auth/register", {
+      const res = await axios.post(`${apiURL}/api/v1/auth/register`, {
         name,
         email,
         password,

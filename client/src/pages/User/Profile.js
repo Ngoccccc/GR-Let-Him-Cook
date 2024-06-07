@@ -11,6 +11,7 @@ import {
 import axios from "axios";
 import { useAuth } from "../../context/auth";
 import Layout from "./../../components/Layout/Layout";
+import apiURL from "../../instances/axiosConfig";
 
 const Profile = () => {
   const [user, setUser] = useState(null);
@@ -26,7 +27,7 @@ const Profile = () => {
 
   const getRequestStatus = async () => {
     try {
-      const res = await axios.get("/api/v1/user/get-request-status");
+      const res = await axios.get(`${apiURL}/api/v1/user/get-request-status`);
       console.log(res);
       if (res.data.status) {
         setIsRequestSent(res.data.status);
@@ -38,10 +39,13 @@ const Profile = () => {
 
   const handleRequestRoleChange = async () => {
     try {
-      const res = await axios.post("/api/v1/user/request-role-change", {
-        phone,
-        roleRequestReason: reason,
-      });
+      const res = await axios.post(
+        `${apiURL}/api/v1/user/request-role-change`,
+        {
+          phone,
+          roleRequestReason: reason,
+        }
+      );
       if (res.data.message) {
         setIsRequestSent(true);
       }

@@ -1,5 +1,6 @@
 import React, { useState, useLayoutEffect } from "react";
 import axios from "axios";
+import apiURL from "../../../instances/axiosConfig";
 import { Row, Col, Card, Table, Button, Input, Modal } from "antd";
 import removeVietnameseTones from "./../../../utils/removeVietnameseTones";
 function UserManager() {
@@ -51,7 +52,7 @@ function UserManager() {
 
   useLayoutEffect(() => {
     const fetchUsers = async () => {
-      const res = await axios.get("/api/v1/user/users");
+      const res = await axios.get(`${apiURL}/api/v1/user/users`);
       setUsers(res.data);
       setFilteredUsers(res.data);
     };
@@ -64,7 +65,7 @@ function UserManager() {
         title: "Xác nhận xóa",
         content: `Bạn có chắc chắn muốn xóa tài khoản "${user.name}"?`,
         onOk: async () => {
-          await axios.delete(`/api/v1/user/delete-user/${user._id}`);
+          await axios.delete(`${apiURL}/api/v1/user/delete-user/${user._id}`);
           setUsers(users.filter((i) => i._id !== user._id));
           setFilteredUsers(users.filter((i) => i._id !== user._id));
         },

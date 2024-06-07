@@ -3,11 +3,12 @@ import { Grid, Typography } from "@mui/material/";
 import RecipeCard from "./RecipeCard";
 import axios from "axios";
 import Loading from "../Loading";
+import apiURL from "../../instances/axiosConfig";
 const NewRecipe = () => {
   const [newPosts, setNewPosts] = useState([]);
   const getNewPosts = async () => {
     try {
-      const { data } = await axios.get(`/api/v1/post/get-new-posts`);
+      const { data } = await axios.get(`${apiURL}/api/v1/post/get-new-posts`);
       setNewPosts(data.posts);
       console.log(data);
     } catch (error) {

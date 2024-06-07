@@ -3,16 +3,20 @@ import { Grid, Typography } from "@mui/material/";
 import axios from "axios";
 import SameRecipeCard from "./SameRecipeCard";
 import Loading from "../Loading";
+import apiURL from "../../instances/axiosConfig";
 const SameRecipe = ({ categories, currentPostId }) => {
   const [sameRecipes, setSameRecipes] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const getPosts = async () => {
     try {
-      const { data } = await axios.post(`/api/v1/post/get-same-posts`, {
-        categoryIds: categories.map((c) => c._id),
-        currentPostId,
-      });
+      const { data } = await axios.post(
+        `${apiURL}/api/v1/post/get-same-posts`,
+        {
+          categoryIds: categories.map((c) => c._id),
+          currentPostId,
+        }
+      );
       setSameRecipes(data.posts);
       setLoading(false);
     } catch (error) {

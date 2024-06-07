@@ -4,13 +4,14 @@ import { Grid, Typography } from "@mui/material/";
 import SinglePageRecipeCard from "../../components/Card/SinglePageRecipeCard";
 import axios from "axios";
 import Loading from "../../components/Loading";
+import apiURL from "../../instances/axiosConfig";
 
 const Favorite = () => {
   const [likedPosts, setLikedPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const getPosts = async () => {
     try {
-      const { data } = await axios.get(`/api/v1/like/get-liked-posts`);
+      const { data } = await axios.get(`${apiURL}/api/v1/like/get-liked-posts`);
       setLikedPosts(data.likedPosts);
       console.log(data);
       setLoading(false);

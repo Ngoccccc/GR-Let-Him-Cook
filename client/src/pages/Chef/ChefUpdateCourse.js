@@ -13,6 +13,7 @@ import { v4 as uuidv4 } from "uuid";
 import { CloudUpload, Clear } from "@mui/icons-material";
 import { Image } from "antd";
 import { useNavigate, useParams } from "react-router-dom";
+import apiURL from "../../instances/axiosConfig";
 
 const ChefUpdateCourse = () => {
   const navigate = useNavigate();
@@ -27,7 +28,9 @@ const ChefUpdateCourse = () => {
 
   const getCourseInfo = async () => {
     try {
-      const { data } = await axios.get(`/api/v1/course/get-course-info/${id}`);
+      const { data } = await axios.get(
+        `${apiURL}/api/v1/course/get-course-info/${id}`
+      );
       console.log(data);
       setName(data.courseInfo.name);
       setDescription(data.courseInfo.description);
@@ -86,7 +89,7 @@ const ChefUpdateCourse = () => {
     console.log(courseData);
     try {
       const course = await axios.put(
-        `/api/v1/course/update-course/${id}`,
+        `${apiURL}/api/v1/course/update-course/${id}`,
         courseData
       );
       console.log("Post Data: ", course);

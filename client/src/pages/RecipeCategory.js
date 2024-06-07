@@ -5,6 +5,7 @@ import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import SinglePageRecipeCard from "../components/Card/SinglePageRecipeCard";
 import Loading from "../components/Loading";
+import apiURL from "../instances/axiosConfig";
 const RecipeCategory = () => {
   const [postCategory, setPostCategory] = useState([]);
   const [category, setCategory] = useState({});
@@ -14,7 +15,7 @@ const RecipeCategory = () => {
   const getPosts = async () => {
     try {
       const { data } = await axios.get(
-        `/api/v1/post/get-post-by-category/${params.slug}`
+        `${apiURL}/api/v1/post/get-post-by-category/${params.slug}`
       );
       setPostCategory(data.postOfCategory);
       setCategory(data.category);

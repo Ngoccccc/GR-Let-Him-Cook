@@ -7,6 +7,7 @@ import { v4 as uuidv4 } from "uuid";
 import { CloudUpload, Clear } from "@mui/icons-material";
 import { Image } from "antd";
 import { useNavigate } from "react-router-dom";
+import apiURL from "../../instances/axiosConfig";
 
 const ChefCreateCourse = () => {
   const uniqueId = uuidv4();
@@ -45,7 +46,7 @@ const ChefCreateCourse = () => {
     console.log(courseData);
     try {
       const course = await axios.post(
-        "/api/v1/course/create-course",
+        `${apiURL}/api/v1/course/create-course`,
         courseData
       );
       console.log("Post Data: ", course);

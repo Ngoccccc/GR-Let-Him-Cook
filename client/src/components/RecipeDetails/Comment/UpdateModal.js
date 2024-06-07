@@ -18,6 +18,7 @@ import {
 import { Image } from "antd";
 import axios from "axios";
 import imageCompression from "browser-image-compression";
+import apiURL from "../../../instances/axiosConfig";
 
 const UpdateModal = ({ open, handleClose, comment, storage, setComments }) => {
   const [content, setContent] = useState("");
@@ -51,7 +52,7 @@ const UpdateModal = ({ open, handleClose, comment, storage, setComments }) => {
   const handleCommentSubmit = async (imageURL, commentId) => {
     try {
       const response = await axios.put(
-        `/api/v1/comment/update-comment/${commentId}`,
+        `${apiURL}/api/v1/comment/update-comment/${commentId}`,
         {
           image: imageURL,
           content: content,

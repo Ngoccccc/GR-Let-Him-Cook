@@ -16,6 +16,7 @@ import IntendTimeForm from "../../components/Admin/Form/IntendTimeForm";
 import CategoryForm from "../../components/Admin/Form/CategoryForm";
 import generateRandom from "../../utils/generateRandom";
 import { useNavigate } from "react-router-dom";
+import apiURL from "../../instances/axiosConfig";
 export default function CreatePost({ courseId, role }) {
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -47,13 +48,15 @@ export default function CreatePost({ courseId, role }) {
   const [formValidSteps, setFormValidSteps] = useState(true);
   useEffect(() => {
     const fetchIngredients = async () => {
-      const { data } = await axios.get("/api/v1/ingredient/get-ingredient");
+      const { data } = await axios.get(
+        `${apiURL}/api/v1/ingredient/get-ingredient`
+      );
       setIngredientOptions(data.ingredient);
     };
 
     const fetchCategories = async () => {
       const { data } = await axios.get(
-        "/api/v1/category/get-all-category-admin"
+        `${apiURL}/api/v1/category/get-all-category-admin`
       );
       setCategoryOptions(data.categories);
     };
@@ -129,7 +132,10 @@ export default function CreatePost({ courseId, role }) {
       courseId,
     };
     try {
-      const postSave = await axios.post("/api/v1/post/create-post", postData);
+      const postSave = await axios.post(
+        `${apiURL}/api/v1/post/create-post`,
+        postData
+      );
       console.log("Post Data: ", postSave);
       navigate(`/${role}/recipe-detail/${postSave.data.post._id}`);
     } catch (err) {

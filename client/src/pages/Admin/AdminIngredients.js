@@ -14,6 +14,7 @@ import {
 } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
 import removeVietnameseTones from "../../utils/removeVietnameseTones";
+import apiURL from "../../instances/axiosConfig";
 function AdminIngredients() {
   const [ingredients, setIngredients] = useState([]);
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -64,7 +65,7 @@ function AdminIngredients() {
 
   useLayoutEffect(() => {
     const fetchIngredients = async () => {
-      const res = await axios.get("/api/v1/ingredient/get-ingredient");
+      const res = await axios.get(`${apiURL}/api/v1/ingredient/get-ingredient`);
       setIngredients(res.data.ingredient);
     };
     fetchIngredients();
@@ -88,7 +89,7 @@ function AdminIngredients() {
         content: `Bạn có chắc chắn muốn xóa nguyên liệu "${ingredient.name}"?`,
         onOk: async () => {
           await axios.delete(
-            `/api/v1/ingredient/delete-ingredient/${ingredient._id}`
+            `${apiURL}/api/v1/ingredient/delete-ingredient/${ingredient._id}`
           );
           setIngredients(ingredients.filter((i) => i._id !== ingredient._id));
         },
@@ -104,7 +105,7 @@ function AdminIngredients() {
       const values = form.getFieldsValue();
       if (currentIngredient) {
         await axios.put(
-          `/api/v1/ingredient/update-ingredient/${currentIngredient._id}`,
+          `${apiURL}/api/v1/ingredient/update-ingredient/${currentIngredient._id}`,
           values
         );
         setIngredients(
@@ -114,7 +115,7 @@ function AdminIngredients() {
         );
       } else {
         const res = await axios.post(
-          "/api/v1/ingredient/create-ingredient",
+          `${apiURL}/api/v1/ingredient/create-ingredient`,
           values
         );
         setIngredients([...ingredients, res.data.ingredient]);

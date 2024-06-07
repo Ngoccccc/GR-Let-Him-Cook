@@ -2,6 +2,7 @@ import React, { useState, useLayoutEffect } from "react";
 import axios from "axios";
 import { Row, Col, Card, Table, Button, Input, Modal, Flex } from "antd";
 import removeVietnameseTones from "./../../../utils/removeVietnameseTones";
+import apiURL from "../../../instances/axiosConfig";
 
 function UserRequest() {
   const [requests, setRequests] = useState([]);
@@ -64,7 +65,7 @@ function UserRequest() {
 
   useLayoutEffect(() => {
     const fetchRequest = async () => {
-      const res = await axios.get("/api/v1/user/get-all-request");
+      const res = await axios.get(`${apiURL}/api/v1/user/get-all-request`);
       setRequests(res.data.allRequest);
       setFilteredRequest(res.data.allRequest);
     };
@@ -77,7 +78,9 @@ function UserRequest() {
         title: "Xác nhận phê duyệt",
         content: `Bạn có chắc chắn muốn phê duyệt tài khoàn "${request.userId.name}" lên làm đầu bếp?`,
         onOk: async () => {
-          await axios.put(`/api/v1/user/approve-request/${request._id}`);
+          await axios.put(
+            `${apiURL}/api/v1/user/approve-request/${request._id}`
+          );
           setRequests(requests.filter((i) => i._id !== request._id));
           setFilteredRequest(
             filteredRequest.filter((i) => i._id !== request._id)
@@ -95,7 +98,9 @@ function UserRequest() {
         title: "Xác nhận từ chối",
         content: `Bạn có chắc chắn muốn từ chối tài khoàn "${request.userId.name}" lên làm đầu bếp?`,
         onOk: async () => {
-          await axios.put(`/api/v1/user/reject-request/${request._id}`);
+          await axios.put(
+            `${apiURL}/api/v1/user/reject-request/${request._id}`
+          );
           setRequests(requests.filter((i) => i._id !== request._id));
           setFilteredRequest(
             filteredRequest.filter((i) => i._id !== request._id)

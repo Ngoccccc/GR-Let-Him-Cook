@@ -14,6 +14,7 @@ import toast from "react-hot-toast";
 import Layout from "../../components/Layout/Layout";
 import { Email, Lock, Security } from "@mui/icons-material";
 import removeVietnameseTones from "../../utils/removeVietnameseTones";
+import apiURL from "../../instances/axiosConfig";
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
@@ -50,7 +51,7 @@ const ForgotPassword = () => {
     }
 
     try {
-      const res = await axios.post("/api/v1/auth/forgot-password", {
+      const res = await axios.post(`${apiURL}/api/v1/auth/forgot-password`, {
         email,
         newPassword,
         answer: removeVietnameseTones(answer.toLowerCase()),

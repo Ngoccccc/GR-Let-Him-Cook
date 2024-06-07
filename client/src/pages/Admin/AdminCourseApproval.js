@@ -4,6 +4,7 @@ import { Button, Grid, Typography, TextField } from "@mui/material/";
 import Loading from "../../components/Loading";
 import removeVietnameseTones from "../../utils/removeVietnameseTones";
 import CourseCard from "../../components/Admin/CourseCard";
+import apiURL from "../../instances/axiosConfig";
 function AdminCourseApproval() {
   const [courses, setCourses] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
@@ -11,7 +12,9 @@ function AdminCourseApproval() {
 
   React.useLayoutEffect(() => {
     const fetchCourses = async () => {
-      const data = await axios.get("/api/v1/course/get-waiting-courses");
+      const data = await axios.get(
+        `${apiURL}/api/v1/course/get-waiting-courses`
+      );
       setCourses(data.data.courses);
       console.log(data.data.courses);
     };

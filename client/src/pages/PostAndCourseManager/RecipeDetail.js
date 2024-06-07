@@ -21,6 +21,7 @@ import ServerErrorPage from "./ErrorPage/ServerErrorPage";
 import PageNotFound from "./ErrorPage/PageNotFound";
 import Loading from "../../components/Loading";
 import { red, grey } from "@mui/material/colors";
+import apiURL from "../../instances/axiosConfig";
 
 const RecipeDetail = ({ role }) => {
   const params = useParams();
@@ -47,7 +48,7 @@ const RecipeDetail = ({ role }) => {
   const handleApproval = async () => {
     try {
       const { data } = await axios.put(
-        `/api/v1/post/approve-post/${params.id}`
+        `${apiURL}/api/v1/post/approve-post/${params.id}`
       );
       navigate("/admin/post-approval");
     } catch (err) {
@@ -58,7 +59,7 @@ const RecipeDetail = ({ role }) => {
   const handleDelete = async () => {
     try {
       const { data } = await axios.delete(
-        `/api/v1/post/delete-post/${params.id}`
+        `${apiURL}/api/v1/post/delete-post/${params.id}`
       );
       navigate(`/${role}/posts`);
     } catch (err) {
@@ -67,7 +68,9 @@ const RecipeDetail = ({ role }) => {
   };
   const getPost = async () => {
     try {
-      const { data } = await axios.get(`/api/v1/post/get-post/${params.id}`);
+      const { data } = await axios.get(
+        `${apiURL}/api/v1/post/get-post/${params.id}`
+      );
       setPost(data.post);
       console.log(data);
       setLoading(false);

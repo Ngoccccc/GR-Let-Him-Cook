@@ -4,11 +4,14 @@ import { useNavigate } from "react-router-dom";
 
 import axios from "axios";
 import Loading from "../Loading";
+import apiURL from "../../instances/axiosConfig";
 const FavoriteRecipe = () => {
   const [favoriteRecipe, setFavoriteRecipe] = useState([]);
   const getFavoritePosts = async () => {
     try {
-      const { data } = await axios.get(`/api/v1/post/get-favorite-posts`);
+      const { data } = await axios.get(
+        `${apiURL}/api/v1/post/get-favorite-posts`
+      );
       setFavoriteRecipe(data.posts);
       console.log(data);
     } catch (error) {

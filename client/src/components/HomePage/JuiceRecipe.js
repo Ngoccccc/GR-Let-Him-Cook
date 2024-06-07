@@ -3,13 +3,14 @@ import { Grid, Typography } from "@mui/material/";
 import axios from "axios";
 
 import RecipeCard from "./RecipeCard";
+import apiURL from "../../instances/axiosConfig";
 
 const JuiceRecipe = () => {
   const [juicePosts, setJuicePosts] = useState([]);
   const getJuicePost = async () => {
     try {
       const { data } = await axios.get(
-        `/api/v1/post/get-post-by-category/thuc-uong`
+        `${apiURL}/api/v1/post/get-post-by-category/thuc-uong`
       );
       setJuicePosts(data.postOfCategory);
       console.log(data);

@@ -4,6 +4,7 @@ import { Outlet } from "react-router-dom";
 import axios from "axios";
 import Spinner from "../Spinner";
 import ChefLayout from "../Layout/Chef/Layout";
+import apiURL from "../../instances/axiosConfig";
 
 export default function ChefRoute() {
   const [ok, setOk] = useState(false);
@@ -11,7 +12,7 @@ export default function ChefRoute() {
 
   useEffect(() => {
     const authCheck = async () => {
-      const res = await axios.get("/api/v1/auth/chef-auth");
+      const res = await axios.get(`${apiURL}/api/v1/auth/chef-auth`);
       if (res.data.ok) {
         setOk(true);
       } else {

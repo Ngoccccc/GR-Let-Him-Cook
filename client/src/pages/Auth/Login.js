@@ -14,6 +14,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { useAuth } from "../../context/auth";
 import Layout from "./../../components/Layout/Layout";
+import apiURL from "../../instances/axiosConfig";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -39,7 +40,10 @@ const Login = () => {
     }
 
     try {
-      const res = await axios.post("/api/v1/auth/login", { email, password });
+      const res = await axios.post(`${apiURL}/api/v1/auth/login`, {
+        email,
+        password,
+      });
       if (res && res.data.success) {
         toast.success(res.data.message);
         setAuth({ ...auth, user: res.data.user, token: res.data.token });

@@ -14,6 +14,7 @@ import {
 } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
 import removeVietnameseTones from "../../utils/removeVietnameseTones";
+import apiURL from "../../instances/axiosConfig";
 
 function AdminCategory() {
   const [categories, setCategories] = useState([]);
@@ -60,7 +61,9 @@ function AdminCategory() {
 
   React.useLayoutEffect(() => {
     const fetchCategories = async () => {
-      const res = await axios.get("/api/v1/category/get-all-category-admin");
+      const res = await axios.get(
+        `${apiURL}/api/v1/category/get-all-category-admin`
+      );
       setCategories(res.data.categories);
     };
     fetchCategories();
@@ -84,7 +87,7 @@ function AdminCategory() {
         content: `Bạn có chắc chắn muốn xóa danh mục "${category.name}"?`,
         onOk: async () => {
           await axios.delete(
-            `/api/v1/category/delete-category/${category.categoryId}`
+            `${apiURL}/api/v1/category/delete-category/${category.categoryId}`
           );
           setCategories(
             categories.filter((c) => c.categoryId !== category.categoryId)
@@ -103,7 +106,7 @@ function AdminCategory() {
       console.log(currentCategory);
       if (currentCategory) {
         await axios.put(
-          `/api/v1/category/update-category/${currentCategory.categoryId}`,
+          `${apiURL}/api/v1/category/update-category/${currentCategory.categoryId}`,
           values
         );
         setCategories(
@@ -115,7 +118,7 @@ function AdminCategory() {
         );
       } else {
         const res = await axios.post(
-          "/api/v1/category/create-category",
+          `${apiURL}/api/v1/category/create-category`,
           values
         );
         setCategories([...categories, res.data.category]);

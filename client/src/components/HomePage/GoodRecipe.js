@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Grid, Typography } from "@mui/material/";
 import axios from "axios";
 import RecipeCard from "./RecipeCard";
+import apiURL from "../../instances/axiosConfig";
 
 const GoodRecipe = () => {
   const [bunPosts, setBunPosts] = useState([]);
@@ -9,7 +10,7 @@ const GoodRecipe = () => {
   const getBunPost = async () => {
     try {
       const { data } = await axios.get(
-        `/api/v1/post/get-post-by-category/bun-mi-pho`
+        `${apiURL}/api/v1/post/get-post-by-category/bun-mi-pho`
       );
       setBunPosts(data.postOfCategory);
       console.log(data);

@@ -13,9 +13,9 @@ const momoPayment = async (req, res) => {
   var secretKey = process.env.SECRET_KEY;
   var orderInfo = `Thanh toán đăng kí khóa học nấu ăn: ${name}`;
   var partnerCode = "MOMO";
-  var redirectUrl = "http://localhost:3000/course/my-course";
+  var redirectUrl = "https://gr-let-him-cook.vercel.app/course/my-course";
   var ipnUrl =
-    "https://9ed5-42-114-162-228.ngrok-free.app/api/v1/payment/momo-response";
+    "https://gr-let-him-cook-api-v1.vercel.app/api/v1/payment/momo-response";
   var requestType = "payWithMethod";
   var amount = reqAmount;
   var orderId = partnerCode + new Date().getTime();

@@ -3,6 +3,7 @@ import axios from "axios";
 import { useAuth } from "../../context/auth";
 import CourseList from "./CourseList";
 import Loading from "../Loading";
+import apiURL from "../../instances/axiosConfig";
 
 const SuggestCourses = () => {
   const [courses, setCourses] = useState([]);
@@ -14,8 +15,8 @@ const SuggestCourses = () => {
       setLoading(true);
       try {
         const endpoint = auth?.token
-          ? "/api/v1/course/get-unregistered-courses"
-          : "/api/v1/course/get-courses";
+          ? `${apiURL}/api/v1/course/get-unregistered-courses`
+          : `${apiURL}/api/v1/course/get-courses`;
         const response = await axios.get(endpoint);
         setCourses(response.data.courses);
         setLoading(false);

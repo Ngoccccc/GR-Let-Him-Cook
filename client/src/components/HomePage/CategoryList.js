@@ -4,12 +4,15 @@ import { ArrowForwardIos } from "@mui/icons-material";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Loading from "../Loading";
+import apiURL from "../../instances/axiosConfig";
 
 const CategoryList = () => {
   const [categories, setCategories] = useState([]);
   const getCategories = async () => {
     try {
-      const { data } = await axios.get(`/api/v1/category/get-all-category`);
+      const { data } = await axios.get(
+        `${apiURL}/api/v1/category/get-all-category`
+      );
       setCategories(data.categories);
       console.log(data);
     } catch (error) {

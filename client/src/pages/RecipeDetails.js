@@ -18,6 +18,7 @@ import ServerErrorPage from "./ErrorPage/ServerErrorPage";
 import PageNotFound from "./ErrorPage/PageNotFound";
 import NotHavePost from "./ErrorPage/NotHavePost";
 import Loading from "../components/Loading";
+import apiURL from "../instances/axiosConfig";
 
 const RecipeDetail = () => {
   const params = useParams();
@@ -31,7 +32,9 @@ const RecipeDetail = () => {
 
   const getPost = async () => {
     try {
-      const { data } = await axios.get(`/api/v1/post/get-post/${params.id}`);
+      const { data } = await axios.get(
+        `${apiURL}/api/v1/post/get-post/${params.id}`
+      );
       setPost(data.post);
       setLikeCount(data.post.likeCount);
       console.log(data);
@@ -46,7 +49,7 @@ const RecipeDetail = () => {
   const checkPostPrivate = async (courseId) => {
     try {
       const { data } = await axios.get(
-        `/api/v1/course/check-user-have-course/${courseId}`
+        `${apiURL}/api/v1/course/check-user-have-course/${courseId}`
       );
       console.log(data);
       setIsHavePost(data.status);
@@ -68,7 +71,9 @@ const RecipeDetail = () => {
   const checkLiked = async (postId) => {
     try {
       console.log(postId);
-      const { data } = await axios.get(`/api/v1/like/like-status/${postId}`);
+      const { data } = await axios.get(
+        `${apiURL}/api/v1/like/like-status/${postId}`
+      );
 
       setLiked(data.liked);
     } catch (error) {
@@ -83,8 +88,8 @@ const RecipeDetail = () => {
     try {
       if (auth?.token) {
         const url = liked
-          ? `/api/v1/like/unlike-post/${post._id}`
-          : `/api/v1/like/like-post/${post._id}`;
+          ? `${apiURL}/api/v1/like/unlike-post/${post._id}`
+          : `${apiURL}/api/v1/like/like-post/${post._id}`;
 
         const { data } = await axios.post(url);
         setLiked(data.liked);

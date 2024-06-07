@@ -21,6 +21,7 @@ import Loading from "../../components/Loading";
 import PostCard from "../../components/Admin/PostCard";
 import { red, grey } from "@mui/material/colors";
 import { useNavigate } from "react-router-dom";
+import apiURL from "../../instances/axiosConfig";
 const ChefCourseDetail = () => {
   const params = useParams();
   const [courseInfo, setCourseInfo] = useState({});
@@ -32,7 +33,7 @@ const ChefCourseDetail = () => {
   const getCourse = async () => {
     try {
       const { data } = await axios.get(
-        `/api/v1/course/get-course-detail/${params.id}`
+        `${apiURL}/api/v1/course/get-course-detail/${params.id}`
       );
       setCourseInfo(data.data.courseInfo);
       setPostsOfCourse(data.data.posts);
@@ -58,7 +59,7 @@ const ChefCourseDetail = () => {
   const handleDelete = async () => {
     try {
       const { data } = await axios.delete(
-        `/api/v1/course/delete-course/${params.id}`
+        `${apiURL}/api/v1/course/delete-course/${params.id}`
       );
       navigate("/chef/courses");
     } catch (err) {

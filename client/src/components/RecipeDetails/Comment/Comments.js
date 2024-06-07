@@ -23,6 +23,7 @@ import DeleteModal from "./DeleteModal";
 import { useAuth } from "../../../context/auth"; // Import authentication context
 import UpdateModal from "./UpdateModal";
 import imageCompression from "browser-image-compression";
+import apiURL from "../../../instances/axiosConfig";
 
 const Comments = () => {
   const { id } = useParams();
@@ -38,7 +39,9 @@ const Comments = () => {
 
   const getComments = async (post) => {
     try {
-      const { data } = await axios.get(`/api/v1/comment/get-comments/${post}`);
+      const { data } = await axios.get(
+        `${apiURL}/api/v1/comment/get-comments/${post}`
+      );
       setComments(data.comments);
     } catch (err) {
       console.log(err);
@@ -71,7 +74,7 @@ const Comments = () => {
   const handleCommentSubmit = async (imageURL, commentId) => {
     try {
       const response = await axios.put(
-        `/api/v1/comment/update-comment/${commentId}`,
+        `${apiURL}/api/v1/comment/update-comment/${commentId}`,
         {
           image: imageURL,
           content: content,
@@ -95,7 +98,7 @@ const Comments = () => {
     try {
       setUploading(true);
       const response = await axios.post(
-        `/api/v1/comment/create-comment/${id}`,
+        `${apiURL}/api/v1/comment/create-comment/${id}`,
         {
           content,
         }
@@ -137,7 +140,7 @@ const Comments = () => {
   const handleDelete = async (commentId) => {
     try {
       const { data } = await axios.delete(
-        `/api/v1/comment/delete-comment/${commentId}`
+        `${apiURL}/api/v1/comment/delete-comment/${commentId}`
       );
       if (data.deletedComment.image) {
         const imageName = `image_${commentId}`;

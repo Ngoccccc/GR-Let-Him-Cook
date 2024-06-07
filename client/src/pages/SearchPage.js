@@ -19,6 +19,7 @@ import { grey } from "@mui/material/colors";
 import { useNavigate } from "react-router-dom";
 import SinglePageRecipeCard from "../components/Card/SinglePageRecipeCard";
 import Loading from "../components/Loading";
+import apiURL from "../instances/axiosConfig";
 
 const SearchPage = () => {
   const navigate = useNavigate();
@@ -32,7 +33,7 @@ const SearchPage = () => {
     try {
       const searchTerm = searchParams.get("search") || "";
       const { data } = await axios.get(
-        `/api/v1/search/search-global?search=${searchTerm}`
+        `${apiURL}/api/v1/search/search-global?search=${searchTerm}`
       );
       console.log(data);
       setPosts(data.suggestPosts);

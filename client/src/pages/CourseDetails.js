@@ -10,6 +10,7 @@ import SinglePageRecipeCard from "../components/Card/SinglePageRecipeCard";
 import PaymentButton from "../components/Course/PaymentButton";
 import { useAuth } from "../context/auth";
 import Loading from "../components/Loading";
+import apiURL from "../instances/axiosConfig";
 const CourseDetails = () => {
   const params = useParams();
   const [courseInfo, setCourseInfo] = useState({});
@@ -20,7 +21,7 @@ const CourseDetails = () => {
   const getCourse = async () => {
     try {
       const { data } = await axios.get(
-        `/api/v1/course/get-course-detail/${params.id}`
+        `${apiURL}/api/v1/course/get-course-detail/${params.id}`
       );
       setCourseInfo(data.data.courseInfo);
       setPostsOfCourse(data.data.posts);
@@ -34,7 +35,7 @@ const CourseDetails = () => {
   const checkUserHaveCourse = async (courseId) => {
     try {
       const { data } = await axios.get(
-        `/api/v1/course/check-user-have-course/${courseId}`
+        `${apiURL}/api/v1/course/check-user-have-course/${courseId}`
       );
       console.log(data);
       setIsHaveCourse(data.status);

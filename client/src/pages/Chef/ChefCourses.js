@@ -5,6 +5,7 @@ import Loading from "../../components/Loading";
 import removeVietnameseTones from "../../utils/removeVietnameseTones";
 import CourseCard from "../../components/Admin/CourseCard";
 import { useNavigate } from "react-router-dom";
+import apiURL from "../../instances/axiosConfig";
 
 function ChefCourses() {
   const [courses, setCourses] = useState([]);
@@ -14,7 +15,7 @@ function ChefCourses() {
 
   React.useLayoutEffect(() => {
     const fetchCourses = async () => {
-      const data = await axios.get("/api/v1/course/get-my-courses");
+      const data = await axios.get(`${apiURL}/api/v1/course/get-my-courses`);
       setCourses(data.data.courses);
       console.log(data.data);
     };

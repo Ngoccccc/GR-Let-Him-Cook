@@ -5,6 +5,7 @@ import { Grid, Typography } from "@mui/material/";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Loading from "../Loading";
+import apiURL from "../../instances/axiosConfig";
 
 const BannerSlide = () => {
   const navigate = useNavigate();
@@ -34,7 +35,9 @@ const BannerSlide = () => {
   const [newPosts, setNewPosts] = useState([]);
   const getNewPosts = async () => {
     try {
-      const { data } = await axios.get(`/api/v1/post/get-post-by-time`);
+      const { data } = await axios.get(
+        `${apiURL}/api/v1/post/get-post-by-time`
+      );
       setNewPosts(data.postOfCategory);
       console.log(data);
     } catch (error) {

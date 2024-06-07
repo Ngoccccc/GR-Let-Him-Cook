@@ -6,6 +6,7 @@ import PostCard from "../../components/Admin/PostCard";
 import Loading from "../../components/Loading";
 import removeVietnameseTones from "../../utils/removeVietnameseTones";
 import { useNavigate } from "react-router-dom";
+import apiURL from "../../instances/axiosConfig";
 function AdminPosts() {
   const [posts, setPosts] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
@@ -13,7 +14,7 @@ function AdminPosts() {
   const navigate = useNavigate();
   React.useLayoutEffect(() => {
     const fetchCategories = async () => {
-      const data = await axios.get("/api/v1/post/get-posts");
+      const data = await axios.get(`${apiURL}/api/v1/post/get-posts`);
       setPosts(data.data.posts);
       console.log(data.data.posts);
     };

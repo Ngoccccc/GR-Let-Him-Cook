@@ -14,6 +14,7 @@ import { AttachMoney, Description } from "@mui/icons-material";
 import { useAuth } from "../../context/auth";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import apiURL from "../../instances/axiosConfig";
 
 const Course = () => {
   const [courses, setCourses] = useState([]);
@@ -28,8 +29,8 @@ const Course = () => {
     const fetchCourses = async () => {
       try {
         const endpoint = auth?.token
-          ? "/api/v1/course/get-unregistered-courses"
-          : "/api/v1/course/get-courses";
+          ? `${apiURL}/api/v1/course/get-unregistered-courses`
+          : `${apiURL}/api/v1/course/get-courses`;
         const response = await axios.get(endpoint);
         setCourses(response.data.courses);
       } catch (error) {

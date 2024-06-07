@@ -20,6 +20,7 @@ import Loading from "../../components/Loading";
 import PostCard from "../../components/Admin/PostCard";
 import { red, grey } from "@mui/material/colors";
 import { useNavigate } from "react-router-dom";
+import apiURL from "../../instances/axiosConfig";
 const CourseDetail = () => {
   const params = useParams();
   const [courseInfo, setCourseInfo] = useState({});
@@ -30,7 +31,7 @@ const CourseDetail = () => {
   const getCourse = async () => {
     try {
       const { data } = await axios.get(
-        `/api/v1/course/get-course-detail/${params.id}`
+        `${apiURL}/api/v1/course/get-course-detail/${params.id}`
       );
       setCourseInfo(data.data.courseInfo);
       setPostsOfCourse(data.data.posts);
@@ -55,7 +56,7 @@ const CourseDetail = () => {
   const handleApproval = async () => {
     try {
       const { data } = await axios.put(
-        `/api/v1/course/approve-course/${params.id}`
+        `${apiURL}/api/v1/course/approve-course/${params.id}`
       );
       navigate("/admin/course-approval");
     } catch (err) {

@@ -13,6 +13,7 @@ import axios from "axios";
 import Loading from "../Loading";
 import { red, grey } from "@mui/material/colors";
 import { Payments } from "@mui/icons-material";
+import apiURL from "../../instances/axiosConfig";
 const PaymentButton = ({ courseId, userId, name, amount }) => {
   const [loading, setLoading] = React.useState(true);
   const [open, setOpen] = React.useState(false);
@@ -26,7 +27,7 @@ const PaymentButton = ({ courseId, userId, name, amount }) => {
   };
   const handleRegisterCourse = async () => {
     try {
-      const response = await axios.post("/api/v1/payment", {
+      const response = await axios.post(`${apiURL}/api/v1/payment`, {
         courseId,
         name,
         userId,

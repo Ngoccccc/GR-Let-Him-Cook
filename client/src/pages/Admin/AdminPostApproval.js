@@ -4,6 +4,7 @@ import { Button, Grid, Typography, TextField } from "@mui/material/";
 import PostCard from "../../components/Admin/PostCard";
 import Loading from "../../components/Loading";
 import removeVietnameseTones from "../../utils/removeVietnameseTones";
+import apiURL from "../../instances/axiosConfig";
 function AdminPostApproval() {
   const [posts, setPosts] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
@@ -11,7 +12,7 @@ function AdminPostApproval() {
 
   React.useLayoutEffect(() => {
     const fetchCategories = async () => {
-      const data = await axios.get("/api/v1/post/get-waiting-posts");
+      const data = await axios.get(`${apiURL}/api/v1/post/get-waiting-posts`);
       setPosts(data.data.posts);
       console.log(data.data.posts);
     };

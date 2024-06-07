@@ -3,6 +3,7 @@ import axios from "axios";
 import { useAuth } from "../../context/auth";
 import CourseList from "./CourseList";
 import Loading from "../Loading";
+import apiURL from "../../instances/axiosConfig";
 
 const MyCourses = () => {
   const [courses, setCourses] = useState([]);
@@ -11,7 +12,9 @@ const MyCourses = () => {
   useEffect(() => {
     const fetchCourses = async () => {
       try {
-        const response = await axios.get("/api/v1/course/get-user-courses");
+        const response = await axios.get(
+          `${apiURL}/api/v1/course/get-user-courses`
+        );
         setCourses(response.data.courses);
         setLoading(false);
       } catch (error) {

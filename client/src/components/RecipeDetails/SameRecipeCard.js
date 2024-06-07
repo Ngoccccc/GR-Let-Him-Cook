@@ -5,6 +5,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/auth";
 import Loading from "../Loading";
+import apiURL from "../../instances/axiosConfig";
 
 const SameRecipeCard = ({ recipe }) => {
   const [liked, setLiked] = useState(false);
@@ -20,7 +21,9 @@ const SameRecipeCard = ({ recipe }) => {
 
   const checkLiked = async (postId) => {
     try {
-      const { data } = await axios.get(`/api/v1/like/like-status/${postId}`);
+      const { data } = await axios.get(
+        `${apiURL}/api/v1/like/like-status/${postId}`
+      );
       setLiked(data.liked);
       setLoading(false);
     } catch (error) {
@@ -36,8 +39,8 @@ const SameRecipeCard = ({ recipe }) => {
     try {
       if (auth?.token) {
         const url = liked
-          ? `/api/v1/like/unlike-post/${recipe._id}`
-          : `/api/v1/like/like-post/${recipe._id}`;
+          ? `${apiURL}/api/v1/like/unlike-post/${recipe._id}`
+          : `${apiURL}/api/v1/like/like-post/${recipe._id}`;
 
         const { data } = await axios.post(url);
         setLiked(data.liked);

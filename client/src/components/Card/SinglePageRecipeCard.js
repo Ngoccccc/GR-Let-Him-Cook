@@ -10,6 +10,7 @@ import { useAuth } from "../../context/auth";
 import { Grid, Card, CardMedia, CardContent, Typography } from "@mui/material/";
 import axios from "axios";
 import Loading from "../Loading";
+import apiURL from "../../instances/axiosConfig";
 
 const SinglePageRecipeCard = ({ recipe, isPrivate }) => {
   const [liked, setLiked] = useState(false);
@@ -18,7 +19,9 @@ const SinglePageRecipeCard = ({ recipe, isPrivate }) => {
   const [loading, setLoading] = useState(auth?.token ? true : false);
   const checkLiked = async (postId) => {
     try {
-      const { data } = await axios.get(`/api/v1/like/like-status/${postId}`);
+      const { data } = await axios.get(
+        `${apiURL}/api/v1/like/like-status/${postId}`
+      );
       console.log(data.liked);
       setLiked(data.liked);
       setLoading(false);
@@ -40,8 +43,8 @@ const SinglePageRecipeCard = ({ recipe, isPrivate }) => {
     try {
       if (auth?.token) {
         const url = liked
-          ? `/api/v1/like/unlike-post/${recipe._id}`
-          : `/api/v1/like/like-post/${recipe._id}`;
+          ? `${apiURL}/api/v1/like/unlike-post/${recipe._id}`
+          : `${apiURL}/api/v1/like/like-post/${recipe._id}`;
 
         const { data } = await axios.post(url);
         setLiked(data.liked);

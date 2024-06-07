@@ -23,6 +23,7 @@ import CategoryForm from "../../components/Admin/Form/CategoryForm";
 import generateRandom from "../../utils/generateRandom";
 import extractImageName from "../../utils/extractImageName";
 import { useNavigate } from "react-router-dom";
+import apiURL from "../../instances/axiosConfig";
 export default function UpdatePost({ role }) {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -32,7 +33,7 @@ export default function UpdatePost({ role }) {
   const oldStepsRef = useRef([]);
   const getPost = async () => {
     try {
-      const { data } = await axios.get(`/api/v1/post/get-post/${id}`);
+      const { data } = await axios.get(`${apiURL}/api/v1/post/get-post/${id}`);
       setPost(data.post);
       console.log(data);
       setSelectedCategories(data.post.categories);
@@ -90,13 +91,15 @@ export default function UpdatePost({ role }) {
   const [formValidSteps, setFormValidSteps] = useState(true);
   useEffect(() => {
     const fetchIngredients = async () => {
-      const { data } = await axios.get("/api/v1/ingredient/get-ingredient");
+      const { data } = await axios.get(
+        `${apiURL}/api/v1/ingredient/get-ingredient`
+      );
       setIngredientOptions(data.ingredient);
     };
 
     const fetchCategories = async () => {
       const { data } = await axios.get(
-        "/api/v1/category/get-all-category-admin"
+        `${apiURL}/api/v1/category/get-all-category-admin`
       );
       setCategoryOptions(data.categories);
     };
@@ -209,7 +212,7 @@ export default function UpdatePost({ role }) {
     deleteOldFiles();
     try {
       const postSave = await axios.put(
-        `/api/v1/post/update-post/${id}`,
+        `${apiURL}/api/v1/post/update-post/${id}`,
         postData
       );
       console.log("Post Data: ", postSave);
