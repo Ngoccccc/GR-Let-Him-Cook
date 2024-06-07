@@ -80,7 +80,7 @@ function AdminCourseApproval() {
           <Grid sx={{ mb: 14, display: "flex" }} container spacing={2}>
             {filteredCourses.map((course) => (
               <Grid key={course._id} item xs={3}>
-                <CourseCard course={course} />
+                <CourseCard course={course} role="admin" />
               </Grid>
             ))}
           </Grid>
