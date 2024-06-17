@@ -32,8 +32,8 @@ const CourseCard = ({ course, role }) => {
           alt={course.name}
           style={{
             objectFit: "cover",
-            width: "100%",
-            height: "200px",
+            width: "200px",
+            height: "100%",
           }}
         />
         <CardContent>

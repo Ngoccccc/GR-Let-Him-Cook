@@ -83,32 +83,62 @@ const RecipeCard = ({ recipe }) => {
           {recipe.title}
         </Typography>
         <Grid
+          container
           sx={{
             display: "flex",
             alignItems: "center",
+            justifyContent: "space-between",
             mt: 1,
+            flexWrap: "nowrap",
           }}
         >
-          <Grid container direction="row">
+          <Grid
+            item
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              flexBasis: "auto",
+              flexShrink: 1,
+              flexGrow: 1,
+              minWidth: 0,
+            }}
+          >
             <AccessTimeIcon />
-            <Typography>{recipe.intendTime}</Typography>
-          </Grid>
-          <Grid container direction="row">
-            <Bolt />
-            <Typography>{recipe.level}</Typography>
+            <Typography noWrap>{recipe.intendTime}</Typography>
           </Grid>
           <Grid
-            container
-            direction="row"
+            item
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              flexBasis: "auto",
+              flexShrink: 1,
+              flexGrow: 1,
+              minWidth: 0,
+            }}
+          >
+            <Bolt />
+            <Typography noWrap>{recipe.level}</Typography>
+          </Grid>
+          <Grid
+            item
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              flexBasis: "auto",
+              flexShrink: 1,
+              flexGrow: 1,
+              minWidth: 0,
+              cursor: "pointer",
+            }}
             onClick={handleLikeClick}
-            sx={{ cursor: "pointer" }}
           >
             {liked ? (
-              <FavoriteIcon color="error" fontSize="large" />
+              <FavoriteIcon color="error" fontSize="medium" />
             ) : (
-              <FavoriteBorder fontSize="large" />
+              <FavoriteBorder fontSize="medium" />
             )}
-            <Typography variant="h6">{likeCount}</Typography>
+            <Typography noWrap>{likeCount}</Typography>
           </Grid>
         </Grid>
       </CardContent>

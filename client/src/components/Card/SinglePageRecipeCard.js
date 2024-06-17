@@ -107,27 +107,63 @@ const SinglePageRecipeCard = ({ recipe, isPrivate }) => {
         >
           {recipe.title}
         </Typography>
-        <Grid sx={{ display: "flex", mt: 1, alignItems: "center" }}>
-          <Grid container direction="row">
+        <Grid
+          container
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            mt: 1,
+            flexWrap: "nowrap",
+          }}
+        >
+          <Grid
+            item
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              flexBasis: "auto",
+              flexShrink: 1,
+              flexGrow: 1,
+              minWidth: 0,
+            }}
+          >
             <AccessTimeIcon />
-            <Typography>{recipe.intendTime}</Typography>
-          </Grid>
-          <Grid container direction="row">
-            <Bolt />
-            <Typography>{recipe.level}</Typography>
+            <Typography noWrap>{recipe.intendTime}</Typography>
           </Grid>
           <Grid
-            container
-            direction="row"
-            onClick={isPrivate ? null : handleLikeClick}
-            sx={{ cursor: "pointer" }}
+            item
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              flexBasis: "auto",
+              flexShrink: 1,
+              flexGrow: 1,
+              minWidth: 0,
+            }}
+          >
+            <Bolt />
+            <Typography noWrap>{recipe.level}</Typography>
+          </Grid>
+          <Grid
+            item
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              flexBasis: "auto",
+              flexShrink: 1,
+              flexGrow: 1,
+              minWidth: 0,
+              cursor: "pointer",
+            }}
+            onClick={handleLikeClick}
           >
             {liked ? (
-              <FavoriteIcon color="error" fontSize="large" />
+              <FavoriteIcon color="error" fontSize="medium" />
             ) : (
-              <FavoriteBorder fontSize="large" />
+              <FavoriteBorder fontSize="medium" />
             )}
-            <Typography variant="h6">{likeCount}</Typography>
+            <Typography noWrap>{likeCount}</Typography>
           </Grid>
         </Grid>
       </CardContent>
