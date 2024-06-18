@@ -96,6 +96,10 @@ const Comments = () => {
 
   const handleUpload = async () => {
     try {
+      if (!content) {
+        alert("Vui lòng nhập gì đó để bình luận");
+        return;
+      }
       setUploading(true);
       const response = await axios.post(
         `${apiURL}/api/v1/comment/create-comment/${id}`,

@@ -65,7 +65,7 @@ const updateComment = async (req, res) => {
         .json({ success: false, message: "User not found" });
     }
 
-    if (!comment || comment.userId._id != userId) {
+    if (!comment || comment.userId._id.toString() != userId.toString()) {
       return res.status(401).json({
         success: false,
         message: "You are not authorized to perform this action.",
@@ -110,13 +110,11 @@ const deleteComment = async (req, res) => {
     // Xóa comment từ cơ sở dữ liệu
     const deletedComment = await commentModel.findByIdAndDelete(commentId);
 
-    return res
-      .status(200)
-      .json({
-        success: true,
-        message: "Comment deleted successfully",
-        deletedComment,
-      });
+    return res.status(200).json({
+      success: true,
+      message: "Comment deleted successfully",
+      deletedComment,
+    });
   } catch (error) {
     console.error(error);
     return res

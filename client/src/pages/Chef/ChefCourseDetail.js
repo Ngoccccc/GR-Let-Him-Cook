@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import {
   Grid,
   Typography,
-  Avatar,
   Button,
   Dialog,
   DialogActions,
@@ -12,7 +11,6 @@ import {
 } from "@mui/material";
 import CancelIcon from "@mui/icons-material/Cancel";
 import { AttachMoney, Description } from "@mui/icons-material";
-import { CheckCircle } from "@mui/icons-material/";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import ServerErrorPage from "../PostAndCourseManager/ErrorPage/ServerErrorPage";
@@ -147,9 +145,15 @@ const ChefCourseDetail = () => {
                       display: "flex",
                       justifyContent: "flex-start",
                     }}
-                    onClick={() => navigate(`/chef/update-course/${params.id}`)}
                   >
-                    <Button variant="contained" color="primary" sx={{ mr: 3 }}>
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      sx={{ mr: 3 }}
+                      onClick={() =>
+                        navigate(`/chef/update-course/${params.id}`)
+                      }
+                    >
                       Sửa
                     </Button>
                     <Button
