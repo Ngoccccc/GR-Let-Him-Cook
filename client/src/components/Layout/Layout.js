@@ -2,9 +2,9 @@ import React from "react";
 import Footer from "./Footer";
 import Header from "./Header";
 import { Helmet } from "react-helmet";
-import { Grid, Typography } from "@mui/material/";
-
+import { Box, Grid } from "@mui/material/";
 import { Toaster } from "react-hot-toast";
+
 const Layout = ({
   children,
   title,
@@ -14,7 +14,13 @@ const Layout = ({
   backgroundColor,
 }) => {
   return (
-    <div>
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        minHeight: "100vh",
+      }}
+    >
       <Helmet>
         <meta charSet="utf-8" />
         <meta name="description" content={description} />
@@ -22,7 +28,14 @@ const Layout = ({
         <meta name="keywords" content={keywords} />
       </Helmet>
       <Header />
-      <main style={{ minHeight: "70vh", backgroundColor: backgroundColor }}>
+      <Box
+        component="main"
+        sx={{
+          flex: 1,
+          backgroundColor: backgroundColor,
+          minHeight: "70vh",
+        }}
+      >
         <Grid
           container
           justifyContent="center"
@@ -40,9 +53,9 @@ const Layout = ({
             {children}
           </Grid>
         </Grid>
-      </main>
+      </Box>
       <Footer />
-    </div>
+    </Box>
   );
 };
 

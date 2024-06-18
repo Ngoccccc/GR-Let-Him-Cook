@@ -27,7 +27,7 @@ const PaymentButton = ({ courseId, userId, name, amount }) => {
   };
   const handleRegisterCourse = async () => {
     try {
-      const response = await axios.post(`${apiURL}/api/v1/payment`, {
+      const response = await axios.post(`${apiURL}/api/v1/payment/zalopay`, {
         courseId,
         name,
         userId,
@@ -35,8 +35,8 @@ const PaymentButton = ({ courseId, userId, name, amount }) => {
       });
       console.log(response.data);
 
-      if (response.data && response.data.shortLink) {
-        window.location.href = response.data.shortLink;
+      if (response.data && response.data.order_url) {
+        window.location.href = response.data.order_url;
       }
       setLoading(false);
     } catch (error) {
