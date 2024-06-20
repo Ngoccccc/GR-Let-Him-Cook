@@ -1,2 +1,2 @@
-const apiURL = "https://gr-let-him-cook-api-v1.vercel.app";
+const apiURL = "https://api-ngoc.demosanpham.xyz";
 export default apiURL;
