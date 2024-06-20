@@ -37,7 +37,7 @@ const zaloPayment = async (req, res) => {
     bank_code: "",
     title: "Thanh toán đăng ký khóa học",
     callback_url:
-      "https://gr-let-him-cook-api-v1.vercel.app/api/v1/payment/zalopay-response",
+      "https://api-ngoc.demosanpham.xyz/api/v1/payment/zalopay-response",
   };
 
   // appid|app_trans_id|appuser|amount|apptime|embeddata|item
