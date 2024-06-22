@@ -30,7 +30,7 @@ const Steps = ({ steps }) => {
               <Typography sx={{ mb: 3 }}>{step.description}</Typography>
               <Image.PreviewGroup>
                 {step.imageUrls.map((image, index) => (
-                  <Image key={index} width={200} src={image} />
+                  <Image key={index} height={100} width={150} src={image} />
                 ))}
               </Image.PreviewGroup>
             </Grid>

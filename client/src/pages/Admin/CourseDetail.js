@@ -194,7 +194,7 @@ const CourseDetail = () => {
               <Grid sx={{ mb: 14, display: "flex" }} container spacing={2}>
                 {postsOfCourse.map((recipe) => (
                   <Grid key={recipe._id} item xs={3}>
-                    <PostCard recipe={recipe} />
+                    <PostCard recipe={recipe} role="admin" />
                   </Grid>
                 ))}
               </Grid>

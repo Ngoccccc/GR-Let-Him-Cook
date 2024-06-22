@@ -78,7 +78,7 @@ function AdminPostApproval() {
           <Grid sx={{ mb: 14, display: "flex" }} container spacing={2}>
             {filteredPosts.map((recipe) => (
               <Grid key={recipe._id} item xs={3}>
-                <PostCard recipe={recipe} />
+                <PostCard recipe={recipe} role="admin" />
               </Grid>
             ))}
           </Grid>
