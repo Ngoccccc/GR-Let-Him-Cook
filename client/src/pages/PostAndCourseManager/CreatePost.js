@@ -73,8 +73,8 @@ export default function CreatePost({ courseId, role }) {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    // validateFormIngredient();
-    // validateFormSteps();
+    validateFormIngredient();
+    validateFormSteps();
     if (!mediaTitle) {
       alert("Vui lòng tải ảnh.");
       return;
@@ -83,12 +83,16 @@ export default function CreatePost({ courseId, role }) {
       alert("Vui lòng tải video.");
       return;
     }
-    // if (!formValidIngredient || !formValidSteps) {
-    //   alert(
-    //     "Hãy hoàn thiện các form và check lại giá trị số lượng phải là số dương"
-    //   );
-    //   return;
-    // }
+    if (!formValidIngredient) {
+      alert(
+        "Hãy hoàn thiện form nguyên liệu hoặc check lại giá trị số lượng phải là số dương"
+      );
+      return;
+    }
+    if (!formValidSteps) {
+      alert("Các bước hiện có không được để trống");
+      return;
+    }
     setLoading(true);
     const stepsWithUrls = await Promise.all(
       steps.map(async (step, index) => {

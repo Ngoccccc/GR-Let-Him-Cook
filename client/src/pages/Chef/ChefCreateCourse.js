@@ -66,7 +66,7 @@ const ChefCreateCourse = () => {
         <TextField
           fullWidth
           margin="normal"
-          label="Tên món ăn"
+          label="Tên khóa học"
           value={name}
           onChange={(e) => setName(e.target.value)}
           required
@@ -150,7 +150,7 @@ const ChefCreateCourse = () => {
           size="large"
           disabled={loading}
         >
-          Đăng bài hướng dẫn
+          Tạo khóa học
         </Button>
       </Box>
     </Paper>
