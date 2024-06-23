@@ -37,7 +37,7 @@ const GoodRecipe = () => {
             Bún Mì Phở
           </Typography>
           <Grid container spacing={2} sx={{ mt: 1 }}>
-            {bunPosts.slice(0, 5).map((recipe) => (
+            {bunPosts.slice(0, 6).map((recipe) => (
               <Grid key={recipe.postId.id} item xs={4}>
                 <RecipeCard recipe={recipe.postId} />
               </Grid>
