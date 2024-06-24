@@ -12,9 +12,10 @@ import axios from "axios";
 import { useAuth } from "../../context/auth";
 import Layout from "./../../components/Layout/Layout";
 import apiURL from "../../instances/axiosConfig";
-
+import { useNavigate } from "react-router-dom";
 const Profile = () => {
   const [user, setUser] = useState(null);
+  const navigate = useNavigate();
   const [isRequestSent, setIsRequestSent] = useState("");
   const [auth] = useAuth();
   const [phone, setPhone] = useState("");
@@ -47,7 +48,7 @@ const Profile = () => {
         }
       );
       if (res.data.message) {
-        setIsRequestSent(true);
+        setIsRequestSent("waiting");
       }
     } catch (error) {
       console.error(error);
@@ -134,7 +135,11 @@ const Profile = () => {
                       Bạn đã được phê duyệt làm đầu bếp. Giờ đây hãy chuyển sang
                       trang đầu bếp để xem thêm nha
                     </Typography>
-                    <Button variant="contained" color="primary">
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      onClick={() => navigate("/chef/posts")}
+                    >
                       Sang trang đầu bếp
                     </Button>
                   </>

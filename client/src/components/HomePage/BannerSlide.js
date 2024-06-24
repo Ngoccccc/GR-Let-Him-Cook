@@ -35,10 +35,18 @@ const BannerSlide = () => {
   const [newPosts, setNewPosts] = useState([]);
   const getNewPosts = async () => {
     try {
-      const { data } = await axios.get(
-        `${apiURL}/api/v1/post/get-post-by-time`
-      );
-      setNewPosts(data.postOfCategory);
+      const currentHour = new Date().getHours();
+      let data;
+      if (currentHour >= 0 && currentHour < 10) {
+        data = await axios.get(
+          `${apiURL}/api/v1/post/get-post-by-category/an-sang`
+        );
+      } else {
+        data = await axios.get(
+          `${apiURL}/api/v1/post/get-post-by-category/mon-chinh`
+        );
+      }
+      setNewPosts(data?.data?.postOfCategory.slice(0, 5));
       console.log(data);
     } catch (error) {
       console.log(error);
