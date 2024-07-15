@@ -29,6 +29,11 @@ const ChefCreateCourse = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (price <= 0) {
+      alert("Giá khóa học phải lớn hơn 0");
+      return;
+    }
+    if (!image) {
+      alert("Vui lòng tải ảnh đại diện");
       return;
     }
     setLoading(true);

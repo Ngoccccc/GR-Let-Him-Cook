@@ -44,7 +44,7 @@ export default function CreatePost({ courseId, role }) {
   ]);
   const [ingredientOptions, setIngredientOptions] = useState([]);
   const [categoryOptions, setCategoryOptions] = useState([]);
-  const [formValidIngredient, setFormValidIngredient] = useState(true);
+  const [formValidIngredient, setFormValidIngredient] = useState(false);
   const [formValidSteps, setFormValidSteps] = useState(true);
   useEffect(() => {
     const fetchIngredients = async () => {
